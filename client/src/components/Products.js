@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
 import {useHistory} from "react-router";
 import ReactPaginate from "react-paginate";
+
 
 // const PER_PAGE = 4;
 const Products = ({ products, stores, selectedStore, setSelectedStore, toClothes, toElectronics, toTools, toHealth, toMusic, toAll, fromMain, setFromMain, selectedProduct, setSelectedProduct, isLoading,
 clothes, electronics, tools, health, music, all}) => {
     const [search, setSearch] = useState('')
     const [toDisplay, setToDisplay] = useState([])
-
-
+    const [sortBy, setSortBy] = useState('')
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -34,6 +34,41 @@ function main(){
     setFromMain(false)
     console.log(fromMain)
 }
+
+useEffect(() => {
+    if(sortBy === 'Alphabetically'){
+     const sortedProducts = sortByName()
+     setToDisplay(sortedProducts)
+    }else{
+      const sortedProducts = sortByPrice()
+      setToDisplay(sortedProducts)
+    }
+  }, [sortBy])
+  
+  const sortByName = () => {
+    return[...toDisplay].sort(function(a, b) {
+      var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      // names must be equal
+      return 0;
+    });
+  }
+  
+  const sortByPrice = () => {
+    return[...toDisplay].sort(function (a, b) {
+      return a.price - b.price;
+    });
+  }
+  
+  const sortProducts = (e) => {
+    setSortBy(e.target.value)
+  }
 
   return (
     <div>
@@ -68,7 +103,7 @@ function main(){
     <br></br>
     <Card3 key={tools.id} onClick={() => {toTools(); main()}}
     >
-        <h2>{tools.name.toUpperCase()}</h2>
+        <h2 className="font-link">{tools.name.toUpperCase()}</h2>
     </Card3>
     <br></br>
     <Card4 key={health.id} onClick={() => {toHealth(); main()}}
@@ -78,7 +113,7 @@ function main(){
     <br></br>
     <Card5 key={music.id} onClick={() => {toMusic(); main()}}
     >
-        <h2>{music.name}</h2>
+        <h2 className="guitar">{music.name}</h2>
     </Card5>
     <br></br>
     <Card6 key={all.id} onClick={() => {toAll(); main()}}
@@ -89,10 +124,36 @@ function main(){
     </Container>
         </div>
         <div>
+          {isLoading ? <h2>Loading Products</h2> :
+          <div>
+        <div>
             <h1>Browse Items Related to {search}</h1>
             <br></br>
+            <div>
+      <strong>Sort by:</strong>
+      <label>
+        <input
+          type="radio"
+          value="Alphabetically"
+          name="sort"
+          checked={ sortBy === 'Alphabetically' }
+          onChange={sortProducts}
+        />
+        Alphabetically
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="Price"
+          name="sort"
+          checked={sortBy === 'Price'}
+          onChange={sortProducts}
+        />
+        Price
+      </label>
+      <br />
+      </div>
             </div>
-{isLoading ? <h2>Loading Products</h2> :
             <Container1>
         {toDisplay.map(product => (
           <ProductCard
@@ -105,7 +166,9 @@ function main(){
         ))}
         
       </Container1>
+      </div>
 }
+</div>
       {/* <Wrapper>
         <ReactPaginate
           previousLabel={"← Previous"}
@@ -217,11 +280,10 @@ const Card1 = styled.div`
   justify-content: center;
   align-items: center;
   border: 3px solid black;
-  background-color: navy;
+  background-color: #002A5A;
   border-radius: 20px;
     font-family: "Sans-Serif"; "Optima";
-    font-weight: heavier;
-    font-size: 1.25em;
+    font-size: 1em;
     text-align: center;
     color: white;
     user-select: none;
@@ -276,7 +338,6 @@ const Card3 = styled.div`
   border: 3px solid black;
   background-color: #F96302;
   border-radius: 20px;
-  font-family: "Stencil Std"; "fantasy"; 
   color: white;
   font-weight: heavier;
   font-size: 1.5em;
@@ -337,7 +398,6 @@ const Card5 = styled.div`
   border: 3px solid #F2047D;
   background-color: #5A5250;
   border-radius: 20px;
-  font-family: "Fantasy"; "Blippo";
   color: #F2047D;
   font-size: 1.5em;
   text-align: center;

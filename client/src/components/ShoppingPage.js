@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import {useHistory} from "react-router";
 
-
 function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMusic, toAll, fromMain, setFromMain,
     clothes, electronics, tools, health, music, all}) {
     let history = useHistory();
@@ -42,7 +41,7 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
     <br></br>
     <Card3 key={tools.id} onClick={() => {toTools(); main()}}
     >
-        <h2>{tools.name.toUpperCase()}</h2>
+        <h2 className="font-link">{tools.name.toUpperCase()}</h2>
     </Card3>
     <br></br>
     <Card4 key={health.id} onClick={() => {toHealth(); main()}}
@@ -52,7 +51,7 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
     <br></br>
     <Card5 key={music.id} onClick={() => {toMusic(); main()}}
     >
-        <h2>{music.name}</h2>
+        <h2 className="guitar">{music.name}</h2>
     </Card5>
     <br></br>
     <Card6 key={all.id} onClick={() => {toAll(); main()}}
@@ -116,11 +115,10 @@ const Card1 = styled.div`
   justify-content: center;
   align-items: center;
   border: 3px solid black;
-  background-color: navy;
+  background-color: #002A5A;
   border-radius: 20px;
     font-family: "Sans-Serif"; "Optima";
-    font-weight: heavier;
-    font-size: 2.5em;
+    font-size: 2em;
     text-align: center;
     color: white;
     user-select: none;
@@ -175,7 +173,6 @@ const Card3 = styled.div`
   border: 3px solid black;
   background-color: #F96302;
   border-radius: 20px;
-  font-family: 'Stencil Std Bold';
   color: white;
   font-weight: heavier;
   font-size: 3em;
@@ -233,23 +230,24 @@ const Card5 = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid #F2047D;
+  border: 3px solid #062F1C;
   background-color: #5A5250;
   border-radius: 20px;
-  font-family: "Fantasy"; "Blippo";
-  color: #F2047D;
+  color: #062F1C;
   font-size: 3em;
   text-align: center;	
   user-select: none;
 
   &:hover {
     box-shadow: 15px 15px 15px 15px #848484;
-    background-image: url(https://i.pinimg.com/originals/e2/12/7b/e2127b452438f766fab14c1480aebd0f.gif);width: 20vw; height: 10vw;
-    background-position: 100% 30%;
+    // background-image: url(https://i.pinimg.com/originals/e2/12/7b/e2127b452438f766fab14c1480aebd0f.gif);width: 20vw; height: 10vw;
+    // background-position: 100% 30%;
+    background-image: url(https://thumbs.gfycat.com/BraveUnknownLemming-max-1mb.gif);width: 20vw; height: 10vw;
+    background-position: 100% -40%;
     background-size: cover;
     cursor: pointer;
-    border: 6px solid maroon;
-    color: maroon;
+    border: 6px solid #014D00;
+    color: #014D00;
     text-shadow: 2px 2px 8px #F2047D;
   }
 `;

@@ -15,3 +15,11 @@ code {
 h1 {
   align-items: center;
 } */
+
+.font-link {
+  font-family: 'Big Shoulders Stencil Text', cursive;
+}
+
+.guitar {
+  font-family: 'Pacifico', cursive;
+}

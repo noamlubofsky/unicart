@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     def show
         product = Product.find(params[:id])
         if product
-            render json: product
+            render json: product, include: :store
         else
             render json: {error: "Product not found"}, status: :unprocessable_entity
         end

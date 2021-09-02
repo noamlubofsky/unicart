@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:show, :create]
   resources :products, only: [:show, :index]
   # resources :categories
-  # resources :shopping_carts
+  resources :shopping_carts
   resources :stores, only: [:show, :index]
   resources :users, only: [:show, :create]
 

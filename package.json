@@ -11,6 +11,10 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "devDependencies": {
-    "@types/react-paginate": "^7.1.1"
+    "@types/react-paginate": "^7.1.1",
+    "fontface-styled-components": "^1.2.1"
+  },
+  "dependencies": {
+    "react-select": "^4.3.1"
   }
 }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import GlobalFonts from './fonts/fonts';
 import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
@@ -9,6 +8,7 @@ import ShoppingPage from "./components/ShoppingPage";
 import Footer from "./components/Footer";
 import StorePage from "./components/StorePage";
 import {useHistory} from "react-router";
+
 
 
 function App() {
@@ -103,7 +103,6 @@ const all = stores[5]
       {/* <ShoppingPage stores={stores}/> */}
 
       <main>
-      <GlobalFonts />
         <Switch>
   
              <Route path="/shopping">
