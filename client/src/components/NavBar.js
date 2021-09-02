@@ -29,9 +29,10 @@ const NavBar = ({ user, setUser }) => {
         </Link>
       </Logo> */}
       <Container>
+          <h1>UNICART</h1>
         <Nav>
-          <NavButton as={Link} to="/products">
-            Products
+          <NavButton as={Link} to="/shopping">
+            Main Page
           </NavButton>
           {/* <NavButton as={Link} to="/cart">
             Cart
@@ -40,6 +41,9 @@ const NavBar = ({ user, setUser }) => {
           <NavButton as={Link} to="/" onClick={handleLogout}>
             Log Out
           </NavButton>
+          {/* <NavButton as={Link} to="/shopping">
+            Shop All Products
+          </NavButton> */}
         </Nav>
       </Container>
     </div>
