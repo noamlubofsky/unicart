@@ -8,6 +8,7 @@ import ShoppingPage from "./components/ShoppingPage";
 import Footer from "./components/Footer";
 import StorePage from "./components/StorePage";
 import ShoppingCart from "./components/ShoppingCart";
+import AccountPage from "./components/AccountPage";
 import {useHistory} from "react-router";
 
 
@@ -144,6 +145,14 @@ const updateCartItemQuantity = (CartItemID, quantity) => {
   });
 };
 
+const removeFromCart = (CartItemID) => {
+  let updatedCart = shoppingCart.filter((item) => item.id !== CartItemID);
+  setShoppingCart(updatedCart);
+  fetch(`/cart_items/${CartItemID}`, {
+    method: "DELETE",
+  });
+};
+
 
   // console.log(user);
   // console.log(products);
@@ -230,6 +239,12 @@ const updateCartItemQuantity = (CartItemID, quantity) => {
             <Route path="/cart">
             <ShoppingCart shoppingCart={shoppingCart}
             updateCartItemQuantity={updateCartItemQuantity}
+            removeFromCart={removeFromCart}
+            />
+          </Route>
+          <Route path="/user">
+            <AccountPage 
+            user={user}
             />
           </Route>
         </Switch>
