@@ -7,6 +7,7 @@ import ProductDetails from "./components/ProductDetails";
 import ShoppingPage from "./components/ShoppingPage";
 import Footer from "./components/Footer";
 import StorePage from "./components/StorePage";
+import ShoppingCart from "./components/ShoppingCart";
 import {useHistory} from "react-router";
 
 
@@ -89,6 +90,11 @@ const all = stores[5]
 {fromMain ? history.push("/shopping") : history.push("/products")}  
 }
 
+const handleSelect = (ingredient) => {
+ setSelectedProduct(ingredient)
+ console.log(selectedProduct)
+}
+
 
   // console.log(user);
   // console.log(products);
@@ -130,6 +136,8 @@ const all = stores[5]
           <Route path="/products/:id">
             <ProductDetails 
             // handleAddCart={handleAddCart} 
+            products={products}
+            selectedProduct={selectedProduct}
             />
           </Route>
           <Route path="/products">
@@ -154,6 +162,7 @@ const all = stores[5]
             health={health}
             music={music}
             all={all}
+            handleSelect={handleSelect}
             />
           </Route>
           <Route path="/stores/:id">
@@ -171,6 +180,10 @@ const all = stores[5]
           {/* <Route path="/">
             <Landing />
           </Route> */}
+                   <Route path="/stores/:id">
+            <ShoppingCart products={products}
+            />
+          </Route>
         </Switch>
       </main>
       <Footer />

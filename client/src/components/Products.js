@@ -7,10 +7,11 @@ import ReactPaginate from "react-paginate";
 
 // const PER_PAGE = 4;
 const Products = ({ products, stores, selectedStore, setSelectedStore, toClothes, toElectronics, toTools, toHealth, toMusic, toAll, fromMain, setFromMain, selectedProduct, setSelectedProduct, isLoading,
-clothes, electronics, tools, health, music, all}) => {
+clothes, electronics, tools, health, music, all, handleSelect}) => {
     const [search, setSearch] = useState('')
     const [toDisplay, setToDisplay] = useState([])
     const [sortBy, setSortBy] = useState('')
+    const [random, setRandom] = useState([])
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -70,6 +71,13 @@ useEffect(() => {
     setSortBy(e.target.value)
   }
 
+  const shuffled = products.sort(() => 0.5 - Math.random());
+
+// Get sub-array of first n elements after shuffled
+let selected = shuffled.slice(0, 3);
+console.log(selected)
+
+
   return (
     <div>
             <div>
@@ -124,7 +132,7 @@ useEffect(() => {
     </Container>
         </div>
         <div>
-          {isLoading ? <h2>Loading Products</h2> :
+          {toDisplay.length > 0 &&
           <div>
         <div>
             <h1>Browse Items Related to {search}</h1>
@@ -161,6 +169,7 @@ useEffect(() => {
             product={product}
             selectedProduct={selectedProduct}
             setSelectedProduct={setSelectedProduct}
+            handleSelect={handleSelect}
             // handleAddCart={handleAddCart}
           />
         ))}
@@ -283,15 +292,16 @@ const Card1 = styled.div`
   background-color: #002A5A;
   border-radius: 20px;
     font-family: "Sans-Serif"; "Optima";
-    font-size: 1em;
+    font-size: .8vw;
     text-align: center;
     color: white;
     user-select: none;
+    transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://thumbs.gfycat.com/BlueUnpleasantDassierat-max-1mb.gif); width: 10vw; height: 5vw;
-    background-position: 50% 15%;
+    background-position: top;
     cursor: pointer;
     color: black;
     border: 6px solid black;
@@ -312,12 +322,13 @@ const Card2 = styled.div`
   border-radius: 20px;
   font-family: "Impact"; "Fantasy"; 
   font-weight: 5000;
-  font-size: 1.5em;
+  font-size: 1.2vw;
   text-align: center;
   user-select: none;
+  transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://media4.giphy.com/media/pOEbLRT4SwD35IELiQ/giphy.gif);width: 10vw; height: 5vw;
     background-position: center;
     background-size: cover;
@@ -340,12 +351,13 @@ const Card3 = styled.div`
   border-radius: 20px;
   color: white;
   font-weight: heavier;
-  font-size: 1.5em;
+  font-size: 1.5vw;
   text-align: center;
   user-select: none;
+  transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://book.giflingua.com/images/origin/tols.gif);
     background-size: 11vw 7.5vw;
     background-position: 50% 46%;
@@ -371,13 +383,14 @@ const Card4 = styled.div`
 font-family: Helvetica, sans-serif;
 font-weight: 600;
 color: #C60401;
-font-size: 2.5em;
+font-size: 2.5vw;
   text-align: center;
   text-position: center;
   user-select: none;
+  transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://i1.wp.com/supermed.pro/img/gif/super8.gif);width: 10vw; height: 5vw;
     background-position: center;
     background-size: cover;
@@ -395,22 +408,25 @@ const Card5 = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid #F2047D;
+  border: 3px solid #062F1C;
   background-color: #5A5250;
   border-radius: 20px;
-  color: #F2047D;
-  font-size: 1.5em;
+  color: #062F1C;
+  font-size: 1.2vw;
   text-align: center;
   user-select: none;
-	
+  transition: box-shadow .3s;
+
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
-    background-image: url(https://i.pinimg.com/originals/e2/12/7b/e2127b452438f766fab14c1480aebd0f.gif);width: 10vw; height: 5vw;
-    background-position: 100% 30%;
+    box-shadow: 0px 0px 30px 0px #848484;
+    // background-image: url(https://i.pinimg.com/originals/e2/12/7b/e2127b452438f766fab14c1480aebd0f.gif);width: 10vw; height: 5vw;
+    // background-position: 100% 30%;
+    background-image: url(https://thumbs.gfycat.com/BraveUnknownLemming-max-1mb.gif);width: 10vw; height: 5vw;
+    background-position: 100% -40%;
     background-size: cover;
     cursor: pointer;
-    border: 6px solid maroon;
-    color: maroon;
+    border: 6px solid #014D00;
+    color: #014D00;
     text-shadow: 0 0 0.15em #F2047D;
   }
 `;
@@ -425,14 +441,14 @@ const Card6 = styled.div`
   border: 3px solid white;
   background-color: #B90101;
   border-radius: 20px;
-  font-size: 1.5em;
+  font-size: 1.2vw;
   text-align: center;
 color: white;
 user-select: none;
+transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://cdn.dribbble.com/users/1170232/screenshots/3276234/target_logo.gif);width: 10vw; height: 5vw;
     background-position: 100% 15%;
     background-size: cover;

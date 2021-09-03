@@ -21,7 +21,7 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
     <Card 
       onClick={toProducts}>
 
-        <h2>Shop All Products</h2>
+        <h2>Browse All Products</h2>
     </Card>
     <br></br>
       <div>
@@ -75,14 +75,14 @@ const Container = styled.div`
 //   margin-right: 70px;
 //   margin-top: 50px;
   display: grid;
-  grid-template-columns: 300px 300px 300px 300px 300px 300px;
+  grid-template-columns: 10vw 20vw 10vw 20vw 10vw 20vw;
 //   grid-row-gap: 2vh;
   width: 100%;
 `;
 
 const Card = styled.div`
 height: 10vw;
-width: 20vw;
+width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,9 +95,11 @@ width: 20vw;
     font-size: 1.5em;
     color: beige;
     user-select: none;
+    transition: box-shadow .3s;
+
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
-    background-image: url(https://cdn.dribbble.com/users/146773/screenshots/4228811/dribble_cart.gif); width: 20vw; height: 10vw;
+    box-shadow: 0px 0px 30px 0px #848484;
+    background-image: url(https://cdn.dribbble.com/users/146773/screenshots/4228811/dribble_cart.gif); width: 100%; height: 10vw;
     background-position: 50% 50%;
     cursor: pointer;
     border: 6px solid #7F55D0;
@@ -118,15 +120,16 @@ const Card1 = styled.div`
   background-color: #002A5A;
   border-radius: 20px;
     font-family: "Sans-Serif"; "Optima";
-    font-size: 2em;
+    font-size: 1.5vw;
     text-align: center;
     color: white;
     user-select: none;
-
+    transition: box-shadow .3s;
+ 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://thumbs.gfycat.com/BlueUnpleasantDassierat-max-1mb.gif); width: 20vw; height: 10vw;
-    background-position: 100% 15%;
+    background-position: top;
     cursor: pointer;
     color: black;
     border: 6px solid black;
@@ -147,12 +150,13 @@ const Card2 = styled.div`
   border-radius: 20px;
   font-family: "Impact"; "Fantasy"; 
   font-weight: 5000;
-  font-size: 3em;
+  font-size: 2.5vw;
   text-align: center;
   user-select: none;
+  transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://media4.giphy.com/media/pOEbLRT4SwD35IELiQ/giphy.gif);width: 20vw; height: 10vw;
     background-position: center;
     background-size: cover;
@@ -175,12 +179,13 @@ const Card3 = styled.div`
   border-radius: 20px;
   color: white;
   font-weight: heavier;
-  font-size: 3em;
+  font-size: 3vw;
   text-align: center;
   user-select: none;
+  transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://book.giflingua.com/images/origin/tols.gif);
     background-size: 25vw 15vw;
     background-position: 50% 46%;
@@ -206,13 +211,14 @@ const Card4 = styled.div`
 font-family: Helvetica, sans-serif;
 font-weight: 600;
 color: #C60401;
-font-size: 5em;
+font-size: 5vw;
   text-align: center;
   text-position: center;
   user-select: none;
+  transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://i1.wp.com/supermed.pro/img/gif/super8.gif);width: 20vw; height: 10vw;
     background-position: center;
     background-size: cover;
@@ -234,12 +240,13 @@ const Card5 = styled.div`
   background-color: #5A5250;
   border-radius: 20px;
   color: #062F1C;
-  font-size: 3em;
+  font-size: 2.5vw;
   text-align: center;	
   user-select: none;
+  transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     // background-image: url(https://i.pinimg.com/originals/e2/12/7b/e2127b452438f766fab14c1480aebd0f.gif);width: 20vw; height: 10vw;
     // background-position: 100% 30%;
     background-image: url(https://thumbs.gfycat.com/BraveUnknownLemming-max-1mb.gif);width: 20vw; height: 10vw;
@@ -262,14 +269,14 @@ const Card6 = styled.div`
   border: 3px solid white;
   background-color: #B90101;
   border-radius: 20px;
-  font-size: 3em;
+  font-size: 2vw;
   text-align: center;
 color: white;
 user-select: none;
+transition: box-shadow .3s;
 
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://cdn.dribbble.com/users/1170232/screenshots/3276234/target_logo.gif);width: 20vw; height: 10vw;
     background-position: 100% 15%;
     background-size: cover;

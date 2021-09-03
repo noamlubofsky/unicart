@@ -4,14 +4,27 @@ import styled from "styled-components";
 import {useHistory} from "react-router";
 
 
-function ProductDetails() {
+function ProductDetails({products, selectedProduct}) {
     const [productDetails, setProductDetails] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [isLoading, setIsLoading] = useState(false)
+    const [related, setRelated] = useState([]);
+    const [random, setRandom] = useState([])
+
     let history = useHistory();
 
     const id = useParams().id;
+  // const category = useParams().category;
 
+  const storeProducts = products.filter(product => 
+    product.store_id === selectedProduct.store.id)
+
+    useEffect(() => {
+      const shuffled = storeProducts.sort(() => 0.5 - Math.random());
+      let selected = shuffled.slice(0, 3);
+      setRandom(selected)
+      console.log(random)
+    }, [])
 
 useEffect(() => {
     // setIsLoading(true)
@@ -42,10 +55,17 @@ useEffect(() => {
                 onClick={backToStore}>
                 <h2>Return to Store</h2>
             </Card>
-      <img src={productDetails.image_url} alt='img'/>
+            <Container>
+              <Card1>
+      <img src={productDetails.image_url} alt='img' className="detailPic"/>
+      </Card1>
+<Card2>
+{/* <h1>{productDetails.store.name}</h1> */}
       <h1>{productDetails.name}</h1>
       <h4>${productDetails.price}</h4>
         <h4>{productDetails.inventory} Left in Stock</h4>
+        </Card2>
+        </Container>
       </div>
 }
       </div>
@@ -76,6 +96,41 @@ width: 5vw;
     text-shadow: 2px 2px 8px #7F55D0;
     color: silver;
   }
+`;
+
+const Container = styled.div`
+  margin-left: 0%;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+`;
+
+const Card1 = styled.div`
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 10px
+  height: 35vw;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  border: 1px solid transparent;
+`;
+
+const Card2 = styled.div`
+margin-top: 10px;
+margin-bottom: 10px;
+margin-right: 10px;
+margin-left: 10px
+  height: 35vw;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  border: 1px solid transparent;
 `;
 
 export default ProductDetails

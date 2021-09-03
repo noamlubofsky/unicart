@@ -14,4 +14,11 @@ class ProductsController < ApplicationController
             render json: {error: "Product not found"}, status: :unprocessable_entity
         end
     end
+
+    # def self.related(category)
+    #         category = category 
+    #     end
+    #     results = ActiveRecord::Base.connection.execute("SELECT * FROM products WHERE category=#{category} ORDER BY RANDOM() LIMIT 3;")
+    #     render json: results
+    # end
 end

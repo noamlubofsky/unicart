@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
 import {useHistory} from "react-router";
@@ -6,6 +6,11 @@ import {useHistory} from "react-router";
 const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, selectedProduct, setSelectedProduct, isLoading }) => {
     //   const [currentPage, setCurrentPage] = useState(0);
     const [ search, setSearch ] = useState('')
+        const [sortBy, setSortBy] = useState('')
+        const [toDisplay, setToDisplay] = useState([])
+        // const [random, setRandom] = useState([])
+
+
     let history = useHistory();
 
     const storeProducts = products.filter(product => 
@@ -16,7 +21,49 @@ const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, se
     }
     const searchProducts = storeProducts.filter(product => 
       product.name.toLowerCase().includes(search.toLowerCase())
-    ); 
+    );
+
+  //   useEffect(() => {
+  //   const shuffled = storeProducts.sort(() => 0.5 - Math.random());
+  //   let selected = shuffled.slice(0, 3);
+  //   setRandom(selected)
+  //   console.log(random)
+  // }, [])
+
+    useEffect(() => {
+      if(sortBy === 'Alphabetically'){
+       const sortedProducts = sortByName()
+       setToDisplay(sortedProducts)
+      }else{
+        const sortedProducts = sortByPrice()
+        setToDisplay(sortedProducts)
+      }
+    }, [sortBy])
+    
+    const sortByName = () => {
+      return[...searchProducts].sort(function(a, b) {
+        var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        // names must be equal
+        return 0;
+      });
+    }
+    
+    const sortByPrice = () => {
+      return[...searchProducts].sort(function (a, b) {
+        return a.price - b.price;
+      });
+    }
+    
+    const sortProducts = (e) => {
+      setSortBy(e.target.value)
+    }
 
 
     
@@ -30,71 +77,45 @@ const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, se
                     <input onChange={handleChange} className="loginForm"
                      id="searchbox" type="text" placeholder="Search Products"/>
                 </Form>
-                {/* <div>
-          
-                <br></br>
-                </div>
-            <div>
-                <div>
-                <h1>Shop by Store</h1>
-                <br></br>
-                </div>
-                <Container>
-    
-        <br></br>
-        <Card1 key={stores[0].id} 
-        //   as={Link} to={src}
-        >
-            <h2>{stores[0].name.toUpperCase()}</h2>
-        </Card1>
-        <br></br>
-        <Card2 key={stores[1].id} 
-        //   as={Link} to={src}
-        >
-            <h2>{stores[1].name.toUpperCase()}</h2>
-        </Card2>
-        <br></br>
-        <Card3 key={stores[2].id} 
-        //   as={Link} to={src}
-        >
-            <h2>{stores[2].name.toUpperCase()}</h2>
-        </Card3>
-        <br></br>
-        <Card4 key={stores[3].id} 
-        //   as={Link} to={src}
-        >
-            <h2>{stores[3].name.toUpperCase()}</h2>
-        </Card4>
-        <br></br>
-        <Card5 key={stores[4].id} 
-        //   as={Link} to={src}
-        >
-            <h2>{stores[4].name}</h2>
-        </Card5>
-        <br></br>
-        <Card6 key={stores[5].id} 
-        //   as={Link} to={src}
-        >
-            <h2>{stores[5].name.toLowerCase()}</h2>
-        </Card6>
-        <br></br>
-        </Container>
-            </div> */}
-          
+  
     <div>
 {isLoading ? <h2>Loading Products</h2> : 
-    <Container>
+      <div>
+       <strong>Sort by:</strong>
+      <label>
+        <input
+          type="radio"
+          value="Alphabetically"
+          name="sort"
+          checked={ sortBy === 'Alphabetically' }
+          onChange={sortProducts}
+        />
+        Alphabetically
+      </label>
+      <label>
+        <input
+          type="radio"
+          value="Price"
+          name="sort"
+          checked={sortBy === 'Price'}
+          onChange={sortProducts}
+        />
+        Price
+      </label>
+      <Container>
 
-            {searchProducts.map((product) => (
+      
+            {toDisplay.map((product) => (
               <ProductCard
-                key={product.id}
-                product={product}
-                selectedProduct={selectedProduct}
-                setSelectedProduct={setSelectedProduct}
-                // handleAddCart={handleAddCart}
+              key={product.id}
+              product={product}
+              selectedProduct={selectedProduct}
+              setSelectedProduct={setSelectedProduct}
+              // handleAddCart={handleAddCart}
               />
-            ))}
+              ))}
             </Container>
+              </div>
 }
 </div>
         </div>

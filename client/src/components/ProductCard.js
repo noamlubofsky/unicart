@@ -1,12 +1,12 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, selectedProduct, setSelectedProduct }) => {
+const ProductCard = ({ product, selectedProduct, setSelectedProduct, handleSelect }) => {
   const src = `/products/${product.id}`;
 
   return (
-    <Card key={product.id} >
+    <Card key={product.id}>
       <MoreInfo as={Link} to={src}>
         <Image src={product.image_url} alt="Product" />
         <h2>{product.store.name}</h2>
@@ -34,7 +34,7 @@ margin-left: 10px
   width: 15vw;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center; 
   align-items: center;
   border: 1px solid transparent;
 
@@ -49,6 +49,7 @@ const MoreInfo = styled.div`
   justify-content: center;
   align-items: center;
   color: black;
+ text-decoration: none;
 
 `;
 
