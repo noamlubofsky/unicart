@@ -24,9 +24,9 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
         <h2>Browse All Products</h2>
     </Card>
     <br></br>
-      <div>
+      {/* <div>
     <h1>Shop by Store</h1>
-    </div>
+    </div> */}
     <Container>
       
 <br></br>
@@ -81,25 +81,26 @@ const Container = styled.div`
 `;
 
 const Card = styled.div`
-height: 10vw;
+height: 5vw;
 width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 3px solid black;
-  background-color: #7F55D0;
+  background-color: #550EB7;
   border-radius: 20px;
-    font-family: "Sans-Serif"; "Optima";
+  font-family: sans-serif; 
     font-weight: heavier;
-    font-size: 1.5em;
+    font-size: 2em;
     color: beige;
     user-select: none;
     transition: box-shadow .3s;
 
   &:hover {
     box-shadow: 0px 0px 30px 0px #848484;
-    background-image: url(https://cdn.dribbble.com/users/146773/screenshots/4228811/dribble_cart.gif); width: 100%; height: 10vw;
+    background-image: url(https://media0.giphy.com/media/26AHMBTzc1qJgFfDW/giphy.gif); width: 100%; height: 5vw;
+    // background-image: url(https://cdn.dribbble.com/users/146773/screenshots/4228811/dribble_cart.gif); width: 100%; height: 10vw;
     background-position: 50% 50%;
     cursor: pointer;
     border: 6px solid #7F55D0;

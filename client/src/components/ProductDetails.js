@@ -16,15 +16,15 @@ function ProductDetails({products, selectedProduct}) {
     const id = useParams().id;
   // const category = useParams().category;
 
-  const storeProducts = products.filter(product => 
-    product.store_id === selectedProduct.store.id)
+  // const storeProducts = products.filter(product => 
+  //   product.store_id === selectedProduct.store.id)
 
-    useEffect(() => {
-      const shuffled = storeProducts.sort(() => 0.5 - Math.random());
-      let selected = shuffled.slice(0, 3);
-      setRandom(selected)
-      console.log(random)
-    }, [])
+  //   useEffect(() => {
+  //     const shuffled = storeProducts.sort(() => 0.5 - Math.random());
+  //     let selected = shuffled.slice(0, 3);
+  //     setRandom(selected)
+  //     console.log(random)
+  //   }, [])
 
 useEffect(() => {
     // setIsLoading(true)

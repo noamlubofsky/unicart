@@ -7,14 +7,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html { 
+  background: url(https://cdn.wallpapersafari.com/64/0/WNaocO.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', Fantasy,
     monospace; 
 }
-/* 
+
 h1 {
-  align-items: center;
-} */
+  font-family: 'Marker Felt', fantasy;
+  font-size: larger
+}
 
 .font-link {
   font-family: 'Big Shoulders Stencil Text', cursive;

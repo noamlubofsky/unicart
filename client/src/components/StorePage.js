@@ -192,8 +192,10 @@ width: 5vw;
     font-weight: heavier;
     font-size: .5em;
     color: beige;
+    transition: box-shadow .3s;
+
   &:hover {
-    box-shadow: 15px 15px 15px 15px #848484;
+    box-shadow: 0px 0px 30px 0px #848484;
     background-image: url(https://cdn.dribbble.com/users/146773/screenshots/4228811/dribble_cart.gif); width: 5vw; height: 2.5vw;
     background-position: 50% 50%;
     cursor: pointer;
