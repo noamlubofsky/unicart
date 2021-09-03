@@ -12,7 +12,7 @@ function ProductDetails({products, selectedProduct, handleAddCart, user}) {
     const [related, setRelated] = useState([]);
     const [random, setRandom] = useState([])
     const [quantity, setQuantity] = useState(1);
-    const [store, setStore] = useState([]);
+    const [store, setStore] = useState({});
 
     let history = useHistory();
 
@@ -35,6 +35,7 @@ useEffect(() => {
       .then((res) => res.json())
       .then((data) => {
         setProductDetails(data);
+        setStore(data.store)
       });
 
     fetch(`/reviews/${id}`)
@@ -55,7 +56,6 @@ useEffect(() => {
 
   const handleChange = (e) => {
     setQuantity(e.target.value);
-    setStore(productDetails.store)
   };
 
   const handleClick = (id) => {
@@ -107,7 +107,7 @@ useEffect(() => {
   </div>
 </div>  
         </Card2>
-        <Card3 onClick={toCart}>Add to Cart</Card3>
+        {/* <Card3 onClick={toCart}>Add to Cart</Card3> */}
         </Container>
       </div> 
 }

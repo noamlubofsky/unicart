@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
     def index 
         user = @current_user
         items = user.cart_items.all
-        byebug 
+        # byebug 
         render json: items
     end
 
@@ -36,6 +36,6 @@ class CartItemsController < ApplicationController
 
 
     def item_params
-        params.permit(:product_id, :quantity)
+        params.permit(:product_id, :quantity, :store_id)
     end
 end

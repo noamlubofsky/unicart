@@ -43,7 +43,7 @@ function App() {
   useEffect(() => {
     fetch("/cart_items").then((r) => {
       if (r.ok) {
-        r.json().then((cart) => console.log(cart));
+        r.json().then((cart) => setShoppingCart(cart));
       }
     });
     fetch("/products").then((r) => {
@@ -100,8 +100,8 @@ const handleSelect = (product) => {
  console.log(selectedProduct)
 }
 
-const handleAddCart = (id, quantity) => {
-
+const handleAddCart = (id, quantity, store) => {
+console.log(store)
   fetch("/cart_items", {
     method: "POST",
     headers: {
@@ -110,12 +110,38 @@ const handleAddCart = (id, quantity) => {
     body: JSON.stringify({
       product_id: id,
       quantity: quantity,
-      store_id: id
+      store_id: store.id
     }),
   })
     .then((response) => response.json())
-    .then((item) => setShoppingCart([...shoppingCart, item]));
-    console.log(shoppingCart)
+    .then((item) => setShoppingCart([...shoppingCart, item]))
+    .then(() => console.log(shoppingCart))
+    .then(alert("Added to Cart!"))
+};
+
+const updateCartItemQuantityFrontend = (id, quantity) => {
+  const updatedData = shoppingCart.map((item) => {
+    if (item.id === id) {
+      return {
+        ...item,
+        quantity: quantity,
+      };
+    } else {
+      return item;
+    }
+  });
+  setShoppingCart(updatedData);
+};
+
+const updateCartItemQuantity = (CartItemID, quantity) => {
+  updateCartItemQuantityFrontend(CartItemID, quantity);
+  fetch(`/cart_items/${CartItemID}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      quantity: quantity,
+    }),
+  });
 };
 
 
@@ -203,6 +229,7 @@ const handleAddCart = (id, quantity) => {
           </Route>
             <Route path="/cart">
             <ShoppingCart shoppingCart={shoppingCart}
+            updateCartItemQuantity={updateCartItemQuantity}
             />
           </Route>
         </Switch>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CartItem from "./CartItem"
 
-function ShoppingCart({shoppingCart}) {
+function ShoppingCart({shoppingCart, updateCartItemQuantity}) {
 
 
     return(
@@ -11,6 +11,7 @@ function ShoppingCart({shoppingCart}) {
           <CartItem
             key={item.id}
             item={item}
+            updateCartItemQuantity={updateCartItemQuantity}
           />
         ))}        
         </div>
