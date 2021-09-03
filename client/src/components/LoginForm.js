@@ -97,7 +97,7 @@ const Button = styled.button`
   padding: 8px 16px;
   text-decoration: none;
   width: 100%;
-  background-color: rgba(0, 57, 7, 0.5);
+  background-color: #2E6268;
   display: flex;
   justify-content: center;
   align-self: center;

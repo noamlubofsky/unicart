@@ -16,7 +16,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [products, setProducts] = useState([]);
   const [stores, setStores] = useState([]);
-  // const [shoppingCart, setShoppingCart] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState([]);
   const [selectedStore, setSelectedStore] = useState(null);
   const [fromMain, setFromMain] = useState(true)
   const [selectedProduct, setSelectedProduct] = useState(null)
@@ -41,6 +41,11 @@ function App() {
   }, []);
 
   useEffect(() => {
+    fetch("/cart_items").then((r) => {
+      if (r.ok) {
+        r.json().then((cart) => console.log(cart));
+      }
+    });
     fetch("/products").then((r) => {
       if (r.ok) {
         r.json().then((products) => setProducts(products));
@@ -90,10 +95,28 @@ const all = stores[5]
 {fromMain ? history.push("/shopping") : history.push("/products")}  
 }
 
-const handleSelect = (ingredient) => {
- setSelectedProduct(ingredient)
+const handleSelect = (product) => {
+ setSelectedProduct(product)
  console.log(selectedProduct)
 }
+
+const handleAddCart = (id, quantity) => {
+
+  fetch("/cart_items", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      product_id: id,
+      quantity: quantity,
+      store_id: id
+    }),
+  })
+    .then((response) => response.json())
+    .then((item) => setShoppingCart([...shoppingCart, item]));
+    console.log(shoppingCart)
+};
 
 
   // console.log(user);
@@ -135,9 +158,10 @@ const handleSelect = (ingredient) => {
           </Route>
           <Route path="/products/:id">
             <ProductDetails 
-            // handleAddCart={handleAddCart} 
+            handleAddCart={handleAddCart} 
             products={products}
             selectedProduct={selectedProduct}
+            user={user}
             />
           </Route>
           <Route path="/products">
@@ -177,11 +201,8 @@ const handleSelect = (ingredient) => {
             isLoading={isLoading}
             />
           </Route>
-          {/* <Route path="/">
-            <Landing />
-          </Route> */}
-                   <Route path="/stores/:id">
-            <ShoppingCart products={products}
+            <Route path="/cart">
+            <ShoppingCart shoppingCart={shoppingCart}
             />
           </Route>
         </Switch>

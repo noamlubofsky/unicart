@@ -6,9 +6,9 @@ const Footer = () => {
     <Content>
       <Info>
         <h1>UNICART</h1>
-        <h5>Sign up for our email</h5>
-        <h5>Send us feedback</h5>
-        <h5>Order status</h5>
+        <h5>Shopping Made Easy</h5>
+        <h5>Noam Lubofsky</h5>
+        <h5>Capstone Project</h5>
       </Info>
       
     </Content>
