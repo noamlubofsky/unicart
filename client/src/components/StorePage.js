@@ -90,7 +90,7 @@ const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, se
 
             <Form >
                     <input onChange={handleChange} className="loginForm"
-                     id="searchbox" type="text" placeholder="Search Products"/>
+                     id="searchbox" type="text" placeholder={`Filter ${selectedStore.name} Products`}/>
                 </Form>
   
     <div>
@@ -120,7 +120,7 @@ const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, se
       <Container>
 
       
-            {toDisplay.map((product) => (
+            {searchProducts.map((product) => (
               <ProductCard
               key={product.id}
               product={product}
@@ -138,12 +138,13 @@ const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, se
     };
 
     const Container = styled.div`
-  margin-left: 0%;
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-row-gap: 2vh;
-  width: 100%;
+    justify-content: center;
+
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 0fr 0fr 0fr 0fr 0fr;
+    // grid-row-gap: 2vh;
+    width: 100%;
 `;
 
 const Container4 = styled.div`

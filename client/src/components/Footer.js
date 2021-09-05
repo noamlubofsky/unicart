@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Footer = () => {
   return (
+    // <div id="footer">
     <Content>
       <Info>
         <h1>UNICART</h1>
@@ -12,6 +13,7 @@ const Footer = () => {
       </Info>
       
     </Content>
+    // </div>
   );
 };
 
@@ -19,8 +21,9 @@ const Content = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: rgb(47, 98, 104);
+  background-color: rgb(27, 44, 77);
   color: white;
+
 `;
 
 const Info = styled.div`

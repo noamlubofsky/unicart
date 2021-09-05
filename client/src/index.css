@@ -8,7 +8,7 @@ body {
 }
 
 html { 
-  background: url(https://cdn.wallpapersafari.com/64/0/WNaocO.jpg) no-repeat center center fixed; 
+  /* background: url(https://cdn.wallpapersafari.com/64/0/WNaocO.jpg) no-repeat center center fixed;  */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -31,10 +31,6 @@ h1 {
 
 .guitar {
   font-family: 'Pacifico', cursive;
-}
-
-.sc-hHEiqL-jRYMFt {
-  color: red;
 }
 
 
@@ -60,23 +56,26 @@ body{
 
 button{
   display: fixed;
-  width: 9vw;
+  width: 7vw;
+  min-height: 2vh;
   height: 2.2vw;
-  line-height: 50px;
+  /* line-height: 50px; */
   font-weight: bold;
   text-decoration: none;
-  background: #2E6268;
+  background-image: linear-gradient(#F05A27, #F5931F);
   text-align: center;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 3px solid #2E6268;
+  /* border: 3px solid #2E6268; */
   transition: all .35s;
+  justify-content: center;
+  font-size: 1vh;
 }
 
 .icon{
-  width: 50px;
-  height: 50px;
+  width: 2vw;
+  height: 2vw;
   border: 3px solid transparent;
   position: absolute;
   transform: rotate(45deg);
@@ -87,24 +86,37 @@ button{
 }
 
 .icon svg{
-  width: 30px;
+  width: 2vw;
   position: absolute;
-  top: calc(50% - 15px);
-  left: calc(50% - 15px);
+  top: calc(50% - 1vw);
+  left: calc(50% - 1vw);
   transform: rotate(-45deg);
-  fill: #2E6268;
+  fill: #F05A27
+  ;
   transition: all .35s;
 }
 
 button:hover{
-  width: 200px;
-  border: 3px solid #2E6268;
+  width: 10vw;
+  border: 3px solid #F5931F;
   background: transparent;
-  color: #2E6268;
+  color: #F05A27;
   cursor: pointer;
 }
 
 button:hover + .icon{
-  border: 3px solid #2E6268;
-  left: -5%;
+  /* border: 3px solid #F5931F; */
+  left: 10%;
 }
+
+/* .House-Depot { 
+  font-size: 50px;
+} */
+
+
+/* #footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+} */

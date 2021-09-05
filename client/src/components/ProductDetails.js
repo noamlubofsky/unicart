@@ -80,11 +80,10 @@ useEffect(() => {
 </Container4> 
 
             <Container>
-              <Card1>
-      <img src={productDetails.image_url} alt='img' className="detailPic"/>
-      </Card1>
+            <Image src={productDetails.image_url} alt="Product" />
+
 <Card2>
-{/* <h1>{productDetails.store.name}</h1> */}
+{/* <h1 className={productDetails.name}>{productDetails.store.name}</h1> */}
       <h2>{productDetails.name}</h2>
       <h4>${productDetails.price}</h4>
         <h4>{productDetails.inventory} Left in Stock</h4>
@@ -95,6 +94,11 @@ useEffect(() => {
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
         <br></br>
         <div class="wrapper" >
@@ -151,10 +155,12 @@ margin-left: 10px;
 `;
 
 const Container = styled.div`
-  margin-left: 10%;
+justify-content: center;
+
   margin-top: 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 0fr 0fr 0fr 0fr 0fr;
+  // grid-row-gap: 2vh;
   width: 100%;
 `;
 const Container5 = styled.div`
@@ -179,19 +185,11 @@ const Arrow = styled.div`
  font-family: 'Marker Felt', fantasy;
  `;
 
-const Card1 = styled.div`
-margin-top: 10px;
-margin-bottom: 10px;
-  height: auto;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-  border: 1px solid transparent;
-  box-shadow: 0 30px 40px rgba(0,0,0,.1);
-  background: linear-gradient(to left, #CEDBE4, white 25%, white 75%, #CEDBE4 100%);
-`;
+ const Image = styled.img`
+ margin-top: 5px;
+   width: 10vw;
+   height: 15vw;
+ `;
 
 const Card2 = styled.div`
 margin-top: 10px;

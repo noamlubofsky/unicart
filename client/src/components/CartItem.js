@@ -18,7 +18,7 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
         <div>
             <Container>
                 <Card>
-            <img src={item.product.image_url} alt="pic"/>
+            <Image src={item.product.image_url} alt="pic"/>
             </Card>
             <ItemContainer>
             <h1>{item.store.name}</h1>
@@ -32,6 +32,11 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
         <br></br>
             <div class="wrapper" >
@@ -58,6 +63,12 @@ display: grid;
     grid-row-gap: 20vh;
 `;
 
+const Image = styled.img`
+margin-top: 5px;
+  width: 10vw;
+  height: 15vw;
+`;
+
 const ItemContainer = styled.div`
 float: right;
 margin-right: 5%;
@@ -71,19 +82,16 @@ margin-top: 10px;
 margin-bottom: 10px;
 margin-right: 10px;
 margin-left: 10px
-  height: 20vw;
-  width: 15vw;
+  height: 5vw;
+  width: 2vw;
   display: flex;
   flex-direction: column;
   justify-content: center; 
   align-items: center;
   border: 1px solid transparent;
-  box-shadow: 0 30px 40px rgba(0,0,0,.1);
-  background: linear-gradient(to left, #CEDBE4, white 25%, white 75%, #CEDBE4 100%);
+//   box-shadow: 0 30px 40px rgba(0,0,0,.1);
+//   background: linear-gradient(to left, #CEDBE4, white 25%, white 75%, #CEDBE4 100%);
 
-  &:hover {
-    box-shadow: 0px 0px 15px 0px #848484;
-  }
 `;
 
 export default CartItem;

@@ -21,8 +21,8 @@ const ProductCard = ({ product, selectedProduct, setSelectedProduct, handleSelec
 
 const Image = styled.img`
 margin-top: 5px;
-  width: 200px;
-  height: 300px;
+  width: 10vw;
+  height: 15vw;
 `;
 
 const Card = styled.div`
@@ -36,9 +36,9 @@ margin-left: 10px
   flex-direction: column;
   justify-content: center; 
   align-items: center;
-  border: 1px solid transparent;
-  box-shadow: 0 30px 40px rgba(0,0,0,.1);
-  background: linear-gradient(to left, #CEDBE4, white 25%, white 75%, #CEDBE4 100%);
+  border: 5px solid grey;
+  // box-shadow: 0 30px 40px rgba(0,0,0,.1);
+  // background: linear-gradient(to left, #CEDBE4, white 25%, white 75%, #CEDBE4 100%);
 
   &:hover {
     box-shadow: 0px 0px 15px 0px #848484;

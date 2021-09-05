@@ -48,7 +48,7 @@ const Line = styled.div`
 
 const ReviewContainer = styled.div`
 margin-left: 10%;
-width: 29%;
+width: 40vw;
 margin-bottom: 20px;
 `;
 

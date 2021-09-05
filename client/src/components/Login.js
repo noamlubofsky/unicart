@@ -2,17 +2,17 @@ import { useState } from "react";
 import styled from "styled-components";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
-// import laurel from "./assets/laurellogo.svg";
-// import image from "./assets/IMG_0386.jpeg";
+import logo from "./assets/logo.png";
+
 
 function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <Page>
-      {/* <Image src={image} alt="background" /> */}
+      <Container>
+    <Image src={logo} alt="Logo"/>
       <Wrapper>
-        {/* <Logo src={laurel} alt="logo" /> */}
         {showLogin ? (
           <>
             <LoginForm onLogin={onLogin} />
@@ -33,6 +33,7 @@ function Login({ onLogin }) {
           </>
         )}
       </Wrapper>
+      </Container>
     </Page>
   );
 }
@@ -44,21 +45,29 @@ function Login({ onLogin }) {
 //   margin: 8px 0 16px;
 // `;
 
+const Container = styled.div`
+justify-content: center;
+align-items: center;
+  // grid-row-gap: 0;
+//   width: 100%;
+`;
+
+
 const Page = styled.div`
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
   /* background-image: url(); */
+  background-color: rgb(27, 44, 77);
+
 `;
 const Image = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
+display: flex;
+justify-content:center; // centers in the flex direction and the default flex-direction is row
+align-items:center; // centers perpendicular to the flex direction
+height: 30vh; // 100% view height
+width: 15vw; // 100% view width
 `;
 
 const Wrapper = styled.section`

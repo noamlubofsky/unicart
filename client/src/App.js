@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect} from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
@@ -22,6 +22,9 @@ function App() {
   const [fromMain, setFromMain] = useState(true)
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [search, setSearch] = useState('')
+  const [toDisplay, setToDisplay] = useState([])
+
   let history = useHistory();
 
   useEffect(() => {
@@ -93,12 +96,37 @@ const all = stores[5]
   }
 
   function backBtn(){
-{fromMain ? history.push("/shopping") : history.push("/products")}  
+{
+  // fromMain ? history.push("/shopping") : 
+  history.push("/products")}  
+}
+
+const clearSearch = () => {
+  setToDisplay([])
 }
 
 const handleSelect = (product) => {
  setSelectedProduct(product)
  console.log(selectedProduct)
+}
+
+const handleChange = (e) => {
+  e.preventDefault()
+  setSearch(e.target.value)
+  console.log(search)
+  // console.log(searchProducts)
+  // setToDisplay([...toDisplay, searchProducts])
+  // console.log(toDisplay)
+}
+
+const searchProducts = products.filter(product => 
+  product.name.toLowerCase().includes(search.toLowerCase())
+); 
+
+const display = (e) => {
+    e.preventDefault()
+setToDisplay(searchProducts)
+console.log(toDisplay)    
 }
 
 const handleAddCart = (id, quantity, store) => {
@@ -117,7 +145,7 @@ console.log(store)
     .then((response) => response.json())
     .then((item) => setShoppingCart([...shoppingCart, item]))
     .then(() => console.log(shoppingCart))
-    .then(alert("Added to Cart!"))
+    // .then(alert("Added to Cart!"))
 };
 
 const updateCartItemQuantityFrontend = (id, quantity) => {
@@ -160,15 +188,19 @@ const removeFromCart = (CartItemID) => {
 
   if (!user) return <Login onLogin={setUser} />;
 
-
   return (
     <div>
-      <NavBar user={user} setUser={setUser}/>
+      <NavBar user={user} setUser={setUser} search={search} setSearch={setSearch} handleChange={handleChange}
+                  toDisplay={toDisplay} setToDisplay={setToDisplay} display={display} searchProducts={searchProducts} clearSearch={clearSearch} cart={shoppingCart.length}
+
+                  />
       {/* <ShoppingPage stores={stores}/> */}
 
       <main>
         <Switch>
-  
+        {/* <Route exact path="/">
+    <Redirect to="/products" />
+</Route> */}
              <Route path="/shopping">
             <ShoppingPage stores={stores} 
             selectedStore={selectedStore} 
@@ -222,6 +254,9 @@ const removeFromCart = (CartItemID) => {
             music={music}
             all={all}
             handleSelect={handleSelect}
+            search={search} setSearch={setSearch} handleChange={handleChange}
+            toDisplay={toDisplay} setToDisplay={setToDisplay} display={display} searchProducts={searchProducts}
+            clearSearch={clearSearch}
             />
           </Route>
           <Route path="/stores/:id">

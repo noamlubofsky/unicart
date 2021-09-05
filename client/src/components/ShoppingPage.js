@@ -18,12 +18,12 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
 
     return(
         <div>
-    <Card 
+    {/* <Card 
       onClick={toProducts}>
 
         <h2>Browse All Products</h2>
     </Card>
-    <br></br>
+    <br></br> */}
       {/* <div>
     <h1>Shop by Store</h1>
     </div> */}
