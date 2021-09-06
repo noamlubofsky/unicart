@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link, useHistory } from "react-router-dom";
 
 function CartItem({item, updateCartItemQuantity, removeFromCart}) {
     const [quantity, setQuantity] = useState(item.quantity)
@@ -22,7 +23,7 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
             </Card>
             <ItemContainer>
             <h1>{item.store.name}</h1>
-            <h1>{item.product.name}</h1>
+            <Item as={Link} to={`/products/${item.product.id}`}>{item.product.name}</Item>
             <h1>${item.product.price * item.quantity}</h1>
             <h1>Quantity: {item.quantity}</h1>
             <label for="quant">Update Quantity</label>
@@ -64,6 +65,12 @@ display: grid;
 `;
 
 const Image = styled.img`
+margin-top: 5px;
+  width: 10vw;
+  height: 15vw;
+`;
+
+const Item = styled.img`
 margin-top: 5px;
   width: 10vw;
   height: 15vw;

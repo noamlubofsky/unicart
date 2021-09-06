@@ -24,6 +24,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [search, setSearch] = useState('')
   const [toDisplay, setToDisplay] = useState([])
+  // const [userCart, setUserCart] = useState(null)
 
   let history = useHistory();
 
@@ -114,9 +115,6 @@ const handleChange = (e) => {
   e.preventDefault()
   setSearch(e.target.value)
   console.log(search)
-  // console.log(searchProducts)
-  // setToDisplay([...toDisplay, searchProducts])
-  // console.log(toDisplay)
 }
 
 const searchProducts = products.filter(product => 
@@ -145,7 +143,6 @@ console.log(store)
     .then((response) => response.json())
     .then((item) => setShoppingCart([...shoppingCart, item]))
     .then(() => console.log(shoppingCart))
-    // .then(alert("Added to Cart!"))
 };
 
 const updateCartItemQuantityFrontend = (id, quantity) => {
@@ -181,58 +178,61 @@ const removeFromCart = (CartItemID) => {
   });
 };
 
-
-  // console.log(user);
-  // console.log(products);
-  // console.log(stores)
-
   if (!user) return <Login onLogin={setUser} />;
+  // if (user) history.push(`/products`)
+
 
   return (
     <div>
-      <NavBar user={user} setUser={setUser} search={search} setSearch={setSearch} handleChange={handleChange}
-                  toDisplay={toDisplay} setToDisplay={setToDisplay} display={display} searchProducts={searchProducts} clearSearch={clearSearch} cart={shoppingCart.length}
-
-                  />
-      {/* <ShoppingPage stores={stores}/> */}
+      <NavBar 
+        user={user} 
+        setUser={setUser} 
+        search={search} 
+        setSearch={setSearch} 
+        handleChange={handleChange}
+        toDisplay={toDisplay} 
+        setToDisplay={setToDisplay} 
+        display={display} 
+        searchProducts={searchProducts} 
+        clearSearch={clearSearch} 
+        cart={shoppingCart.length}
+      />
 
       <main>
         <Switch>
-        {/* <Route exact path="/">
-    <Redirect to="/products" />
-</Route> */}
-             <Route path="/shopping">
-            <ShoppingPage stores={stores} 
-            selectedStore={selectedStore} 
-            setSelectedStore={setSelectedStore}
-               toClothes={toClothes} 
-               toElectronics={toElectronics} 
-               toTools={toTools} 
-               toHealth={toHealth} 
-               toMusic={toMusic}
-               toAll={toAll}
-               fromMain={fromMain} 
-               setFromMain={setFromMain}
-               isLoading={isLoading}
-               clothes={clothes}
-               electronics={electronics}
-               tools={tools}
-               health={health}
-               music={music}
-               all={all}
-            // handleAddCart={handleAddCart} 
+          <Route path="/shopping">
+            <ShoppingPage 
+              stores={stores} 
+              selectedStore={selectedStore} 
+              setSelectedStore={setSelectedStore}
+              toClothes={toClothes} 
+              toElectronics={toElectronics} 
+              toTools={toTools} 
+              toHealth={toHealth} 
+              toMusic={toMusic}
+              toAll={toAll}
+              fromMain={fromMain} 
+              setFromMain={setFromMain}
+              isLoading={isLoading}
+              clothes={clothes}
+              electronics={electronics}
+              tools={tools}
+              health={health}
+              music={music}
+              all={all}
             />
           </Route>
           <Route path="/products/:id">
             <ProductDetails 
-            handleAddCart={handleAddCart} 
-            products={products}
-            selectedProduct={selectedProduct}
-            user={user}
+              handleAddCart={handleAddCart} 
+              products={products}
+              selectedProduct={selectedProduct}
+              user={user}
             />
           </Route>
           <Route path="/products">
-            <Products products={products} 
+            <Products 
+            products={products} 
             stores={stores} 
             selectedStore={selectedStore} 
             setSelectedStore={setSelectedStore} 
@@ -254,37 +254,46 @@ const removeFromCart = (CartItemID) => {
             music={music}
             all={all}
             handleSelect={handleSelect}
-            search={search} setSearch={setSearch} handleChange={handleChange}
-            toDisplay={toDisplay} setToDisplay={setToDisplay} display={display} searchProducts={searchProducts}
+            search={search} 
+            setSearch={setSearch} 
+            handleChange={handleChange}
+            toDisplay={toDisplay} 
+            setToDisplay={setToDisplay} 
+            display={display} 
+            searchProducts={searchProducts}
             clearSearch={clearSearch}
             />
           </Route>
           <Route path="/stores/:id">
-            <StorePage products={products} 
-            selectedStore={selectedStore} 
-            setSelectedStore={setSelectedStore} 
-            romMain={fromMain} 
-            setFromMain={setFromMain} 
-            backBtn={backBtn}    
-            selectedProduct={selectedProduct}
-            setSelectedProduct={setSelectedProduct}
-            isLoading={isLoading}
+            <StorePage 
+              products={products} 
+              selectedStore={selectedStore} 
+              setSelectedStore={setSelectedStore} 
+              fromMain={fromMain} 
+              setFromMain={setFromMain} 
+              backBtn={backBtn}    
+              selectedProduct={selectedProduct}
+              setSelectedProduct={setSelectedProduct}
+              isLoading={isLoading}
             />
           </Route>
-            <Route path="/cart">
-            <ShoppingCart shoppingCart={shoppingCart}
-            updateCartItemQuantity={updateCartItemQuantity}
-            removeFromCart={removeFromCart}
+          <Route path={`/cart`}>
+            <ShoppingCart 
+              shoppingCart={shoppingCart}
+              updateCartItemQuantity={updateCartItemQuantity}
+              removeFromCart={removeFromCart}
+              user={user}
             />
           </Route>
           <Route path="/user">
             <AccountPage 
-            user={user}
+              user={user}
+              setUser={setUser}
             />
           </Route>
         </Switch>
       </main>
-      <Footer />
+    <Footer />
     </div>
   );
 }

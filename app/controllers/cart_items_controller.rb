@@ -4,7 +4,6 @@ class CartItemsController < ApplicationController
     def index 
         user = @current_user
         items = user.cart_items.all
-        # byebug 
         render json: items
     end
 

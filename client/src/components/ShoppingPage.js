@@ -25,7 +25,7 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
     </Card>
     <br></br> */}
       {/* <div>
-    <h1>Shop by Store</h1>
+    <Header>Search all Products or Shop by Store</Header>
     </div> */}
     <Container>
       
@@ -69,15 +69,20 @@ const Image = styled.img`
   height: auto;
 `;
 
+const Header = styled.img`
+  max-width: 100%;
+  height: auto;
+`;
 
 const Container = styled.div`
 //   margin-left: auto;
 //   margin-right: 70px;
-//   margin-top: 50px;
+  margin-top: 4vh;
   display: grid;
   grid-template-columns: 10vw 20vw 10vw 20vw 10vw 20vw;
-//   grid-row-gap: 2vh;
+  grid-row-gap: 6vh;
   width: 100%;
+  // background-image: url("https://cdn.wallpapersafari.com/90/7/KGe7I0.jpg")
 `;
 
 const Card = styled.div`
@@ -112,7 +117,7 @@ width: 100%;
 const Card1 = styled.div`
   height: 10vw;
   width: 20vw;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;

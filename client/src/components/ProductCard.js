@@ -39,6 +39,7 @@ margin-left: 10px
   border: 5px solid grey;
   // box-shadow: 0 30px 40px rgba(0,0,0,.1);
   // background: linear-gradient(to left, #CEDBE4, white 25%, white 75%, #CEDBE4 100%);
+  background-color: white;
 
   &:hover {
     box-shadow: 0px 0px 15px 0px #848484;

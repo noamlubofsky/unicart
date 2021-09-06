@@ -113,7 +113,7 @@ mic = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUUFBgSFBUYGB
 mixer = "https://sc04.alicdn.com/kf/HTB18p4mBZyYBuNkSnfoq6AWgVXaF.jpg"
 
 clothing_adjectives = [
-	"Stylish",	"Tailor-Made","Loose-Fitting",	"Flattering",	"Formal",	"Glamorous","Dressy",	"Fitted","Close-Fitting",	"Comfortable",	"Casual",		"Baggy","Designer","Sleek",		"Whimsical",		"Vintage",		"Water-Resistant","Trendy",	    "Unique",	"Versatile","Timeless","Stylish",		"Tailored","Stretchy",	"Stunning","Sophisticated",	"Sporty",	"Standard-Fit","Skinny-Fit",	"Slouchy",	"Flattering",	"Flexible",	"Flamorous",	"Lightweight","Fabulous",		"Long-Lasting","Fancy",		"Odor-Resistant","Fashionable",	"Imported",	"Innovative",	"Adorable",	"Affordable",	"BeautifuL",		"Cute",	"Comfortable",	"Cool","Classic",		"Breathable",		"Casual","Modern",		"Pretty","Odor-Absorbing",		"Elegant",		"Durable",	"Easy-to-Maintain",	"Eco-Friendly","Designer",	"Discounted",
+	"Stylish",	"Tailor-Made","Loose-Fitting",	"Flattering",	"Formal",	"Glamorous","Dressy",	"Fitted","Close-Fitting",	"Comfortable",	"Casual",		"Baggy","Designer","Sleek",		"Whimsical",		"Vintage",		"Water-Resistant","Trendy",	    "Unique",	"Versatile","Timeless","Stylish",		"Tailored","Stretchy",	"Stunning","Sophisticated",	"Sporty",	"Standard-Fit","Skinny-Fit",	"Slouchy",	"Flattering",	"Flexible",	"Flamorous",	"Lightweight","Fabulous",		"Long-Lasting","Fancy",		"Odor-Resistant","Fashionable",	"Imported",	"Innovative",	"Adorable",	"Affordable",	"Beautiful",		"Cute",	"Comfortable",	"Cool","Classic",		"Breathable",		"Casual","Modern",		"Pretty","Odor-Absorbing",		"Elegant",		"Durable",	"Easy-to-Maintain",	"Eco-Friendly","Designer",	"Discounted",
 ]
 
 #create users

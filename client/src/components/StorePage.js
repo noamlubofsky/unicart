@@ -4,12 +4,9 @@ import ProductCard from "./ProductCard";
 import {useHistory} from "react-router";
 
 const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, selectedProduct, setSelectedProduct, isLoading }) => {
-    //   const [currentPage, setCurrentPage] = useState(0);
     const [ search, setSearch ] = useState('')
-        const [sortBy, setSortBy] = useState('')
-        const [toDisplay, setToDisplay] = useState([])
-        // const [random, setRandom] = useState([])
-
+    const [sortBy, setSortBy] = useState('')
+    const [toDisplay, setToDisplay] = useState([])
 
     let history = useHistory();
 
@@ -65,48 +62,39 @@ const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, se
       setSortBy(e.target.value)
     }
 
+return (
+  <div>
+    <Container4 onClick={backBtn}>
+      <div class="wrapper" >
+        <div class="link_wrapper">
+          <button>Back</button>
+            <div class="icon">
+              <svg class="svg-icon" viewBox="0 0 20 20">
+                <path d="M11.739,13.962c-0.087,0.086-0.199,0.131-0.312,0.131c-0.112,0-0.226-0.045-0.312-0.131l-3.738-3.736c-0.173-0.173-0.173-0.454,0-0.626l3.559-3.562c0.173-0.175,0.454-0.173,0.626,0c0.173,0.172,0.173,0.451,0,0.624l-3.248,3.25l3.425,3.426C11.911,13.511,11.911,13.789,11.739,13.962 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.148,3.374,7.521,7.521,7.521C14.147,17.521,17.521,14.148,17.521,10"></path>      
+              </svg>
+            </div>
+        </div>
+      </div>           
+    </Container4> 
 
-    
-      return (
-        <div>
-            {/* <Card 
-                onClick={backBtn}>
-                <h2>{!fromMain ? 'Back to Browse' : 'Back to Home'}</h2>
-            </Card> */}
-
-            <Container4 onClick={backBtn}>
-<div class="wrapper" >
-  <div class="link_wrapper">
-    <button>Back</button>
-    <div class="icon">
-    <svg class="svg-icon" viewBox="0 0 20 20">
-    <path d="M11.739,13.962c-0.087,0.086-0.199,0.131-0.312,0.131c-0.112,0-0.226-0.045-0.312-0.131l-3.738-3.736c-0.173-0.173-0.173-0.454,0-0.626l3.559-3.562c0.173-0.175,0.454-0.173,0.626,0c0.173,0.172,0.173,0.451,0,0.624l-3.248,3.25l3.425,3.426C11.911,13.511,11.911,13.789,11.739,13.962 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.148,3.374,7.521,7.521,7.521C14.147,17.521,17.521,14.148,17.521,10"></path>      
-    </svg>
-    </div>
-  </div>
-</div>           
-</Container4> 
-
-
-            <Form >
-                    <input onChange={handleChange} className="loginForm"
-                     id="searchbox" type="text" placeholder={`Filter ${selectedStore.name} Products`}/>
-                </Form>
+    <Form >
+      <input onChange={handleChange} className="loginForm" id="searchbox" type="text" placeholder={`Filter ${selectedStore.name} Products`}/>
+    </Form>
   
-    <div>
-{isLoading ? <h2>Loading Products</h2> : 
+  <div>
+    {isLoading ? <h2>Loading Products</h2> : 
       <div>
-       <strong>Sort by:</strong>
-      <label>
-        <input
-          type="radio"
-          value="Alphabetically"
-          name="sort"
-          checked={ sortBy === 'Alphabetically' }
-          onChange={sortProducts}
-        />
-        Alphabetically
-      </label>
+        {/* <strong>Sort by:</strong>
+          <label>
+            <input
+              type="radio"
+              value="Alphabetically"
+              name="sort"
+              checked={ sortBy === 'Alphabetically' }
+              onChange={sortProducts}
+            />
+            Alphabetically
+          </label>
       <label>
         <input
           type="radio"
@@ -116,7 +104,7 @@ const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, se
           onChange={sortProducts}
         />
         Price
-      </label>
+      </label> */}
       <Container>
 
       
@@ -166,6 +154,7 @@ const Form = styled.form `
     flex-direction:column;
     input{
         width: 100%;
+        height: 2vw;
         position: relative;
         font-family: 'Montserrat', Arial, sans-serif;
         font-size: calc(1px + 1vw);
@@ -176,14 +165,13 @@ const Form = styled.form `
         user-select: none;
         white-space: nowrap;
         filter: blur(0.007em);
-        border-radius:10px;
         margin-top:50px
 
     }
     textarea{
         width: 100%;
         position: relative;
-        font-family: 'Montserrat', Arial, sans-serif;
+        font-family: 'Dosis', sans-serif;
         font-size: calc(1px + 1vw);
         font-weight: 700;
         color: black;
@@ -196,8 +184,8 @@ const Form = styled.form `
         
     }
     input[type=submit]{
-        font-family: 'Monospace'; 
-        font-size: large;
+      font-family: 'Dosis', sans-serif;
+      font-size: large;
         background-color:#black;
         color:navy;
     }`

@@ -50,6 +50,8 @@ justify-content: center;
 align-items: center;
   // grid-row-gap: 0;
 //   width: 100%;
+display: grid;
+row-gap: 0; 
 `;
 
 
@@ -58,21 +60,26 @@ const Page = styled.div`
   height: 100vh;
   top: 0;
   left: 0;
+  align-items: center;
+  justify-content: center;
   /* background-image: url(); */
   background-color: rgb(27, 44, 77);
-
+  display: grid;
+  row-gap: 0; 
 `;
 const Image = styled.img`
-display: flex;
-justify-content:center; // centers in the flex direction and the default flex-direction is row
-align-items:center; // centers perpendicular to the flex direction
+// display: flex;
+// justify-content:center; // centers in the flex direction and the default flex-direction is row
+// align-items:center; // centers perpendicular to the flex direction
 height: 30vh; // 100% view height
-width: 15vw; // 100% view width
+width: 15vw; // 100% view 
+background-color: rgb(27, 44, 77);
+
 `;
 
 const Wrapper = styled.section`
   max-width: 400px;
-  margin: 10vh auto;
+  // margin: 10vh auto;
   padding: 16px;
   background-color: white;
   /* border-radius: 6px; */
@@ -84,7 +91,7 @@ const Logo = styled.img`
 const Divider = styled.hr`
   border: none;
   border-bottom: 1px solid #ccc;
-  margin: 16px 0 16px 0;
+  // margin: 16px 0 16px 0;
 `;
 const Button = styled.button`
   cursor: pointer;

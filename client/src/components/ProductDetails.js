@@ -64,6 +64,7 @@ useEffect(() => {
 
   return(
       <div>
+        <Container6>
           {isLoading ? <h2>Loading</h2> :
       <div>
         <Container4 onClick={backToStore}>
@@ -77,8 +78,8 @@ useEffect(() => {
     </div>
   </div>
 </div>           
-</Container4> 
 
+</Container4> 
             <Container>
             <Image src={productDetails.image_url} alt="Product" />
 
@@ -122,10 +123,15 @@ useEffect(() => {
             review={review}
           />
         ))}
+        </Container6>
       </div>
   )
 
 }
+
+const Container6 = styled.div`
+// background-image: url("https://cdn.wallpapersafari.com/90/7/KGe7I0.jpg")
+`
 
 const Card = styled.div`
 height: 2.5vw;

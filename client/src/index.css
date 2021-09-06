@@ -21,8 +21,8 @@ code {
 }
 
 h1 {
-  font-family: 'Marker Felt', fantasy;
-  font-size: larger
+  /* font-family: 'Marker Felt', fantasy; */
+  font-size:4vh;
 }
 
 .font-link {
@@ -70,7 +70,9 @@ button{
   /* border: 3px solid #2E6268; */
   transition: all .35s;
   justify-content: center;
-  font-size: 1vh;
+  font-size: 1.5vh;
+  font-family: 'Dosis', sans-serif;
+
 }
 
 .icon{
@@ -120,3 +122,7 @@ button:hover + .icon{
   width: 100%;
   height: 100px;
 } */
+
+.dosis {
+  font-family: 'Dosis', sans-serif;
+}

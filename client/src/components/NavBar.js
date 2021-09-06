@@ -14,13 +14,7 @@ const NavBar = ({ user, setUser, search, setSearch, handleChange, display, toDis
       }
     });
   }
-  // Pull history object using useHistory Hook
   let history = useHistory();
-
-  // Create Callback Function to handle "Back" Button
-//   function handleBack() {
-//     history.goBack();
-//   }
 
 function home(){
     history.push("/products")
@@ -28,23 +22,19 @@ function home(){
 
   return (
     <div>
-      {/* <Logo>
-        <Link to="/">
-          <img src={laurel} alt="logo" />
-        </Link>
-      </Logo> */}
       <Container>
           <Image src={logo} alt="Product" onClick={() => {home(); clearSearch()}}/>
-
-          <Container2>
+      <Search>
+          {/* <Container2> */}
           <Form>
             <input
               id="searchbox" 
               onChange={handleChange} 
-              type="text" placeholder="What are you looking for today?"/>
+              type="text" placeholder="What are you looking for? 🔍"/>
               {/* <input type='submit' value='Search'/> */}
             </Form>
-            <Container4>
+            {/* </Container2> */}
+            {/* <Container4> */}
               <form 
               onSubmit={display}
               >
@@ -58,8 +48,8 @@ function home(){
                   </div>
                 </div>     
               </form>
-            </Container4>
-      </Container2>
+            {/* </Container4> */}
+            </Search>
         <Nav>
           {/* <NavButton as={Link} to="/products">
 <div class="wrapper" >
@@ -73,7 +63,21 @@ function home(){
 </div>            
 </NavButton> */}
 
-          <NavButton as={Link} to="/cart">
+
+          
+          <NavButton as={Link} to="/user">
+          <div class="wrapper" >
+  <div class="link_wrapper">
+    <button>{user.username}</button>
+    <div class="icon">
+    <svg class="svg-icon" viewBox="0 0 20 20">
+    <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>    </svg>
+    </div>
+  </div>
+</div> 
+          </NavButton>
+
+          <NavButton as={Link} to={`/cart/${user.id}`}>
           <div class="wrapper" >
   <div class="link_wrapper">
     <button>Cart</button>
@@ -87,19 +91,8 @@ function home(){
 </div> 
           </NavButton>
           {cart > 0 ? <Icon>{cart}</Icon> : null}
-          <NavButton as={Link} to="/user">
-          <div class="wrapper" >
-  <div class="link_wrapper">
-    <button>{user.username}</button>
-    <div class="icon">
-    <svg class="svg-icon" viewBox="0 0 20 20">
-    <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>    </svg>
-    </div>
-  </div>
-</div> 
-          </NavButton>
 
-          <NavButton as={Link} to="/" onClick={handleLogout}>
+          {/* <NavButton as={Link} to="/" onClick={handleLogout}>
           <div class="wrapper" >
   <div class="link_wrapper">
     <button>Logout</button>
@@ -109,7 +102,7 @@ function home(){
     </div>
   </div>
 </div>  
-          </NavButton>
+          </NavButton> */}
           {/* <NavButton as={Link} to="/shopping">
             Shop All Products
           </NavButton> */}
@@ -118,6 +111,12 @@ function home(){
     </div>
   );
 };
+
+const Search = styled.div`
+margin-top: 20px;
+margin-bottom: 15px;
+`;
+
 const Container = styled.header`
   display: flex;
   // justify-content: center;
@@ -184,23 +183,27 @@ const Icon = styled.div`
 `;
 
 const Container2 = styled.div`
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  // margin-top: 50px;
+  // display: grid;
+  // grid-template-columns: 1ch 1ch;
+  // row-gap: 0; 
+
 `;
 
 const Container4 = styled.div`
-  margin-left: 10%;
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: 1fr ;
-  width: 100%;
+  // margin-left: 10%;
+  // margin-top: 50px;
+  // display: grid;
+  // grid-template-columns: 1fr ;
+  // width: 100%;
+  // padding: theme.spacing(2),
+
 
 `;
 
 const Form = styled.form `
     color: white;
-    font-family: Andale Mono, monospace;
+    // font-family: Andale Mono, monospace;
     font-size: 2em;
     margin:auto;
     padding:auto;
@@ -209,8 +212,9 @@ const Form = styled.form `
     
     input{
         width: 200%;
+        height: 2vw;
         position: relative;
-        font-family: 'Montserrat', Arial, sans-serif;
+        // font-family: 'Montserrat', Arial, sans-serif;
         font-size: calc(1px + 1vw);
         font-weight: 700;
         color: black;
@@ -219,15 +223,15 @@ const Form = styled.form `
         user-select: none;
         white-space: nowrap;
         filter: blur(0.007em);
-        border-radius:10px;
+        // border-radius:10px;
         margin-top:50px;
-        margin-right:50px
+        // margin-right:50px
 
 
     }
     textarea{
         position: relative;
-        font-family: 'Montserrat', Arial, sans-serif;
+        // font-family: 'Montserrat', Arial, sans-serif;
         font-size: calc(1px + 1vw);
         font-weight: 700;
         color: black;
@@ -241,8 +245,8 @@ const Form = styled.form `
     }
     button[type=submit]{
         width: 10%;
-
-     
+        
+        position: absolute;
     }`
 
 export default NavBar;
