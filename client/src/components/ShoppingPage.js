@@ -260,7 +260,9 @@ const Card5 = styled.div`
     background-size: cover;
     cursor: pointer;
     border: 6px solid #014D00;
-    color: #014D00;
+    // color: #014D00;
+    color: white;
+
     text-shadow: 2px 2px 8px #F2047D;
   }
 `;

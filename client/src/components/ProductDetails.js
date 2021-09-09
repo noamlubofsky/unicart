@@ -13,6 +13,7 @@ function ProductDetails({products, selectedProduct, handleAddCart, user}) {
     const [random, setRandom] = useState([])
     const [quantity, setQuantity] = useState(1);
     const [store, setStore] = useState({});
+    const [review, setReview] = useState(null);
 
     let history = useHistory();
 
@@ -45,6 +46,24 @@ useEffect(() => {
         // setIsLoading(false)
       });
   }, [id]);
+
+    const createReview = (content) => {
+    fetch("/reviews", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        product_id: id,
+        content: content,
+      }),
+    })
+      .then((response) => response.json())
+      .then((review) => setReviews([...reviews, review]));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createReview(review);
+  };
 
   function backToStore(){
     history.push(`/stores/${productDetails.store.id}`)
@@ -124,6 +143,21 @@ useEffect(() => {
           />
         ))}
         </Container6>
+
+        <form onSubmit={handleSubmit}>
+          <FormField>
+            <Label htmlFor="review">Write a Review</Label>
+            <Textarea
+              rows="3"
+              id="review"
+              value={review}
+              onChange={(e) => setReview(e.target.value)}
+            />
+          </FormField>
+          <FormField>
+            <Button type="submit">Submit</Button>
+          </FormField>
+        </form>
       </div>
   )
 
@@ -239,6 +273,57 @@ width: 5vw;
     text-shadow: 2px 2px 8px #7F55D0;
     color: silver;
     color: transparent;
+  }
+`;
+
+const FormField = styled.div`
+  &:not(:last-child) {
+    margin-bottom: 12px;
+    margin-left: 10%;
+    width: 40vw;
+    font-family: 'Dosis', sans-serif;
+  }
+`;
+
+const Label = styled.label`
+  color: #363636;
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+`;
+
+const Textarea = styled.textarea`
+  border-radius: 6px;
+  border: 1px solid transparent;
+  border-color: #dbdbdb;
+  -webkit-appearance: none;
+  max-width: 100%;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 4px;
+  resize: none;
+  font-family: 'Dosis', sans-serif;
+
+`;
+const Button = styled.button`
+margin-left: 10%;
+  cursor: pointer;
+  font-size: 1.3rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px 16px;
+  text-decoration: none;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-bottom: 20px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 `;
 
