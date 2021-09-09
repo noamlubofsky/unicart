@@ -32,7 +32,7 @@ function App() {
     // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => setUser(user))
       }
     });
   }, []);
@@ -53,7 +53,8 @@ function App() {
     });
     fetch("/products").then((r) => {
       if (r.ok) {
-        r.json().then((products) => setProducts(products));
+        r.json().then((products) => setProducts(products))
+        .then(history.push("/products"))
       }
     });
   }, []);
@@ -128,7 +129,14 @@ console.log(toDisplay)
 }
 
 const handleAddCart = (id, quantity, store) => {
-console.log(store)
+  let item = products.find((item) => item.id === id);
+
+  if (shoppingCart.some((cart) => cart.product.id === item.id)) {
+    let line = shoppingCart.find((cart) => cart.product.id === item.id);
+    console.log(line);
+    return updateCartItemQuantity(line.id, quantity);
+  }
+  
   fetch("/cart_items", {
     method: "POST",
     headers: {

@@ -72,7 +72,7 @@ button{
   justify-content: center;
   font-size: 1.5vh;
   font-family: 'Dosis', sans-serif;
-
+  border-radius: 20px;
 }
 
 .icon{
@@ -86,9 +86,19 @@ button{
   z-index: -1;
   transition: all .35s;
 }
-
+/* .cart{
+  width: 4vw;
+  height: 2vw;
+  border: 3px solid transparent;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: all .35s;
+} */
 .icon svg{
-  width: 2vw;
+  /* width: 2vw; */
   position: absolute;
   top: calc(50% - 1vw);
   left: calc(50% - 1vw);

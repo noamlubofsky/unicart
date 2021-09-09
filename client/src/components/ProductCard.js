@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product, selectedProduct, setSelectedProduct, handleSelect }) => {
+const ProductCard = ({ product }) => {
   const src = `/products/${product.id}`;
 
   return (
@@ -13,7 +13,6 @@ const ProductCard = ({ product, selectedProduct, setSelectedProduct, handleSelec
         <h2>{product.name}</h2>
         <h4>${product.price}</h4>
         <h4>{product.inventory} Left in Stock</h4>
-
       </MoreInfo>
     </Card>
   );
@@ -21,8 +20,8 @@ const ProductCard = ({ product, selectedProduct, setSelectedProduct, handleSelec
 
 const Image = styled.img`
 margin-top: 5px;
-  width: 10vw;
-  height: 15vw;
+width: 10vw;
+height: 15vw;
 `;
 
 const Card = styled.div`
@@ -30,21 +29,21 @@ margin-top: 10px;
 margin-bottom: 10px;
 margin-right: 10px;
 margin-left: 10px
-  height: 20vw;
-  width: 15vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-  border: 5px solid grey;
-  // box-shadow: 0 30px 40px rgba(0,0,0,.1);
-  // background: linear-gradient(to left, #CEDBE4, white 25%, white 75%, #CEDBE4 100%);
-  background-color: white;
+height: 20vw;
+width: 15vw;
+display: flex;
+flex-direction: column;
+justify-content: center; 
+align-items: center;
+text-align: center;
+border: 5px solid grey;
+background-color: white;
 
-  &:hover {
-    box-shadow: 0px 0px 15px 0px #848484;
-  }
+&:hover {
+  box-shadow: 0px 0px 15px 0px #848484;
+}
 `;
+
 const MoreInfo = styled.div`
   display: flex;
   cursor: pointer;
@@ -52,7 +51,8 @@ const MoreInfo = styled.div`
   justify-content: center;
   align-items: center;
   color: black;
- text-decoration: none;
+  text-decoration: none;
+  font-weight: bold;
 
 `;
 

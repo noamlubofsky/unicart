@@ -42,8 +42,7 @@ const Helpful = styled.div`
 `;
 
 const Line = styled.div`
-  border-bottom: 4px solid rgb(47, 98, 104);
-
+  border-bottom: 4px solid rgb(27, 44, 77)
 `
 
 const ReviewContainer = styled.div`

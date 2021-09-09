@@ -3,16 +3,13 @@ import styled from "styled-components";
 
 const Footer = () => {
   return (
-    // <div id="footer">
     <Content>
       <Info>
         <h1>UNICART</h1>
         <h5>All Stores. One Cart. That Easy.</h5>
         <h5>Noam Lubofsky - Capstone Project</h5>
       </Info>
-      
     </Content>
-    // </div>
   );
 };
 
@@ -24,7 +21,6 @@ const Content = styled.div`
   color: white;
   border-top: 4px solid #F05A27;
   float: bottom;
-
 `;
 
 const Info = styled.div`
