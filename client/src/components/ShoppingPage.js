@@ -259,7 +259,7 @@ const Card5 = styled.div`
     background-position: 100% -40%;
     background-size: cover;
     cursor: pointer;
-    border: 6px solid #014D00;
+    border: 6px solid #29166A;
     // color: #014D00;
     color: white;
 

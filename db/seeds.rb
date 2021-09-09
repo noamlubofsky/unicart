@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "🌱 Seeding"
 
+CartItem.destroy_all
 Review.destroy_all
 Product.destroy_all
 Store.destroy_all
