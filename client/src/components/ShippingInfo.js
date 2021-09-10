@@ -62,11 +62,11 @@ function ShippingInfo({user}){
         <div>
     <h1>Shipping Info:</h1>
     <form onSubmit={handleSubmit}>
-    <h2>Address: <input type="text" value={address} onChange={(e) => setAddress(e.target.value)}></input> </h2>
-    <h2>Address Line 2: <input type="text" value={address2} onChange={(e) => setAddress2(e.target.value)}></input> </h2>
-    <h2>City: <input type="text" value={city} onChange={(e) => setCity(e.target.value)}></input> </h2>
-    <h2>State: <input type="text" value={state} onChange={(e) => setState(e.target.value)}></input> </h2>
-    <h2>Zip Code: <input type="text" value={zip} onChange={(e) => setZip(e.target.value)}></input> </h2>
+    <h2>Address: <input type="text" value={address} placeholder={shipping ? shipping.address : null} onChange={(e) => setAddress(e.target.value)}></input> </h2>
+    <h2>Address Line 2: <input type="text" value={address2} placeholder={shipping ? shipping.address_2 : null} onChange={(e) => setAddress2(e.target.value)}></input> </h2>
+    <h2>City: <input type="text" value={city} placeholder={shipping ? shipping.city : null} onChange={(e) => setCity(e.target.value)}></input> </h2>
+    <h2>State: <input type="text" value={state} placeholder={shipping ? shipping.state : null} onChange={(e) => setState(e.target.value)}></input> </h2>
+    <h2>Zip Code: <input type="text" value={zip} placeholder={shipping ? shipping.zip : null} onChange={(e) => setZip(e.target.value)}></input> </h2>
     <span>
     <button type="submit">Save Info</button>
     <button onClick={editInfo}>Cancel Editing</button>

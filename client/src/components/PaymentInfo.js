@@ -63,11 +63,11 @@ function PaymentInfo({user}) {
         <div>
     <h1>Payment Info:</h1>
     <form onSubmit={handleSubmit}>
-    <h2>Card Type: <input type="text" value={type} onChange={(e) => setType(e.target.value)}></input> </h2>
-    <h2>Name on Card: <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input> </h2>
-    <h2>Card Number: <input type="text" value={number} onChange={(e) => setNumber(e.target.value)}></input> </h2>
-    <h2>Expiration: <input type="text" value={expiration} onChange={(e) => setExpiration(e.target.value)}></input> </h2>
-    <h2>CVV: <input type="text" value={cvv} onChange={(e) => setCvv(e.target.value)}></input> </h2>
+    <h2>Card Type: <input type="text" value={type} placeholder={payment ? payment.card_typepayment : null} onChange={(e) => setType(e.target.value)}></input> </h2>
+    <h2>Name on Card: <input type="text" value={name} placeholder={payment ? payment.name_on_card : null} onChange={(e) => setName(e.target.value)}></input> </h2>
+    <h2>Card Number: <input type="text" value={number} placeholder={payment ? payment.card_number : null} onChange={(e) => setNumber(e.target.value)}></input> </h2>
+    <h2>Expiration: <input type="text" value={expiration} placeholder={payment ? payment.expiration : null} onChange={(e) => setExpiration(e.target.value)}></input> </h2>
+    <h2>CVV: <input type="text" value={cvv} placeholder={payment ? payment.cvv : null} onChange={(e) => setCvv(e.target.value)}></input> </h2>
     <span> 
     <button type="submit">Save Info</button>
     <button onClick={editInfo}>Cancel Editing</button>
