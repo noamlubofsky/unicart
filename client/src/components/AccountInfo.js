@@ -38,20 +38,20 @@ function AccountInfo({user}) {
       const handleSubmit = (e) => {
         e.preventDefault();
         createAccountInfo(first, last, email);
-        // fetch(`/account_infos/${id}`)
-        // .then((res) => res.json())
-        // .then((data) => {
-        //   setInfo(data);
-        // });
+        fetch(`/account_infos/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setInfo(data);
+        });
       };
 
       const editInfo = () => {
           setEdit(!edit)
-        //      fetch(`/account_infos/${id}`)
-        // .then((res) => res.json())
-        // .then((data) => {
-        //   setInfo(data);
-        // });
+             fetch(`/account_infos/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setInfo(data);
+        });
       }
 
     return(
@@ -73,9 +73,9 @@ function AccountInfo({user}) {
         : 
         <div>
         <h1>Account Info:</h1>
-        <h2>First Name: {info.first_name}</h2>
-        <h2>Last Name: {info.last_name}</h2>
-        <h2>Email Address: {info.email}</h2>
+        <h2>First Name: {info ? info.first_name : null}</h2>
+        <h2>Last Name: {info ? info.last_name : null}</h2>
+        <h2>Email Address: {info ? info.email : null}</h2>
         <button onClick={editInfo}>Edit Info</button>
         <br></br>
         </div>

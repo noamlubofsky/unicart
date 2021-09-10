@@ -1,17 +1,9 @@
 class AccountInfosController < ApplicationController
     wrap_parameters format: []
 
-    # def show
-    #     product = Product.find(params[:id])
-    #     if product
-    #         render json: product.reviews
-    #     else
-    #         render json: {error: "Product not found"}, status: :unprocessable_entity
-    #     end
-    # end
-
     def show
-        info = AccountInfo.last
+        user = @current_user
+        info = user.account_info.last
         render json: info
     end
 

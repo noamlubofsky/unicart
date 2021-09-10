@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_secure_password
     has_many :payment_info, dependent: :destroy
     has_many :shipping_info, dependent: :destroy
     has_one :shopping_cart, dependent: :destroy

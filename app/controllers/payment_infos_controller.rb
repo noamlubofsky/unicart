@@ -1,17 +1,10 @@
 class PaymentInfosController < ApplicationController
         wrap_parameters format: []
 
-    # def show
-    #     product = Product.find(params[:id])
-    #     if product
-    #         render json: product.reviews
-    #     else
-    #         render json: {error: "Product not found"}, status: :unprocessable_entity
-    #     end
-    # end
 
     def show
-        payment = PaymentInfo.last
+        user = @current_user
+        payment = user.payment_info.last
         render json: payment
     end
 

@@ -1,17 +1,9 @@
 class ShippingInfosController < ApplicationController
     wrap_parameters format: []
 
-    # def show
-    #     product = Product.find(params[:id])
-    #     if product
-    #         render json: product.reviews
-    #     else
-    #         render json: {error: "Product not found"}, status: :unprocessable_entity
-    #     end
-    # end
-
     def show
-        shipping = ShippingInfo.last
+        user = @current_user
+        shipping = user.shipping_info.last
         render json: shipping
     end
 
