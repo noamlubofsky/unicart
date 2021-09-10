@@ -78,6 +78,7 @@ const Container = styled.div`
 //   margin-left: auto;
 //   margin-right: 70px;
   margin-top: 4vh;
+  margin-bottom: 5vh;
   display: grid;
   grid-template-columns: 10vw 20vw 10vw 20vw 10vw 20vw;
   grid-row-gap: 6vh;

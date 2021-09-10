@@ -54,7 +54,7 @@ function App() {
     fetch("/products").then((r) => {
       if (r.ok) {
         r.json().then((products) => setProducts(products))
-        .then(history.push("/products"))
+        // .then(history.push("/products"))
       }
     });
   }, []);
@@ -136,7 +136,7 @@ const handleAddCart = (id, quantity, store) => {
     console.log(line);
     return updateCartItemQuantity(line.id, quantity);
   }
-  
+
   fetch("/cart_items", {
     method: "POST",
     headers: {

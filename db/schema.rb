@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_191955) do
+ActiveRecord::Schema.define(version: 2021_09_10_141532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_infos", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_account_infos_on_user_id"
+  end
 
   create_table "cart_items", force: :cascade do |t|
     t.bigint "store_id", null: false
@@ -31,6 +41,18 @@ ActiveRecord::Schema.define(version: 2021_08_31_191955) do
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payment_infos", force: :cascade do |t|
+    t.string "card_type"
+    t.string "name_on_card"
+    t.string "card_number"
+    t.string "expiration"
+    t.integer "cvv"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_payment_infos_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -56,6 +78,18 @@ ActiveRecord::Schema.define(version: 2021_08_31_191955) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "shipping_infos", force: :cascade do |t|
+    t.string "address"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shipping_infos_on_user_id"
+  end
+
   create_table "shopping_carts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -78,12 +112,15 @@ ActiveRecord::Schema.define(version: 2021_08_31_191955) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "account_infos", "users"
   add_foreign_key "cart_items", "products"
   add_foreign_key "cart_items", "shopping_carts"
   add_foreign_key "cart_items", "stores"
+  add_foreign_key "payment_infos", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "stores"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
+  add_foreign_key "shipping_infos", "users"
   add_foreign_key "shopping_carts", "users"
 end

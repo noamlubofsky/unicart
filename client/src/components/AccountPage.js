@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
+import AccountInfo from "./AccountInfo";
+import ShippingInfo from "./ShippingInfo"
+import PaymentInfo from "./PaymentInfo";
 
 function AccountPage({user, setUser}) {
     let history = useHistory();
+    const [account, setAccount] = useState(false);
+    const [payment, setPayment] = useState(false);
+    const [shipping, setShipping] = useState(false);
 
     function handleLogout() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -13,30 +19,52 @@ function AccountPage({user, setUser}) {
         });
     }
 
+    const showAccountInfo = () => {
+        setPayment(false)
+        setShipping(false)
+        setAccount(true)
+    }
+
+    const showPaymentInfo = () => {
+        setAccount(false)
+        setShipping(false)
+        setPayment(true)
+    }
+
+    const showShippingInfo = () => {
+        setAccount(false)
+        setPayment(false)
+        setShipping(true)
+    }
+
 return(
     <AccountContainer>
     <div>
     <h1>Hello, {user.username}!</h1>
     <br></br>
 
-    <h1>Account Info:</h1>
-    <h2>Username: {user.username}</h2>
-    <br></br>
+    <span>
+        <button onClick={showAccountInfo}>Account Info</button>
+        <button onClick={showPaymentInfo}>Payment Info</button>
+        <button onClick={showShippingInfo}>Shipping Info</button>
+    </span>
 
-    <h1>Shipping Info:</h1>
-    <h2>Address: </h2>
-    <h2>Address Line 2: </h2>
-    <h2>City: </h2>
-    <h2>State: </h2>
-    <h2>Zip Code: </h2>
-    <br></br>
+{!account ? null :
+<div>
+ <AccountInfo user={user}/>
+    </div>
+}
+{!shipping ? null : 
+<div>
+<ShippingInfo user={user}/>
+    </div>
+}
+{!payment ? null :
+<div>
+<PaymentInfo user={user}/>
+    </div>
+}
 
-    <h1>Payment Info:</h1>
-    <h2>Card Type: </h2>
-    <h2>Card Number: </h2>
-    <h2>Expiration: </h2>
-    <h2>CVV: </h2>
-    <br></br>
 <br></br>
     <NavButton as={Link} to="/" onClick={handleLogout}>
           <div class="wrapper" >

@@ -106,8 +106,8 @@ font-size: 1.5vh;
 font-family: 'Dosis', sans-serif;
 border-radius: 20px;
 &:hover {
-    // width: 12vw;
-    height: 3vw;
+    width: 12vw;
+    // height: 3vw;
     border: 3px solid #F5931F;
     background: transparent;
     color: #F05A27;
