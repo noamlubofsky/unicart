@@ -10,6 +10,7 @@ import StorePage from "./components/StorePage";
 import ShoppingCart from "./components/ShoppingCart";
 import AccountPage from "./components/AccountPage";
 import {useHistory} from "react-router";
+import { useParams } from "react-router-dom";
 
 
 
@@ -24,9 +25,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [search, setSearch] = useState('')
   const [toDisplay, setToDisplay] = useState([])
-  // const [userCart, setUserCart] = useState(null)
+  const [userCart, setUserCart] = useState([])
 
   let history = useHistory();
+  const id = useParams().id;
 
   useEffect(() => {
     // auto-login
@@ -46,7 +48,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/cart_items").then((r) => {
+    fetch(`/cart_items/${id}`).then((r) => {
       if (r.ok) {
         r.json().then((cart) => setShoppingCart(cart));
       }
@@ -58,6 +60,18 @@ function App() {
       }
     });
   }, []);
+
+  // useEffect(() => {
+  //   fetch(`/shopping_carts/${id}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setUserCart(data);
+  //     });
+  // }, [id]);
+
+  
+  // const userCartItems = shoppingCart.filter(item => 
+  //   item.shopping_cart.id === userCart.id)
 
 const clothes = stores[0]
 const electronics = stores[1]
@@ -204,6 +218,8 @@ const removeFromCart = (CartItemID) => {
         searchProducts={searchProducts} 
         clearSearch={clearSearch} 
         cart={shoppingCart.length}
+        shoppingCart={shoppingCart}
+        // cart={userCartItems.length}
       />
 
       <main>

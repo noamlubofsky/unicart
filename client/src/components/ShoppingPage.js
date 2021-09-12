@@ -9,7 +9,7 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
 
     function main(){
         setFromMain(true)
-        console.log(fromMain)
+        // console.log(fromMain)
     }
 
     function toProducts(){

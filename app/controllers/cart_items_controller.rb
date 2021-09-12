@@ -7,6 +7,12 @@ class CartItemsController < ApplicationController
         render json: items
     end
 
+    #     def index
+    #     user = User.find(params[:id])
+    #         render json: user.cart_items.all
+
+    # end
+
     def create 
         user = @current_user
         item = user.shopping_cart.cart_items.create(item_params)

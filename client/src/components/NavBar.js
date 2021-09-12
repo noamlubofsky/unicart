@@ -1,14 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import {Route, Switch} from "react-router-dom";
 import logo from "./assets/logo.png";
 import cartpic from "./assets/cart.svg";
+import { useParams } from "react-router-dom";
 
 
-const NavBar = ({ user, handleChange, display, clearSearch, cart }) => {
+const NavBar = ({ user, handleChange, display, clearSearch, shoppingCart }) => {
 
 let history = useHistory();
+const id = useParams().id;
+
+const [cart, setCart] = useState([])
+
+useEffect(() => {
+  fetch(`/shopping_carts/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setCart(data);
+    });
+}, [id]);
+
+const userCartItems = shoppingCart.filter(item => 
+  item.shopping_cart.id === cart.id)
 
 function home(){
     history.push("/products")
@@ -58,7 +73,7 @@ function home(){
 </div> 
           </NavButton>
 
-          <NavButton as={Link} to={`/cart/${user.id}`}>
+          <NavButton as={Link} to={`/cart`}>
           {/* <div class="wrapper" >
   <div class="link_wrapper">
     <div class="cart">
@@ -69,7 +84,7 @@ function home(){
 <CartIcon>
     <CartImage src={cartpic} alt="cart" />
   
-          <Amount>{cart}</Amount>
+          <Amount>{userCartItems.length}</Amount>
           {/* <CartText>Cart</CartText> */}
           </CartIcon>
           </NavButton>

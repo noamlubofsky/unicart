@@ -2,30 +2,43 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CartItem from "./CartItem"
 import {useHistory} from "react-router";
+import { useParams } from "react-router-dom";
 
 
-function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart, user}) {
+function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
   let history = useHistory();
+  const id = useParams().id;
 
-  const shop = () => {
-    history.push("/products")
-  }
+  const [cart, setCart] = useState([])
 
-  let totals = shoppingCart.map((item) => (item.quantity * item.product.price))
-  console.log(totals)
+  useEffect(() => {
+    fetch(`/shopping_carts/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCart(data);
+      });
+  }, [id]);
+  
+  const userCartItems = shoppingCart.filter(item => 
+    item.shopping_cart.id === cart.id)
+    
+    const shop = () => {
+      history.push("/products")
+    }
+
+  let totals = userCartItems.map((item) => (item.quantity * item.product.price))
+  // console.log(totals)
 
   var totalPrice = totals.reduce(function(prev, cur) {
     return prev + cur;
   }, 0);
 
-  const userCartItems = shoppingCart.filter(item => 
-    item.user_id !== user.id)
 
     return(
       <Container>
       <div>
 
-        {!shoppingCart.length ? 
+        {!userCartItems.length ? 
         <Container1>
         <div><Empty>Your Cart is Empty ☹️</Empty>
         <br></br>          
