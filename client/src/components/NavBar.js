@@ -85,7 +85,6 @@ function home(){
     <CartImage src={cartpic} alt="cart" />
   
           <Amount>{userCartItems.length}</Amount>
-          {/* <CartText>Cart</CartText> */}
           </CartIcon>
           </NavButton>
 
