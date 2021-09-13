@@ -113,7 +113,6 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 1.3rem;
   border: 1px solid transparent;
-  /* border-radius: 6px; */
   padding: 8px 16px;
   text-decoration: none;
   width: 100%;
