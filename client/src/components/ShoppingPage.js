@@ -1,6 +1,5 @@
 import React from "react";
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
 import {useHistory} from "react-router";
 
 function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMusic, toAll, fromMain, setFromMain,
@@ -18,15 +17,7 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
 
     return(
         <div>
-    {/* <Card 
-      onClick={toProducts}>
 
-        <h2>Browse All Products</h2>
-    </Card>
-    <br></br> */}
-      {/* <div>
-    <Header>Search all Products or Shop by Store</Header>
-    </div> */}
     <Container>
       
 <br></br>
