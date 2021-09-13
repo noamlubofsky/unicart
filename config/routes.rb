@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :account_infos
   resources :shipping_infos
+  resources :account_infos
   resources :payment_infos
   resources :cart_items
   resources :reviews, only: [:show, :create]

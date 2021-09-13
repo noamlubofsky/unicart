@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import ShippingCard from "./ShippingCard"
 import styled from "styled-components";
 
-function ShippingInfo({user}){
+function CheckoutShipping({toSummary, toPayment, user, setSelectedShipping}) {
     const [shipping, setShipping] = useState([])
     const [shipTo, setShipTo] = useState(null)
     const [address, setAddress] = useState(null)
@@ -11,17 +11,16 @@ function ShippingInfo({user}){
     const [state, setState] = useState(null)
     const [zip, setZip] = useState(null)
     const [edit, setEdit] = useState(false)
-    const id = useParams().id;
 
     useEffect(() => {
-        fetch(`/shipping_infos/${id}`)
+        fetch(`/shipping_infos`)
           .then((res) => res.json())
           .then((data) => {
             setShipping(data);
           });
-      }, [id]);
+      }, []);
 
-    const createShippingInfo = (shipTo, address, address2, city, state, zip) => {
+      const createShippingInfo = (shipTo, address, address2, city, state, zip) => {
         fetch("/shipping_infos", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -42,7 +41,7 @@ function ShippingInfo({user}){
       const handleSubmit = (e) => {
         e.preventDefault();
         createShippingInfo(shipTo, address, address2, city, state, zip);
-        fetch(`/shipping_infos/${id}`)
+        fetch(`/shipping_infos`)
         .then((res) => res.json())
         .then((data) => {
           setShipping(data);
@@ -51,7 +50,7 @@ function ShippingInfo({user}){
 
       const editInfo = () => {
           setEdit(!edit)
-             fetch(`/shipping_infos/${id}`)
+             fetch(`/shipping_infos`)
         .then((res) => res.json())
         .then((data) => {
           setShipping(data);
@@ -60,9 +59,23 @@ function ShippingInfo({user}){
 
     return(
         <div>
-            {edit ? 
+        <button onClick={toSummary}>Back to Order Summary</button>
+
+        <h1>Select Your Shipping Address</h1>
+        {shipping.map(address => (
+          <ShippingCard
+            key={address.id}
+            address={address}
+            toPayment={toPayment}
+            setSelectedShipping={setSelectedShipping}
+          />
+        ))}
+        {!edit ? <Button onClick={editInfo}>Add New Shipping Address</Button> : null }
+
+
+        {!edit ? null :  
         <div>
-    <h1>Shipping Info:</h1>
+    <h1>New Shipping Info:</h1>
     <form onSubmit={handleSubmit}>
     <h2>Ship To: <input type="text" value={shipTo} placeholder={shipping ? shipping.ship_to : null} onChange={(e) => setShipTo(e.target.value)}></input> </h2>
     <h2>Address: <input type="text" value={address} placeholder={shipping ? shipping.address : null} onChange={(e) => setAddress(e.target.value)}></input> </h2>
@@ -71,27 +84,31 @@ function ShippingInfo({user}){
     <h2>State: <input type="text" value={state} placeholder={shipping ? shipping.state : null} onChange={(e) => setState(e.target.value)}></input> </h2>
     <h2>Zip Code: <input type="text" value={zip} placeholder={shipping ? shipping.zip : null} onChange={(e) => setZip(e.target.value)}></input> </h2>
     <span>
-    <button type="submit">Save Info</button>
-    <button onClick={editInfo}>Cancel Editing</button>
+    <button type="submit">Add Address</button>
+    {/* <button onClick={editInfo}>Cancel Editing</button> */}
     </span>
     </form>
     <br></br>
-    </div>
-        : 
-        <div>
-    <h1>Shipping Info:</h1>
-    <h2>Ship To: {shipping ? shipping.ship_to : null} </h2>
-    <h2>Address: {shipping ? shipping.address : null} </h2>
-    <h2>Address Line 2: {shipping ? shipping.address_2 : null} </h2>
-    <h2>City: {shipping ? shipping.city : null} </h2>
-    <h2>State: {shipping ? shipping.state : null} </h2>
-    <h2>Zip Code: {shipping ? shipping.zip : null} </h2>
-    <button onClick={editInfo}>Edit Info</button>
-    <br></br>
-    </div>
-        }
-    </div>
+    </div> }
+        </div>
     )
 }
 
-export default ShippingInfo;
+const Button = styled.button`
+
+  height: 5vw;
+  width: 25vw;
+justify-content: center;
+align-items: center;
+margin-left: 40%;
+margin-bottom: 10vh;
+&:hover {
+    width: 25vw;
+    // height: 3vw;
+    border: 3px solid #F5931F;
+    background: transparent;
+    color: #F05A27;
+    cursor: pointer;
+`;
+
+export default CheckoutShipping

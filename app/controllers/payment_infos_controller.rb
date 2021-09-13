@@ -1,6 +1,11 @@
 class PaymentInfosController < ApplicationController
         wrap_parameters format: []
 
+        def index
+            user = @current_user
+            payment = user.payment_info.all
+            render json: payment
+        end
 
     def show
         user = @current_user

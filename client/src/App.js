@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import StorePage from "./components/StorePage";
 import ShoppingCart from "./components/ShoppingCart";
 import AccountPage from "./components/AccountPage";
+import Checkout from "./components/Checkout";
 import {useHistory} from "react-router";
 import { useParams } from "react-router-dom";
 
@@ -48,7 +49,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch(`/cart_items/${id}`).then((r) => {
+    fetch(`/cart_items`).then((r) => {
       if (r.ok) {
         r.json().then((cart) => setShoppingCart(cart));
       }
@@ -56,7 +57,7 @@ function App() {
     fetch("/products").then((r) => {
       if (r.ok) {
         r.json().then((products) => setProducts(products))
-        // .then(history.push("/products"))
+        .then(history.push("/products"))
       }
     });
   }, []);
@@ -313,6 +314,18 @@ const removeFromCart = (CartItemID) => {
             <AccountPage 
               user={user}
               setUser={setUser}
+            />
+          </Route>
+          <Route path="/checkout">
+            <Checkout
+              shoppingCart={shoppingCart}
+              clothes={clothes}
+              electronics={electronics}
+              tools={tools}
+              health={health}
+              music={music}
+              all={all}
+              user={user}
             />
           </Route>
         </Switch>

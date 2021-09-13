@@ -14,6 +14,10 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
         removeFromCart(item.id)
     }
 
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
 
     return(
         <div>
@@ -55,7 +59,7 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
                             </div>
                         </div>
                         </Remove>
-                    <Price>${item.product.price * item.quantity}</Price>
+                    <Price>${numberWithCommas(item.product.price * item.quantity)}</Price>
                 {/* </ItemContainer> */}
             </Container>
                 <Line/>
