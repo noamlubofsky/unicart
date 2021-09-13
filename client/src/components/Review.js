@@ -15,7 +15,7 @@ function Review({review}) {
             <ReviewContainer>
             <Reviewer><strong>{review.user.username}</strong> said:</Reviewer>
         <ReviewText>"{review.content}"</ReviewText>
-        <Helpful>Was this review helpful? <button onClick={thanks}>YES</button><button onClick={sorry}>NO</button></Helpful>
+        <Helpful>Was this review helpful? <button onClick={thanks}>Yes</button><button onClick={sorry}>No</button></Helpful>
         <Line></Line>
         </ReviewContainer>
         </div>

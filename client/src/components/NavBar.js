@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
-import {Route, Switch} from "react-router-dom";
 import logo from "./assets/logo.png";
 import cartpic from "./assets/cart.svg";
 import { useParams } from "react-router-dom";
