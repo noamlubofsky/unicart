@@ -60,9 +60,9 @@ function AccountInfo({user}) {
     <div>
     <h1>Account Info:</h1>
     <form onSubmit={handleSubmit}>
-    <h2>First Name: <input type="text" value={first} placeholder={info ? info.first_name : null} onChange={(e) => setFirst(e.target.value)}></input></h2>
-    <h2>Last Name: <input type="text" value={last} placeholder={info ? info.last_name : null} onChange={(e) => setLast(e.target.value)}></input></h2>
-    <h2>Email Address: <input type="text" value={email} placeholder={info ? info.email : null} onChange={(e) => setEmail(e.target.value)}></input></h2>
+    <h2>First Name: <input required type="text" value={first} placeholder={info ? info.first_name : null} onChange={(e) => setFirst(e.target.value)}></input></h2>
+    <h2>Last Name: <input required type="text" value={last} placeholder={info ? info.last_name : null} onChange={(e) => setLast(e.target.value)}></input></h2>
+    <h2>Email Address: <input required type="text" value={email} placeholder={info ? info.email : null} onChange={(e) => setEmail(e.target.value)}></input></h2>
     <span>
     <button type="submit">Save Info</button>
     <button onClick={editInfo}>Cancel Editing</button>
@@ -76,7 +76,7 @@ function AccountInfo({user}) {
         <h2>First Name: {info ? info.first_name : null}</h2>
         <h2>Last Name: {info ? info.last_name : null}</h2>
         <h2>Email Address: {info ? info.email : null}</h2>
-        <button onClick={editInfo}>Edit Info</button>
+        <button onClick={editInfo}>Edit Account Info</button>
         <br></br>
         </div>
         
@@ -84,5 +84,6 @@ function AccountInfo({user}) {
         </div>
     )
 }
+
 
 export default AccountInfo;

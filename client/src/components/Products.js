@@ -36,7 +36,7 @@ clothes, electronics, tools, health, music, all, handleSelect, search, setSearch
     
 function main(){
     setFromMain(false)
-    console.log(fromMain)
+    // console.log(fromMain)
 }
 
 useEffect(() => {
@@ -78,7 +78,7 @@ useEffect(() => {
 
 // Get sub-array of first n elements after shuffled
 let selected = shuffled.slice(0, 3);
-console.log(selected)
+// console.log(selected)
 
 
   return (

@@ -32,6 +32,10 @@ class CartItemsController < ApplicationController
         head :no_content
     end
 
+    def clear
+        user = @current_user
+        user.shopping_cart.cart_items.delete_all
+    end
 
     private
 

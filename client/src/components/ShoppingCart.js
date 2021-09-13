@@ -60,7 +60,9 @@ function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
 </Container1>: 
         <div>
           <div>
+            <Header>
           <YourCart>Your Cart</YourCart>
+          </Header>
           <br></br>
           <Price>Price</Price>
           <Line/>
@@ -90,12 +92,17 @@ function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
     )
 }
 
+const Header = styled.div`
+// margin-bottom: 3%;
+`;
+
 const YourCart = styled.div`
 float: left;
-margin-left: 10px;
+margin-left: 3%;
 font-size: 6vh;
 font-weight: bold;
 margin-bottom: 5px;
+font-family: 'Dosis', sans-serif;
 `;
 
 const Price = styled.div`
@@ -103,6 +110,8 @@ float: right;
 margin-bottom: 5px;
 font-size: 4vh;
 margin-right: 14%;
+font-family: 'Dosis', sans-serif;
+
 `;
 
 const CheckoutButton = styled.button`
@@ -117,8 +126,10 @@ width: 25vh;
 const Total = styled.div`
 float: right;
 margin-bottom: 5px;
-font-size: 4vh;
+font-size: 6vh;
 margin-right: 10%;
+font-family: 'Dosis', sans-serif;
+
 `;
 
 const Line = styled.div`

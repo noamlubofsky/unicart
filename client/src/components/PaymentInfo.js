@@ -63,11 +63,11 @@ function PaymentInfo({user}) {
         <div>
     <h1>Payment Info:</h1>
     <form onSubmit={handleSubmit}>
-    <h2>Card Type: <input type="text" value={type} placeholder={payment ? payment.card_typepayment : null} onChange={(e) => setType(e.target.value)}></input> </h2>
-    <h2>Name on Card: <input type="text" value={name} placeholder={payment ? payment.name_on_card : null} onChange={(e) => setName(e.target.value)}></input> </h2>
-    <h2>Card Number: <input type="text" value={number} placeholder={payment ? payment.card_number : null} onChange={(e) => setNumber(e.target.value)}></input> </h2>
-    <h2>Expiration: <input type="text" value={expiration} placeholder={payment ? payment.expiration : null} onChange={(e) => setExpiration(e.target.value)}></input> </h2>
-    <h2>CVV: <input type="text" value={cvv} placeholder={payment ? payment.cvv : null} onChange={(e) => setCvv(e.target.value)}></input> </h2>
+    <h2>Card Type: <input required type="text" value={type} placeholder={payment ? payment.card_typepayment : null} onChange={(e) => setType(e.target.value)}></input> </h2>
+    <h2>Name on Card: <input required type="text" value={name} placeholder={payment ? payment.name_on_card : null} onChange={(e) => setName(e.target.value)}></input> </h2>
+    <h2>Card Number: <input required type="text" value={number} placeholder={payment ? payment.card_number : null} onChange={(e) => setNumber(e.target.value)}></input> </h2>
+    <h2>Expiration: <input required type="text" value={expiration} placeholder={payment ? payment.expiration : null} onChange={(e) => setExpiration(e.target.value)}></input> </h2>
+    <h2>CVV: <input required type="text" value={cvv} placeholder={payment ? payment.cvv : null} onChange={(e) => setCvv(e.target.value)}></input> </h2>
     <span> 
     <button type="submit">Save Info</button>
     <button onClick={editInfo}>Cancel Editing</button>
@@ -78,12 +78,12 @@ function PaymentInfo({user}) {
         : 
         <div>
         <h1>Payment Info:</h1>
-        <h2>Card Type: {payment ? payment.card_typepayment : null} </h2>
+        <h2>Card Type: {payment ? payment.card_type : null} </h2>
         <h2>Name on Card: {payment ? payment.name_on_card : null} </h2>
         <h2>Card Number: {payment ? payment.card_number : null} </h2>
         <h2>Expiration: {payment ? payment.expiration : null} </h2>
         <h2>CVV: {payment ? payment.cvv : null} </h2>
-        <button onClick={editInfo}>Edit Info</button>
+        <button onClick={editInfo}>Change Default Payment</button>
         <br></br>
         </div> 
         }

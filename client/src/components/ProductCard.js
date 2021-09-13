@@ -53,7 +53,7 @@ const MoreInfo = styled.div`
   color: black;
   text-decoration: none;
   font-weight: bold;
-
+  // font-family: 'Dosis', sans-serif;
 `;
 
 

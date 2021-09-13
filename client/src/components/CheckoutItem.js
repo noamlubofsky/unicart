@@ -20,7 +20,7 @@ function CheckoutItem({item}) {
                     <h1>{item.product.name}</h1>
                     </ProductInfo>
                     <Quantity>
-                    <h1>Quantity: {item.quantity}</h1>
+                    <h2>Quantity: {item.quantity}</h2>
                             <br></br>
                         </Quantity>
                             
@@ -36,11 +36,11 @@ const Container = styled.div`
 // float: right;
 // margin-right: 5%;
 margin-left: 5%;
-margin-bottom: 10px;
+// margin-bottom: 10px;
 display: grid;
-grid-template-columns: 1fr 2fr 2fr 2fr ;
+grid-template-columns: 1fr 1fr 1fr 2fr ;
 // row-gap: 20vh;
-width: 100%;
+width: 80%;
 `;
 
 const Line = styled.div`
@@ -50,7 +50,7 @@ border-bottom: 4px solid rgb(27, 44, 77)
 
 const Price = styled.div`
 float: right;
-margin-bottom: 5px;
+margin-top: 5px;
 font-size: 4vh;
 margin-right: 10%;
 `
@@ -105,8 +105,8 @@ grid-row-gap: 2vh;
 `
 
 const Image = styled.img`
-margin-top: 5px;
-margin-right: 10%;
+margin-top: 15px;
+// margin-right: 10%;
 width: 5vw;
 height: 5vw;
 `;

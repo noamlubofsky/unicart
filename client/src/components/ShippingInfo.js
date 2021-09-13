@@ -64,12 +64,12 @@ function ShippingInfo({user}){
         <div>
     <h1>Shipping Info:</h1>
     <form onSubmit={handleSubmit}>
-    <h2>Ship To: <input type="text" value={shipTo} placeholder={shipping ? shipping.ship_to : null} onChange={(e) => setShipTo(e.target.value)}></input> </h2>
-    <h2>Address: <input type="text" value={address} placeholder={shipping ? shipping.address : null} onChange={(e) => setAddress(e.target.value)}></input> </h2>
+    <h2>Ship To: <input required type="text" value={shipTo} placeholder={shipping ? shipping.ship_to : null} onChange={(e) => setShipTo(e.target.value)}></input> </h2>
+    <h2>Address: <input required type="text" value={address} placeholder={shipping ? shipping.address : null} onChange={(e) => setAddress(e.target.value)}></input> </h2>
     <h2>Address Line 2: <input type="text" value={address2} placeholder={shipping ? shipping.address_2 : null} onChange={(e) => setAddress2(e.target.value)}></input> </h2>
-    <h2>City: <input type="text" value={city} placeholder={shipping ? shipping.city : null} onChange={(e) => setCity(e.target.value)}></input> </h2>
-    <h2>State: <input type="text" value={state} placeholder={shipping ? shipping.state : null} onChange={(e) => setState(e.target.value)}></input> </h2>
-    <h2>Zip Code: <input type="text" value={zip} placeholder={shipping ? shipping.zip : null} onChange={(e) => setZip(e.target.value)}></input> </h2>
+    <h2>City: <input required type="text" value={city} placeholder={shipping ? shipping.city : null} onChange={(e) => setCity(e.target.value)}></input> </h2>
+    <h2>State: <input required type="text" value={state} placeholder={shipping ? shipping.state : null} onChange={(e) => setState(e.target.value)}></input> </h2>
+    <h2>Zip Code: <input required type="text" value={zip} placeholder={shipping ? shipping.zip : null} onChange={(e) => setZip(e.target.value)}></input> </h2>
     <span>
     <button type="submit">Save Info</button>
     <button onClick={editInfo}>Cancel Editing</button>
@@ -86,7 +86,7 @@ function ShippingInfo({user}){
     <h2>City: {shipping ? shipping.city : null} </h2>
     <h2>State: {shipping ? shipping.state : null} </h2>
     <h2>Zip Code: {shipping ? shipping.zip : null} </h2>
-    <button onClick={editInfo}>Edit Info</button>
+    <button onClick={editInfo}>Change Default Shipping</button>
     <br></br>
     </div>
         }

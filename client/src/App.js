@@ -124,13 +124,13 @@ const clearSearch = () => {
 
 const handleSelect = (product) => {
  setSelectedProduct(product)
- console.log(selectedProduct)
+//  console.log(selectedProduct)
 }
 
 const handleChange = (e) => {
   e.preventDefault()
   setSearch(e.target.value)
-  console.log(search)
+  // console.log(search)
 }
 
 const searchProducts = products.filter(product => 
@@ -140,7 +140,7 @@ const searchProducts = products.filter(product =>
 const display = (e) => {
     e.preventDefault()
 setToDisplay(searchProducts)
-console.log(toDisplay)    
+// console.log(toDisplay)    
 }
 
 const handleAddCart = (id, quantity, store) => {
@@ -148,7 +148,7 @@ const handleAddCart = (id, quantity, store) => {
 
   if (shoppingCart.some((cart) => cart.product.id === item.id)) {
     let line = shoppingCart.find((cart) => cart.product.id === item.id);
-    console.log(line);
+    // console.log(line);
     return updateCartItemQuantity(line.id, quantity);
   }
 
@@ -319,6 +319,7 @@ const removeFromCart = (CartItemID) => {
           <Route path="/checkout">
             <Checkout
               shoppingCart={shoppingCart}
+              setShoppingCart={setShoppingCart}
               clothes={clothes}
               electronics={electronics}
               tools={tools}

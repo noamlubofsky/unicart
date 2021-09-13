@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import {useHistory} from "react-router";
 
 function CartItem({item, updateCartItemQuantity, removeFromCart}) {
     const [quantity, setQuantity] = useState(item.quantity)
+    let history = useHistory();
 
     const handleChange = (e) => {
         setQuantity(e.target.value);
@@ -12,6 +14,10 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
 
     const handleDelete = () => {
         removeFromCart(item.id)
+    }
+
+    const toItem = () => {
+        history.push(`/products/${item.product.id}`)
     }
 
     function numberWithCommas(x) {
@@ -23,7 +29,7 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
         <div>
             <Container>
                 {/* <Card> */}
-                    <Image src={item.product.image_url} alt="pic"/>
+                    <Image src={item.product.image_url} alt="pic" onClick={toItem}/>
                 {/* </Card> */}
                 {/* <ItemContainer> */}
                 <ProductInfo>
@@ -31,8 +37,8 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
                     <Item as={Link} to={`/products/${item.product.id}`}>{item.product.name}</Item>
                     </ProductInfo>
                     <Quantity>
-                    <h1>Quantity: {item.quantity}</h1>
-                        <label for="quant">Update Quantity</label>
+                    <h2>Quantity: {item.quantity}</h2>
+                        <label for="quant">Update Quantity </label>
                             <select name="quant" onChange={handleChange} defaultValue={item.quantity}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -88,6 +94,8 @@ float: right;
 margin-bottom: 5px;
 font-size: 4vh;
 margin-right: 10%;
+font-family: 'Dosis', sans-serif;
+font-size: 4vh;
 `
 
 const Button = styled.div`
@@ -108,6 +116,8 @@ transition: all .35s;
 justify-content: center;
 font-size: 1.5vh;
 font-family: 'Dosis', sans-serif;
+box-shadow: 0px 0px 15px 0px #848484;
+
 border-radius: 20px;
 &:hover {
     width: 12vw;
@@ -131,6 +141,9 @@ const Quantity = styled.div`
 // margin-bottom: 5px;
 // font-size: 4vh;
 // margin-right: 10%;
+font-family: 'Dosis', sans-serif;
+font-size: 2vh;
+
 `
 
 const Remove = styled.div`
@@ -144,6 +157,8 @@ margin-top: 5px;
 margin-right: 10%;
 width: 5vw;
 height: 5vw;
+&:hover {
+    cursor: pointer;
 `;
 
 const Item = styled.img`

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Content>
       <Info>
-        <h1>UNICART</h1>
+        <h1>unicart</h1>
         <h5>All Stores. One Cart. That Easy.</h5>
         <h5>Noam Lubofsky - Capstone Project</h5>
       </Info>

@@ -5,14 +5,16 @@ import styled from "styled-components";
 import CheckoutShipping from "./CheckoutShipping"
 import CheckoutPayment from "./CheckoutPayment"
 import OrderSummary from "./OrderSummary"
+import Receipt from "./Receipt"
 
-function Checkout({shoppingCart, clothes, electronics, tools, health, music, all, user}){
+function Checkout({shoppingCart, clothes, electronics, tools, health, music, all, user, setShoppingCart}){
 
     const id = useParams().id;
     const [cart, setCart] = useState([])
     const [summary, setSummary] = useState(true)
     const [shipping, setShipping] = useState(false);
     const [payment, setPayment] = useState(false);
+    const [receipt, setReceipt] = useState(false);
     const [selectedShipping, setSelectedShipping] = useState([])
     const [selectedPayment, setSelectedPayment] = useState(null)
 
@@ -23,6 +25,13 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
             setCart(data);
           });
       }, [id]);
+
+      const clearCart = () => {
+        setShoppingCart([]);
+        fetch(`/cart_items`, {
+          method: "DELETE",
+        });
+      };
 
       function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -39,20 +48,31 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
       const toSummary = () => {
           setShipping(false)
           setPayment(false)
+          setReceipt(false)
           setSummary(true)
       }
 
       const toShipping = () => {
           setSummary(false)
           setPayment(false)
+          setReceipt(false)
           setShipping(true)
       }
 
       const toPayment = () => {
           setSummary(false)
           setShipping(false)
+          setReceipt(false)
           setPayment(true)
       }
+
+      const toReceipt = () => {
+        setSummary(false)
+        setShipping(false)
+        setPayment(false)
+        setReceipt(true)
+        clearCart()
+    }
 
       
       const userCartItems = shoppingCart.filter(item => 
@@ -158,10 +178,14 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
 
     return(
         <div>
-            <OrderSummary grandTotal={grandTotal} selectedShipping={selectedShipping} selectedPayment={selectedPayment}/>
+            {receipt ? null : <OrderSummary grandTotal={grandTotal} selectedShipping={selectedShipping} selectedPayment={selectedPayment} toReceipt={toReceipt} setShoppingCart={setShoppingCart}
+         
+            />}
             {summary ? 
             <div>
-        <Summary>Order Summary</Summary>
+                <Header>
+        <Summary>Your Order</Summary>
+        </Header>
         <div>
         {cartClothes.length > 0 ?
         <Container>
@@ -272,7 +296,7 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
         </Container> : null }
         </div>
         <CartTotal>Total: {grandTotal}</CartTotal>
-        <button onClick={toShipping}>Continue to Shipping</button>
+        <Button onClick={toShipping}>Continue to Shipping</Button>
         </div>
         : null }
 
@@ -283,6 +307,11 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
         {payment ? 
         <CheckoutPayment toShipping={toShipping} user={user} setSelectedPayment={setSelectedPayment}/>
     : null}
+
+        {receipt ? 
+        <Receipt user={user} clothes={clothes} cartClothes={cartClothes} electronics={electronics} cartElectronics={cartElectronics} tools={tools} cartTools={cartTools}
+        health={health} cartHealth={cartHealth} music={music} cartMusic={cartMusic} all={all} cartAll={cartAll}/>
+    : null}
         </div>
         
     )
@@ -292,12 +321,30 @@ const Container = styled.div`
 margin-bottom: 20vh;
 `;
 
+const Button = styled.button`
+
+align-items: center;
+justify-content: center;
+margin-top: 3%;
+margin-bottom: 3%;
+margin-left: 40%;
+height: 10vh;
+width: 25vh;
+`;
+
+const Header = styled.div`
+// background-image: linear-gradient(#F05A27, #F5931F);
+// height: 4vw;
+// border-bottom: 4px solid rgb(27, 44, 77);
+// box-shadow: 0px 0px 15px 0px #848484;
+margin-bottom: 3%;
+`
+
 const Summary = styled.div`
-font-size: 2vw;
-font-weight: bold;
-// align-items: center;
-// justify-content: center;
-margin-bottom: 5vh;
+font-size: 3vw;
+font-weight: 500;
+margin-left: 5%;
+font-family: 'Dosis', sans-serif;
 `;
 
 const CartTotal = styled.div`
@@ -323,7 +370,7 @@ const TotalContainer = styled.div`
 
 float: right;
 // margin-bottom: 5vh;
-// margin-right: 15%;
+margin-right: 20vw;
 display: grid;
 row-gap: 1ch;
 `;

@@ -46,6 +46,7 @@ align-items: center;
 text-align: center;
 border: 5px solid rgb(27, 44, 77);
 background-color: white;
+border-radius: 20px;
 
 &:hover {
   box-shadow: 0px 0px 15px 0px #848484;

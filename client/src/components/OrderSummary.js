@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 
-function OrderSummary({grandTotal, selectedShipping, selectedPayment}) {
+function OrderSummary({grandTotal, selectedShipping, selectedPayment, toReceipt}) {
     // const [digits, setDigits] = useState('')
 
     // setDigits(selectedPayment.card_number)
@@ -18,11 +18,11 @@ function OrderSummary({grandTotal, selectedShipping, selectedPayment}) {
             <h3>{selectedShipping.city} {selectedShipping.state} {selectedShipping.zip}</h3>
             <Line/>
             <h2>Payment Method:</h2>
-            <h3>{selectedPayment ? selectedPayment.card_type : null}</h3>
+            <h3>{selectedPayment ? `${selectedPayment.name_on_card}'s ${selectedPayment.card_type}` : null}</h3>
             <h3>{selectedPayment ? selectedPayment.card_number : null}</h3>
             <h3>{selectedPayment ? selectedPayment.expiration : null} {selectedPayment ? selectedPayment.cvv : null}</h3>
-            <Line/>
-            {selectedPayment ? <Button>Place Order</Button> : null}
+            {/* <Line/> */}
+            {selectedPayment ? <Button onClick={toReceipt}>Place Order</Button> : null}
         </Container>
     )
 }
@@ -30,10 +30,9 @@ function OrderSummary({grandTotal, selectedShipping, selectedPayment}) {
 const Button = styled.button`
 align-items: center;
 justify-content: center;
-height: 5.1vh;
-width: 25vh;
-border-radius: 0;
+height: 5.3vh;
 width: 15vw;
+border-radius: 2px;
 &:hover {
     width: 15vw;
     border: 3px solid #F5931F;
@@ -52,8 +51,7 @@ background-image: linear-gradient(#F05A27, #F5931F);
 height: 2vw;
 font-size: 1.3vw;
 font-weight: bold;
-border-bottom: 4px solid rgb(27, 44, 77)
-
+border-bottom: 4px solid rgb(27, 44, 77);
 `
 
 const Container = styled.div`
@@ -61,10 +59,13 @@ right: 0;
 position: fixed;
 // margin-right: 25px;
 border: 3px solid rgb(27, 44, 77);
-height: 22vw;
+height: 58vh;
 width: 15vw;
 background-color: white;
 text-align: center;
+box-shadow: 0px 0px 15px 0px #848484;
+font-size: .6vw;
+font-family: 'Dosis', sans-serif;
 
 `;
 
