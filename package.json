@@ -1,0 +1,21 @@
+{
+  "name": "phase-4-deploying-app-demo",
+  "description": "Build scripts for Heroku",
+  "engines": {
+    "node": ">= 14"
+  },
+  "scripts": {
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "clean": "rm -rf public",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  },
+  "devDependencies": {
+    "@types/react-paginate": "^7.1.1",
+    "fontface-styled-components": "^1.2.1"
+  },
+  "dependencies": {
+    "react-router-dom": "^5.3.0",
+    "react-select": "^4.3.1"
+  }
+}
