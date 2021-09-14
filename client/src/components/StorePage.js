@@ -229,7 +229,7 @@ width: 5vw;
 
 const Clothes = styled.div`
 font-family: "Sans-Serif"; "Optima";
-font-size: 4vw;
+font-size: 3vw;
 color: #002A5A;
 font-weight: bold;
 margin-bottom: 2vh;
@@ -260,7 +260,7 @@ text-align: center;
 
 const Health = styled.div`
 font-family: Helvetica, sans-serif;
-font-size: 4vw;
+font-size: 6vw;
 color: #C60401;
 font-weight: bold;
 margin-bottom: 2vh;

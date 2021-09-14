@@ -365,6 +365,8 @@ font-weight: bold;
 // float: right;
 // margin-bottom: 5vh;
 margin-right: 25%;
+border-top: 4px solid rgb(27, 44, 77);
+width: 10vw;
 // display: grid;
 // row-gap: 0;
 `;
