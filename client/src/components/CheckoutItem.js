@@ -38,9 +38,11 @@ const Container = styled.div`
 margin-left: 5%;
 // margin-bottom: 10px;
 display: grid;
-grid-template-columns: 1fr 1fr 1fr 2fr ;
+grid-template-columns: 1fr 1fr;
 // row-gap: 20vh;
 width: 80%;
+font-family: 'Dosis', sans-serif;
+
 `;
 
 const Line = styled.div`
@@ -50,9 +52,9 @@ border-bottom: 4px solid rgb(27, 44, 77)
 
 const Price = styled.div`
 float: right;
-margin-top: 5px;
+// margin-top: 5px;
 font-size: 4vh;
-margin-right: 10%;
+margin-left: 15%;
 `
 
 const Button = styled.div`

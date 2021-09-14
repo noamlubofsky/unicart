@@ -15,7 +15,7 @@ function Review({review}) {
             <ReviewContainer>
             <Reviewer><strong>{review.user.username}</strong> said:</Reviewer>
         <ReviewText>"{review.content}"</ReviewText>
-        <Helpful>Was this review helpful? <button onClick={thanks}>Yes</button><button onClick={sorry}>No</button></Helpful>
+        <Helpful>Was this review helpful? <Button onClick={thanks}>Yes</Button><Button onClick={sorry}>No</Button></Helpful>
         <Line></Line>
         </ReviewContainer>
         </div>
@@ -25,6 +25,15 @@ function Review({review}) {
 const Reviewer = styled.div`
   margin-top: 20px;
   font-size: larger;
+`;
+
+const Button = styled.button`
+  width: 3vw;
+  height: 1.5vw;
+  border-radius: 0;
+  &:hover {
+    width: 4vw;
+  }
 `;
 
 const ReviewText = styled.div`

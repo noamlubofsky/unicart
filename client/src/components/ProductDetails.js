@@ -211,11 +211,13 @@ justify-content: center;
 const Container5 = styled.div`
   margin-left: 10%;
   margin-top: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 100%;
   font-weight: bold;
   font-size: 3em;
+  font-family: 'Dosis', sans-serif;
+
 `;
 
 const Container4 = styled.div`

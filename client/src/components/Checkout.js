@@ -317,16 +317,18 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
 }
 
 const Container = styled.div`
-margin-bottom: 20vh;
+margin-bottom: 8vh;
+display: grid;
 `;
 
 const Button = styled.button`
 
-align-items: center;
-justify-content: center;
-margin-top: 3%;
+// align-items: center;
+// justify-content: center;
+margin-top: 5%;
 margin-bottom: 3%;
-margin-left: 40%;
+float: right;
+// margin-right: 40%;
 height: 10vh;
 width: 25vh;
 `;
@@ -350,9 +352,11 @@ const CartTotal = styled.div`
 font-size: 2vw;
 float: right;
 font-weight: bold;
-margin-right: 15%;
-margin-top: 5vh;
-border-top: 4px solid rgb(27, 44, 77)
+margin-right: 40%;
+// margin-top: 5vh;
+border-top: 4px solid rgb(27, 44, 77);
+font-family: 'Dosis', sans-serif;
+
 `;
 
 const Total = styled.div`
@@ -367,11 +371,14 @@ margin-right: 25%;
 
 const TotalContainer = styled.div`
 
-float: right;
+right: 0;
 // margin-bottom: 5vh;
-margin-right: 20vw;
+// margin-right: 20vw;
+margin-left: 50vw;
 display: grid;
-row-gap: 1ch;
+// row-gap: 1ch;
+font-family: 'Dosis', sans-serif;
+
 `;
 
 const Small = styled.div`

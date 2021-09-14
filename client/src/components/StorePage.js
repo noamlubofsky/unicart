@@ -77,9 +77,16 @@ return (
       </div>           
     </Container4> 
 
-    {/* {selectedStore.name = clothes.name ? <Clothes>{clothes.name}</Clothes> : null}
-    {selectedStore.name = electronics.name ? <Electronics>{electronics.name}</Electronics> : null}
-            <h1>test</h1> */}
+<div>
+    {selectedStore.name === clothes.name ? <Clothes>{clothes.name.toUpperCase()}</Clothes> : null}
+    {selectedStore.name === electronics.name ? <Electronics>{electronics.name.toUpperCase()}</Electronics> : null}
+    {selectedStore.name === tools.name ?  <Tools className="font-link">{tools.name.toUpperCase()}</Tools> : null}
+    {selectedStore.name === health.name ? <Health>{health.name.toUpperCase()}</Health> : null}
+    {selectedStore.name === music.name ? <Music className="guitar">{music.name}</Music> : null}
+    {selectedStore.name === all.name ? <All>{all.name.toLowerCase()}</All> : null}
+
+    </div>
+    
     <Form >
       <input onChange={handleChange} className="loginForm" id="searchbox" type="text" placeholder={`Filter ${selectedStore.name} Products`}/>
     </Form>
@@ -222,20 +229,64 @@ width: 5vw;
 
 const Clothes = styled.div`
 font-family: "Sans-Serif"; "Optima";
-font-size: 2vw;
+font-size: 4vw;
 color: #002A5A;
 font-weight: bold;
 margin-bottom: 2vh;
 margin-left: 5vh;
+text-align: center;
 `;
 
 const Electronics = styled.div`
 font-family: "Impact"; "Fantasy"; 
-font-size: 2vw;
+font-size: 4vw;
 color: #EEE416;
 font-weight: bold;
 margin-bottom: 2vh;
 margin-left: 5vh;
+text-align: center;
+
+`;
+
+const Tools = styled.div`
+font-size: 4vw;
+color: #F96302;
+font-weight: bold;
+margin-bottom: 2vh;
+margin-left: 5vh;
+text-align: center;
+
+`;
+
+const Health = styled.div`
+font-family: Helvetica, sans-serif;
+font-size: 4vw;
+color: #C60401;
+font-weight: bold;
+margin-bottom: 2vh;
+margin-left: 5vh;
+text-align: center;
+
+`;
+
+const Music = styled.div`
+font-size: 4vw;
+color: #062F1C;
+font-weight: bold;
+margin-bottom: 2vh;
+margin-left: 5vh;
+text-align: center;
+
+`;
+
+const All = styled.div`
+font-size: 4vw;
+color: #C60401;
+font-weight: bold;
+margin-bottom: 2vh;
+margin-left: 5vh;
+text-align: center;
+
 `;
 
     export default StorePage;
