@@ -300,6 +300,12 @@ const removeFromCart = (CartItemID) => {
               selectedProduct={selectedProduct}
               setSelectedProduct={setSelectedProduct}
               isLoading={isLoading}
+              clothes={clothes}
+            electronics={electronics}
+            tools={tools}
+            health={health}
+            music={music}
+            all={all}
             />
           </Route>
           <Route path={`/cart`}>

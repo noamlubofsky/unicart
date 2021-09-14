@@ -3,7 +3,7 @@ import ShippingCard from "./ShippingCard"
 import PaymentCard from "./PaymentCard"
 import styled from "styled-components";
 
-function CheckoutPayment({toShipping, user, setSelectedPayment}) {
+function CheckoutPayment({toShipping, user, setSelectedPayment, clothes, cartClothes, electronics, cartElectronics, tools, cartTools, health, cartHealth, music, cartMusic, all, cartAll, toReceipt}) {
     const [payment, setPayment] = useState([])
     const [type, setType] = useState(null)
     const [name, setName] = useState(null)
@@ -11,6 +11,7 @@ function CheckoutPayment({toShipping, user, setSelectedPayment}) {
     const [expiration, setExpiration] = useState(null)
     const [cvv, setCvv] = useState(null)
     const [edit, setEdit] = useState(false)
+    const [confirm, setConfirm] = useState(false)
 
     useEffect(() => {
         fetch(`/payment_infos`)
@@ -62,11 +63,23 @@ function CheckoutPayment({toShipping, user, setSelectedPayment}) {
         <div>
         <button onClick={toShipping}>Back to Shipping</button>
         <h1>Select Your Payment Method:</h1>
+        {confirm ? <ConfirmButton onClick={toReceipt}>
+        <Confirm><h2>Confirm Oder to:</h2></Confirm>
+        {cartClothes.length > 0 ? <h2>{clothes.name}</h2> : null}
+        {cartElectronics.length > 0 ? <h2>{electronics.name}</h2> : null}
+        {cartTools.length > 0 ? <h2>{tools.name}</h2> : null}
+        {cartHealth.length > 0 ? <h2>{health.name}</h2> : null}
+        {cartMusic.length > 0 ? <h2>{music.name}</h2> : null}
+        {cartAll.length > 0 ? <h2>{all.name}</h2> : null}
+        </ConfirmButton> 
+        : null }
+
         {payment.map(payment => (
           <PaymentCard
             key={payment.id}
             payment={payment}
             setSelectedPayment={setSelectedPayment}
+            setConfirm={setConfirm}
           />
         ))}
         {!edit ? <Button onClick={editInfo}>Use a Different Payment Method</Button> : null }
@@ -106,6 +119,29 @@ margin-bottom: 10vh;
     background: transparent;
     color: #F05A27;
     cursor: pointer;
+`;
+
+const ConfirmButton = styled.button`
+
+width: 25vw;
+height: 7vh;
+justify-content: center;
+align-items: center;
+margin-left: 40%;
+color: transparent;
+margin-bottom: 10vh;
+&:hover {
+  width: 25vw;
+    height: 40vh;
+    border: 3px solid #F5931F;
+    background: transparent;
+    color: #F05A27;
+    cursor: pointer;
+`;
+
+const Confirm = styled.div`
+color: rgb(27, 44, 77);
+
 `;
 
 const EditContainer = styled.div`

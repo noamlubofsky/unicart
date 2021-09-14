@@ -22,7 +22,7 @@ function OrderSummary({grandTotal, selectedShipping, selectedPayment, toReceipt}
             <h3>{selectedPayment ? selectedPayment.card_number : null}</h3>
             <h3>{selectedPayment ? selectedPayment.expiration : null} {selectedPayment ? selectedPayment.cvv : null}</h3>
             {/* <Line/> */}
-            {selectedPayment ? <Button onClick={toReceipt}>Place Order</Button> : null}
+            {selectedPayment ? <Button onClick={toReceipt}>Confirm Order</Button> : null}
         </Container>
     )
 }

@@ -73,18 +73,10 @@ function home(){
           </NavButton>
 
           <NavButton as={Link} to={`/cart`}>
-          {/* <div class="wrapper" >
-  <div class="link_wrapper">
-    <div class="cart">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.305-15l-3.432 12h-10.428l-3.777-9h-2.168l4.615 11h13.239l3.474-12h1.929l.743-2h-4.195z"/></svg>
-    </div>
-  </div>
-</div>  */}
-<CartIcon>
-    <CartImage src={cartpic} alt="cart" />
-  
-          <Amount>{userCartItems.length}</Amount>
-          </CartIcon>
+            <CartIcon>
+              <CartImage src={cartpic} alt="cart" />
+              <Amount>{userCartItems.length}</Amount>
+            </CartIcon>
           </NavButton>
 
         </Nav>
@@ -93,30 +85,46 @@ function home(){
   );
 };
 
-const CartImage = styled.img`
-// margin-right: 10px;
-position: absolute;
+
+
+const NavButton = styled.button`
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  // padding: 8px 16px;
+  text-decoration: none;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 const CartIcon = styled.div`
-margin-right: 75px;
+margin-right: 5vw;
+margin-left: 3vw;
 // display: grid;
 // grid-template-columns: 10 fr 10 fr;
 position: relative;
+max-height: 5vh;
+min-height: 1vh;
+max-width: 5vw:
+min-width: 1vw;
+top: 0vh;
 `;
 
-const CartText = styled.div`
-margin-right: 10px;
-display: grid;
-grid-template-columns: 10 fr 10 fr;
+const CartImage = styled.img`
+// margin-right: 10px;
+position: relative;
 `;
 
 const Amount = styled.div`
 // margin-right: 10px;
-position: absolute;
+position: relative;
 color:#F5931F;
 font-weight: bold;
-right: 0;
+left: .9vw;
+top: -6vh;
 // width: 24%;
 // margin-bottom: 100px;
 `;
@@ -159,10 +167,13 @@ grid-template-columns: 10 fr 10 fr;
 
 const Container = styled.header`
   display: flex;
+  position: relative;
   // justify-content: center;
   // align-items: center;
-  padding: 8px;
+  padding: 2vh;
   height: 20vh;
+  min-height: 15vh;
+  width: 100%;
   border-bottom: 4px solid #F05A27;
   background-color: rgb(27, 44, 77);
 `;
@@ -198,29 +209,8 @@ const Nav = styled.nav`
   right: 20px;
 `;
 
-const NavButton = styled.button`
-  cursor: pointer;
-  font-size: 1.5rem;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  padding: 8px 16px;
-  text-decoration: none;
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
 
-`;
 
-const Icon = styled.div`
-  height: 20px;
-  width: 20px;
-position: absolute;
-top:0;
-// width:100%;
-  color: #F5931F;
-  text-align: center;
-`;
 
 const Container2 = styled.div`
   // margin-top: 50px;

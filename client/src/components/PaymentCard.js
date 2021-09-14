@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 
-function PaymentCard({payment, setSelectedPayment}) {
+function PaymentCard({payment, setSelectedPayment, setConfirm}) {
     // const [selectedPayment, setSelectedPayment] = useState([])
 
     const select = () => {
         setSelectedPayment(payment)
+        setConfirm(true)
     }
 
     return(

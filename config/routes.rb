@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   resources :shipping_infos
   resources :account_infos
   resources :payment_infos

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProductCard from "./ProductCard";
 import {useHistory} from "react-router";
 
-const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, selectedProduct, setSelectedProduct, isLoading }) => {
+const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, selectedProduct, setSelectedProduct, isLoading, clothes, electronics, tools, health, music, all}) => {
     const [ search, setSearch ] = useState('')
     const [sortBy, setSortBy] = useState('')
     const [toDisplay, setToDisplay] = useState([])
@@ -77,6 +77,9 @@ return (
       </div>           
     </Container4> 
 
+    {/* {selectedStore.name = clothes.name ? <Clothes>{clothes.name}</Clothes> : null}
+    {selectedStore.name = electronics.name ? <Electronics>{electronics.name}</Electronics> : null}
+            <h1>test</h1> */}
     <Form >
       <input onChange={handleChange} className="loginForm" id="searchbox" type="text" placeholder={`Filter ${selectedStore.name} Products`}/>
     </Form>
@@ -215,6 +218,24 @@ width: 5vw;
     text-shadow: 2px 2px 8px #7F55D0;
     color: silver;
   }
+`;
+
+const Clothes = styled.div`
+font-family: "Sans-Serif"; "Optima";
+font-size: 2vw;
+color: #002A5A;
+font-weight: bold;
+margin-bottom: 2vh;
+margin-left: 5vh;
+`;
+
+const Electronics = styled.div`
+font-family: "Impact"; "Fantasy"; 
+font-size: 2vw;
+color: #EEE416;
+font-weight: bold;
+margin-bottom: 2vh;
+margin-left: 5vh;
 `;
 
     export default StorePage;

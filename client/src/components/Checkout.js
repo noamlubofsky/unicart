@@ -303,7 +303,8 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
     : null}
 
         {payment ? 
-        <CheckoutPayment toShipping={toShipping} user={user} setSelectedPayment={setSelectedPayment}/>
+        <CheckoutPayment toShipping={toShipping} user={user} setSelectedPayment={setSelectedPayment} clothes={clothes} cartClothes={cartClothes} electronics={electronics} cartElectronics={cartElectronics} tools={tools} cartTools={cartTools}
+        health={health} cartHealth={cartHealth} music={music} cartMusic={cartMusic} all={all} cartAll={cartAll} toReceipt={toReceipt}/>
     : null}
 
         {receipt ? 
@@ -413,7 +414,6 @@ color: #EEE416;
 font-weight: bold;
 margin-bottom: 2vh;
 margin-left: 5vh;
-
 `;
 
 const Tools = styled.div`

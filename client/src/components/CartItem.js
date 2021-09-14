@@ -162,6 +162,10 @@ height: 5vw;
 `;
 
 const Item = styled.img`
+a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 const ItemContainer = styled.div`
