@@ -7,7 +7,7 @@ import CheckoutPayment from "./CheckoutPayment"
 import OrderSummary from "./OrderSummary"
 import Receipt from "./Receipt"
 
-function Checkout({shoppingCart, clothes, electronics, tools, health, music, all, user, setShoppingCart}){
+function Checkout({shoppingCart, clothes, electronics, tools, health, music, all, user, setShoppingCart, removeFromCart}){
 
     const id = useParams().id;
     const [cart, setCart] = useState([])
@@ -27,10 +27,8 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
       }, [id]);
 
       const clearCart = () => {
-        setShoppingCart([]);
-        fetch(`/cart_items`, {
-          method: "DELETE",
-        });
+        shoppingCart.map(item => removeFromCart(item.id))
+        setShoppingCart([])
       };
 
       function numberWithCommas(x) {

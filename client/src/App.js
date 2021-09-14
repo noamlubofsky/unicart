@@ -327,6 +327,7 @@ const removeFromCart = (CartItemID) => {
               music={music}
               all={all}
               user={user}
+              removeFromCart={removeFromCart}
             />
           </Route>
         </Switch>
