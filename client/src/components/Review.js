@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 function Review({review}) {
@@ -12,28 +12,25 @@ function Review({review}) {
     }
     return(
         <div>
-            <ReviewContainer>
+          <ReviewContainer>
             <Reviewer><strong>{review.user.username}</strong> said:</Reviewer>
-        <ReviewText>"{review.content}"</ReviewText>
-        <Helpful>Was this review helpful? <Button onClick={thanks}>Yes</Button><Button onClick={sorry}>No</Button></Helpful>
-        <Line></Line>
-        </ReviewContainer>
+            <ReviewText>"{review.content}"</ReviewText>
+            <Helpful>Was this review helpful? <Button onClick={thanks}>Yes</Button><Button onClick={sorry}>No</Button></Helpful>
+            <Line />
+          </ReviewContainer>
         </div>
     )
 }
 
+const ReviewContainer = styled.div`
+margin-left: 10%;
+width: 40vw;
+margin-bottom: 20px;
+`;
+
 const Reviewer = styled.div`
   margin-top: 20px;
   font-size: larger;
-`;
-
-const Button = styled.button`
-  width: 3vw;
-  height: 1.5vw;
-  border-radius: 0;
-  &:hover {
-    width: 4vw;
-  }
 `;
 
 const ReviewText = styled.div`
@@ -50,14 +47,18 @@ const Helpful = styled.div`
   font-weight: bold;
 `;
 
+const Button = styled.button`
+  width: 3vw;
+  height: 1.5vw;
+  border-radius: 0;
+  &:hover {
+    width: 4vw;
+  }
+`;
+
 const Line = styled.div`
   border-bottom: 4px solid rgb(27, 44, 77)
 `
 
-const ReviewContainer = styled.div`
-margin-left: 10%;
-width: 40vw;
-margin-bottom: 20px;
-`;
-
 export default Review;
+

@@ -9,7 +9,7 @@ function OrderSummary({grandTotal, selectedShipping, selectedPayment, toReceipt}
     return(
         <Container>
             <Header>Order Summary:</Header>
-            <h2>Total <small>(including all tax and shipping)</small>:</h2>
+            <h2>Total <small>(includes all tax and shipping)</small>:</h2>
             <h2>${grandTotal}</h2>
             <Line/>
             <h2>Ship To:</h2>
