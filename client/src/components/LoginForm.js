@@ -22,7 +22,7 @@ function LoginForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        history.push("/products")  
+        // history.push("/products")  
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

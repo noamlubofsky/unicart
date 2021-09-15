@@ -330,8 +330,17 @@ margin-bottom: 3%;
 float: right;
 // margin-right: 40%;
 height: 10vh;
-width: 25vh;
+width: 15vw;
+&:hover {
+  width: 20vw;
+  // border: 3px solid #F5931F;
+  // background: transparent;
+  // color: #F05A27;
+  // cursor: pointer;
+}
 `;
+
+
 
 const Header = styled.div`
 // background-image: linear-gradient(#F05A27, #F5931F);

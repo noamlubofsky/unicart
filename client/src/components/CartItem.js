@@ -56,7 +56,7 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
                             <Remove>
                         <div class="wrapper" >
                             <div class="link_wrapper">
-                                <Button onClick={handleDelete}>Remove from Cart</Button>
+                                <RemoveButton onClick={handleDelete}>Remove from Cart</RemoveButton>
                                 <br></br>
                                 <div class="icon">
                                     <svg class="svg-icon" viewBox="0 0 20 20">
@@ -128,7 +128,35 @@ border-radius: 20px;
     cursor: pointer;
   }
 `
+const RemoveButton = styled.div`
+display: fixed;
+width: 9vw;
+min-height: 4vh;
+height: 4vh;
+/* line-height: 50px; */
+font-weight: bold;
+text-decoration: none;
+background-image: linear-gradient(#F05A27, #F5931F);
+text-align: center;
+align-items: center;
+color: #fff;
+text-transform: uppercase;
+letter-spacing: 1px;
+/* border: 3px solid #2E6268; */
+transition: all .35s;
+justify-content: center;
+font-size: 1.5vh;
+font-family: 'Dosis', sans-serif;
+border-radius: 20px;
 
+  &:hover {
+    width: 13vw;
+    border: 3px solid #F5931F;
+    background: transparent;
+    color: #F05A27;
+    cursor: pointer;
+  }
+`;
 const ProductInfo = styled.div`
 // float: right;
 // margin-bottom: 5px;

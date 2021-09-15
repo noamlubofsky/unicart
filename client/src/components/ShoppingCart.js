@@ -120,7 +120,10 @@ justify-content: center;
 margin-top: 3%;
 margin-left: 40%;
 height: 10vh;
-width: 25vh;
+width: 15vw;
+&:hover {
+  width: 20vw;
+}
 `;
 
 const Total = styled.div`

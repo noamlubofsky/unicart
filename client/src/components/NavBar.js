@@ -131,9 +131,9 @@ top: -6vh;
 
 const Button = styled.div`
 display: fixed;
-width: 7vw;
-min-height: 2vh;
-height: 2.2vw;
+width: 9vw;
+min-height: 4vh;
+height: 4vh;
 /* line-height: 50px; */
 font-weight: bold;
 text-decoration: none;
@@ -150,7 +150,7 @@ font-family: 'Dosis', sans-serif;
 border-radius: 20px;
 
   &:hover {
-    width: 10vw;
+    width: 12vw;
     border: 3px solid #F5931F;
     background: transparent;
     color: #F05A27;

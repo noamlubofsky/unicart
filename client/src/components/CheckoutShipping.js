@@ -59,7 +59,7 @@ function CheckoutShipping({toSummary, toPayment, user, setSelectedShipping}) {
 
     return(
         <div>
-        <button onClick={toSummary}>Back to Order Summary</button>
+        <BackButton onClick={toSummary}>Back to Order Summary</BackButton>
         
         <h1>Select Your Shipping Address</h1>
         {shipping.map(address => (
@@ -96,10 +96,43 @@ function CheckoutShipping({toSummary, toPayment, user, setSelectedShipping}) {
     )
 }
 
+
+
 const EditContainer = styled.div`
 margin-left: auto;
 margin-right: auto;
 width: 30em;
+`;
+
+const BackButton = styled.div`
+display: fixed;
+margin-top: 1%;
+margin-left: 1%;
+width: 12vw;
+height: 6vh;
+/* line-height: 50px; */
+font-weight: bold;
+text-decoration: none;
+background-image: linear-gradient(#F05A27, #F5931F);
+text-align: center;
+align-items: center;
+color: #fff;
+text-transform: uppercase;
+letter-spacing: 1px;
+/* border: 3px solid #2E6268; */
+transition: all .35s;
+justify-content: center;
+font-size: 1.5vh;
+font-family: 'Dosis', sans-serif;
+border-radius: 20px;
+
+  &:hover {
+    width: 13vw;
+    border: 3px solid #F5931F;
+    background: transparent;
+    color: #F05A27;
+    cursor: pointer;
+  }
 `;
 
 const Button = styled.button`
