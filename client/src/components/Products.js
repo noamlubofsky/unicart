@@ -293,7 +293,11 @@ const Card1 = styled.div`
 
   &:hover {
     box-shadow: 0px 0px 30px 0px #848484;
-    background-image: url(https://thumbs.gfycat.com/BlueUnpleasantDassierat-max-1mb.gif); width: 10vw; height: 5vw;
+    background-image: url(https://thumbs.gfycat.com/BlueUnpleasantDassierat-max-1mb.gif);
+    background-position: 50% 50%;
+ 
+    width: 10vw; 
+    height: 5vw;
     background-position: top;
     cursor: pointer;
     color: black;

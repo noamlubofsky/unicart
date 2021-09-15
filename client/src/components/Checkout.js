@@ -421,7 +421,7 @@ float: right;
 
 const Clothes = styled.div`
 font-family: "Sans-Serif"; "Optima";
-font-size: 2vw;
+font-size: 3vw;
 color: #002A5A;
 font-weight: bold;
 margin-bottom: 2vh;
@@ -430,7 +430,7 @@ margin-left: 5vh;
 
 const Electronics = styled.div`
 font-family: "Impact"; "Fantasy"; 
-font-size: 2vw;
+font-size: 4vw;
 color: #EEE416;
 font-weight: bold;
 margin-bottom: 2vh;
@@ -438,7 +438,7 @@ margin-left: 5vh;
 `;
 
 const Tools = styled.div`
-font-size: 2vw;
+font-size: 4vw;
 color: #F96302;
 font-weight: bold;
 margin-bottom: 2vh;
@@ -448,7 +448,7 @@ margin-left: 5vh;
 
 const Health = styled.div`
 font-family: Helvetica, sans-serif;
-font-size: 2vw;
+font-size: 5vw;
 color: #C60401;
 font-weight: bold;
 margin-bottom: 2vh;
@@ -457,7 +457,7 @@ margin-left: 5vh;
 `;
 
 const Music = styled.div`
-font-size: 2vw;
+font-size: 4vw;
 color: #062F1C;
 font-weight: bold;
 margin-bottom: 2vh;
@@ -466,7 +466,7 @@ margin-left: 5vh;
 `;
 
 const All = styled.div`
-font-size: 2vw;
+font-size: 4vw;
 color: #C60401;
 font-weight: bold;
 margin-bottom: 2vh;
