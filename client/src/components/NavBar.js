@@ -133,7 +133,8 @@ const Button = styled.div`
 display: fixed;
 width: 9vw;
 min-height: 4vh;
-height: 4vh;
+height: 5vh;
+align-items: center;
 /* line-height: 50px; */
 font-weight: bold;
 text-decoration: none;

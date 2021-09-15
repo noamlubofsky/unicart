@@ -33,6 +33,10 @@ justify-content: center;
 height: 5.3vh;
 width: 15vw;
 border-radius: 2px;
+bottom: 0vh;
+left: .1vh;
+// float: bottom;
+position: absolute;
 &:hover {
     width: 15vw;
     border: 3px solid #F5931F;
@@ -59,6 +63,8 @@ right: 0;
 position: fixed;
 // margin-right: 25px;
 border: 3px solid rgb(27, 44, 77);
+min-height: 350px;
+
 height: 58vh;
 width: 15vw;
 background-color: white;

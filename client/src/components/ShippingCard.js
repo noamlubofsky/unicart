@@ -64,6 +64,7 @@ const Container = styled.div`
 justify-content: center;
 align-items: center;
 margin-left: 40%;
+font-size: 2vh;
 `;
 
 const AddressCard = styled.div`
