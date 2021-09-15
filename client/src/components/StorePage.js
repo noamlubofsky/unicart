@@ -88,7 +88,7 @@ return (
     </div>
     
     <Form >
-      <input onChange={handleChange} className="loginForm" id="searchbox" type="text" placeholder={`Filter ${selectedStore.name} Products`}/>
+      <input autocomplete="off" onChange={handleChange} className="loginForm" id="searchbox" type="text" placeholder={`Filter ${selectedStore.name} Products`}/>
     </Form>
   
   <div>
@@ -175,7 +175,9 @@ const Form = styled.form `
         user-select: none;
         white-space: nowrap;
         filter: blur(0.007em);
-        margin-top:50px
+        margin-top:50px;
+        outline: none;
+
 
     }
     textarea{

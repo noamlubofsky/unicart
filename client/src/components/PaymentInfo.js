@@ -69,8 +69,8 @@ function PaymentInfo({user}) {
     <h2>Expiration: <input required type="text" value={expiration} placeholder={payment ? payment.expiration : null} onChange={(e) => setExpiration(e.target.value)}></input> </h2>
     <h2>CVV: <input required type="text" value={cvv} placeholder={payment ? payment.cvv : null} onChange={(e) => setCvv(e.target.value)}></input> </h2>
     <span> 
-    <button type="submit">Save Info</button>
-    <button onClick={editInfo}>Cancel Editing</button>
+    <Button type="submit">Save Info</Button>
+    <Button onClick={editInfo}>Cancel Editing</Button>
     </span>
     </form>
     <br></br>
@@ -83,12 +83,43 @@ function PaymentInfo({user}) {
         <h2>Card Number: {payment ? payment.card_number : null} </h2>
         <h2>Expiration: {payment ? payment.expiration : null} </h2>
         <h2>CVV: {payment ? payment.cvv : null} </h2>
-        <button onClick={editInfo}>Change Default Payment</button>
+        <Button onClick={editInfo}>Change Default Payment</Button>
         <br></br>
         </div> 
         }
     </div>
     )
 }
+
+const Button = styled.div`
+display: fixed;
+margin-top: 1%;
+margin-left: 1%;
+width: 8vw;
+height: 6vh;
+/* line-height: 50px; */
+font-weight: bold;
+text-decoration: none;
+background-image: linear-gradient(#F05A27, #F5931F);
+text-align: center;
+align-items: center;
+color: #fff;
+text-transform: uppercase;
+letter-spacing: 1px;
+/* border: 3px solid #2E6268; */
+transition: all .35s;
+justify-content: center;
+font-size: 1.5vh;
+font-family: 'Dosis', sans-serif;
+border-radius: 20px;
+
+  &:hover {
+    width: 10vw;
+    border: 3px solid #F5931F;
+    background: transparent;
+    color: #F05A27;
+    cursor: pointer;
+  }
+`;
 
 export default PaymentInfo;

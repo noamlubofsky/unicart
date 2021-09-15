@@ -176,8 +176,7 @@ const Add= styled.div`
 const AddButton = styled.div`
 display: fixed;
 width: 9vw;
-min-height: 4vh;
-height: 4vh;
+height: 6vh;
 /* line-height: 50px; */
 font-weight: bold;
 text-decoration: none;
@@ -196,6 +195,7 @@ border-radius: 20px;
 
   &:hover {
     width: 12vw;
+    height: 6vh;
     border: 3px solid #F5931F;
     background: transparent;
     color: #F05A27;

@@ -35,6 +35,7 @@ function home(){
       {/* <Search> */}
           <Form  onSubmit={display}>
             <input
+              autocomplete="off"
               id="searchbox" 
               onChange={handleChange} 
               type="text" placeholder="What are you looking for?"/>
@@ -248,9 +249,7 @@ const Form = styled.form `
         margin-top:50px;
         // margin-right:50px;
         border-radius: 20px;
-
-
-
+        outline: none;
     }
     textarea{
         position: relative;
