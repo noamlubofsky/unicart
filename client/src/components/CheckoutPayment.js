@@ -3,7 +3,7 @@ import ShippingCard from "./ShippingCard"
 import PaymentCard from "./PaymentCard"
 import styled from "styled-components";
 
-function CheckoutPayment({toShipping, user, setSelectedPayment, clothes, cartClothes, electronics, cartElectronics, tools, cartTools, health, cartHealth, music, cartMusic, all, cartAll, toReceipt}) {
+function CheckoutPayment({toShipping, user, selectedPayment, setSelectedPayment, clothes, cartClothes, electronics, cartElectronics, tools, cartTools, health, cartHealth, music, cartMusic, all, cartAll, toReceipt}) {
     const [payment, setPayment] = useState([])
     const [type, setType] = useState(null)
     const [name, setName] = useState(null)
@@ -62,7 +62,7 @@ function CheckoutPayment({toShipping, user, setSelectedPayment, clothes, cartClo
     return(
         <div>
         <BackButton onClick={toShipping}>Back to Shipping</BackButton>
-        <h1>Select Your Payment Method:</h1>
+        {!selectedPayment ? <Header>Select Your Payment Method:</Header> : null}
         {confirm ? <ConfirmButton onClick={toReceipt}>
         <Confirm><h2>Confirm Oder to:</h2></Confirm>
         {cartClothes.length > 0 ? <h2>{clothes.name}</h2> : null}
@@ -103,6 +103,18 @@ function CheckoutPayment({toShipping, user, setSelectedPayment, clothes, cartClo
         </div>
     )
 }
+
+
+const Header= styled.div`
+font-size: 2vw;
+font-weight: 500;
+margin-left: 5%;
+font-family: 'Dosis', sans-serif;
+border-bottom: 4px solid rgb(27, 44, 77);
+width: 23.3vw; 
+margin-top: 3vh;
+`;
+
 
 const BackButton = styled.div`
 display: fixed;

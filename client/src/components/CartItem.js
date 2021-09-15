@@ -101,8 +101,7 @@ font-size: 4vh;
 const Button = styled.div`
 display: fixed;
 width: 10vw;
-min-height: 2vh;
-height: 2.2vw;
+height: 14vh;
 /* line-height: 50px; */
 font-weight: bold;
 text-decoration: none;
@@ -131,8 +130,7 @@ border-radius: 20px;
 const RemoveButton = styled.div`
 display: fixed;
 width: 9vw;
-min-height: 4vh;
-height: 4vh;
+height: 6vh;
 /* line-height: 50px; */
 font-weight: bold;
 text-decoration: none;

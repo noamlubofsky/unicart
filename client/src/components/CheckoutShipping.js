@@ -61,7 +61,7 @@ function CheckoutShipping({toSummary, toPayment, user, setSelectedShipping}) {
         <div>
         <BackButton onClick={toSummary}>Back to Order Summary</BackButton>
         
-        <h1>Select Your Shipping Address</h1>
+        <Header>Select Your Shipping Address</Header>
         {shipping.map(address => (
           <ShippingCard
             key={address.id}
@@ -96,7 +96,15 @@ function CheckoutShipping({toSummary, toPayment, user, setSelectedShipping}) {
     )
 }
 
-
+const Header= styled.div`
+font-size: 2vw;
+font-weight: 500;
+margin-left: 5%;
+font-family: 'Dosis', sans-serif;
+border-bottom: 4px solid rgb(27, 44, 77);
+width: 23.3vw; 
+margin-top: 3vh;
+`;
 
 const EditContainer = styled.div`
 margin-left: auto;

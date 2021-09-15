@@ -182,7 +182,7 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
             {summary ? 
             <div>
                 <Header>
-        <Summary>Your Order</Summary>
+        <Summary>Your Order Breakdown</Summary>
         </Header>
         <div>
         {cartClothes.length > 0 ?
@@ -303,7 +303,7 @@ function Checkout({shoppingCart, clothes, electronics, tools, health, music, all
     : null}
 
         {payment ? 
-        <CheckoutPayment toShipping={toShipping} user={user} setSelectedPayment={setSelectedPayment} clothes={clothes} cartClothes={cartClothes} electronics={electronics} cartElectronics={cartElectronics} tools={tools} cartTools={cartTools}
+        <CheckoutPayment toShipping={toShipping} user={user} selectedPayment={selectedPayment} setSelectedPayment={setSelectedPayment} clothes={clothes} cartClothes={cartClothes} electronics={electronics} cartElectronics={cartElectronics} tools={tools} cartTools={cartTools}
         health={health} cartHealth={cartHealth} music={music} cartMusic={cartMusic} all={all} cartAll={cartAll} toReceipt={toReceipt}/>
     : null}
 
@@ -358,6 +358,8 @@ font-size: 3vw;
 font-weight: 500;
 margin-left: 5%;
 font-family: 'Dosis', sans-serif;
+border-bottom: 4px solid rgb(27, 44, 77);
+width: 27vw;
 `;
 
 const CartTotal = styled.div`
