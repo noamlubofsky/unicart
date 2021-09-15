@@ -110,13 +110,14 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+align-items: center;
   cursor: pointer;
   font-size: 1.3rem;
   border: 1px solid transparent;
   padding: 8px 16px;
   text-decoration: none;
   width: 100%;
-  background-color: rgba(0, 57, 7, 0.5);
+  // background-color: rgba(0, 57, 7, 0.5);
   display: flex;
   justify-content: center;
   align-self: center;

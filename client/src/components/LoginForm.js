@@ -22,7 +22,7 @@ function LoginForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        // history.push("/products")  
+        history.push("/products")  
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -95,13 +95,14 @@ const Input = styled.input`
   padding: 4px;
 `;
 const Button = styled.button`
+align-items: center;
   cursor: pointer;
   font-size: 1.3rem;
   border: 1px solid transparent;
   padding: 8px 16px;
   text-decoration: none;
   width: 100%;
-  background-color: #2E6268;
+  // background-color: #2E6268;
   display: flex;
   justify-content: center;
   align-self: center;
