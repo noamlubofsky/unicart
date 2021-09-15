@@ -66,7 +66,6 @@ text-align: center;
 box-shadow: 0px 0px 15px 0px #848484;
 font-size: .6vw;
 font-family: 'Dosis', sans-serif;
-
 `;
 
 const Card = styled.div`

@@ -327,7 +327,10 @@ const Button = styled.button`
 // justify-content: center;
 margin-top: 5%;
 margin-bottom: 3%;
-float: right;
+align-items: center;
+justify-content: center;
+margin-left: 40%;
+// float: right;
 // margin-right: 40%;
 height: 10vh;
 width: 15vw;
