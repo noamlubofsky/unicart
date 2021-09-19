@@ -4,12 +4,12 @@ import styled from "styled-components";
 
 function CheckoutShipping({toSummary, toPayment, user, setSelectedShipping}) {
     const [shipping, setShipping] = useState([])
-    const [shipTo, setShipTo] = useState(null)
-    const [address, setAddress] = useState(null)
-    const [address2, setAddress2] = useState(null)
-    const [city, setCity] = useState(null)
-    const [state, setState] = useState(null)
-    const [zip, setZip] = useState(null)
+    const [shipTo, setShipTo] = useState('')
+    const [address, setAddress] = useState('')
+    const [address2, setAddress2] = useState('')
+    const [city, setCity] = useState('')
+    const [state, setState] = useState('')
+    const [zip, setZip] = useState('')
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {

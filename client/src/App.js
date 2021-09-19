@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Redirect} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
@@ -26,7 +26,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [search, setSearch] = useState('')
   const [toDisplay, setToDisplay] = useState([])
-  const [userCart, setUserCart] = useState([])
+  // const [clothes, setClothes] = useState({})
+  // const [electronics, setElectronics] = useState([])
+  // const [tools, setTools] = useState([])
+  // const [health, setHealth] = useState([])
+  // const [music, setMusic] = useState([])
+  // const [all, setAll] = useState([])
+  // const [userCart, setUserCart] = useState([])
 
   let history = useHistory();
   const id = useParams().id;
@@ -43,7 +49,14 @@ function App() {
   useEffect(() => {
     fetch("/stores").then((r) => {
       if (r.ok) {
-        r.json().then((stores) => setStores(stores));
+        r.json().then((stores) => setStores(stores))
+        // .then(setClothes(stores[0]))
+        // .then(console.log(clothes))
+        // setElectronics(stores[1]);
+        // setTools(stores[2]);
+        // setHealth(stores[3]);
+        // setMusic(stores[4]);
+        // setAll(stores[5]);
       }
     });
   }, []);
@@ -61,18 +74,6 @@ function App() {
       }
     });
   }, []);
-
-  // useEffect(() => {
-  //   fetch(`/shopping_carts/${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setUserCart(data);
-  //     });
-  // }, [id]);
-
-  
-  // const userCartItems = shoppingCart.filter(item => 
-  //   item.shopping_cart.id === userCart.id)
 
 const clothes = stores[0]
 const electronics = stores[1]

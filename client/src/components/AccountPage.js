@@ -70,14 +70,7 @@ return(
 }
 
 <br></br>
-    {/* <NavButton as={Link} to="/" onClick={handleLogout}>
-          <div class="wrapper" >
-            <div class="link_wrapper">
-                <button>Logout</button>
-      
-            </div>
-        </div>  
-    </NavButton> */}
+
     </div>
     </AccountContainer>
 )

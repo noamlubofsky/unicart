@@ -7,8 +7,13 @@ class AccountInfosController < ApplicationController
         render json: info
     end
 
+    # def create 
+    #     account = AccountInfo.create(account_params)
+    #     render json: account
+    # end
+
     def create 
-        account = AccountInfo.create(account_params)
+        account = @current_user.account_info.create(account_params)
         render json: account
     end
 

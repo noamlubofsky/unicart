@@ -51,9 +51,9 @@ function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
         <Container1>
         <div><Empty>Your Cart is Empty ☹️</Empty>
         <br></br>          
-        <div class="wrapper" >
-      <div class="link_wrapper">
-    <button onClick={shop}>Go Shop!</button>
+        <div className="wrapper" >
+      <div className="link_wrapper">
+    <Button onClick={shop}>Go Shop!</Button>
   </div>
 </div> 
 </div> 
@@ -91,6 +91,37 @@ function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
         </Container>
     )
 }
+
+const Button = styled.div`
+display: fixed;
+// position: relative;
+width: 9vw;
+min-height: 4vh;
+height: 6vh;
+align-items: center;
+/* line-height: 50px; */
+font-weight: bold;
+text-decoration: none;
+background-image: linear-gradient(#F05A27, #F5931F);
+text-align: center;
+color: #fff;
+text-transform: uppercase;
+letter-spacing: 1px;
+/* border: 3px solid #2E6268; */
+transition: all .35s;
+justify-content: center;
+font-size: 1.5vh;
+font-family: 'Dosis', sans-serif;
+border-radius: 20px;
+
+  &:hover {
+    width: 12vw;
+    border: 3px solid #F5931F;
+    background: transparent;
+    color: #F05A27;
+    cursor: pointer;
+  }
+`;
 
 const Header = styled.div`
 // margin-bottom: 3%;
