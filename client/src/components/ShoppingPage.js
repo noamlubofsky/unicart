@@ -12,7 +12,7 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
     }
 
     function toProducts(){
-        history.push("/")
+        history.push("/productspage")
       }
 
     return(

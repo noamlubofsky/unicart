@@ -25,7 +25,7 @@ function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
     item.shopping_cart.id === cart.id)
     
     const shop = () => {
-      history.push("/")
+      history.push("/productspage")
     }
 
     const checkout = () => {

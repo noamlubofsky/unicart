@@ -25,7 +25,7 @@ const userCartItems = shoppingCart.filter(item =>
   item.shopping_cart.id === cart.id)
 
 function home(){
-    history.push("/")
+    history.push("/productspage")
   }
 
   return (

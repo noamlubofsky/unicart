@@ -114,7 +114,7 @@ const all = stores[5]
   function backBtn(){
 {
   // fromMain ? history.push("/shopping") : 
-  history.push("/")}  
+  history.push("/productspage")}  
 }
 
 const clearSearch = () => {
@@ -246,7 +246,7 @@ const removeFromCart = (CartItemID) => {
               all={all}
             />
           </Route> */}
-          <Route path="/:id">
+          <Route path="/productspage/:id">
             <ProductDetails 
               handleAddCart={handleAddCart} 
               products={products}
@@ -254,7 +254,7 @@ const removeFromCart = (CartItemID) => {
               user={user}
             />
           </Route>
-          <Route path="/">
+          <Route path="/productspage">
             <Products 
             products={products} 
             stores={stores} 
