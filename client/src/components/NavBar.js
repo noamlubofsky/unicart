@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "./assets/logo.png";
 import cartpic from "./assets/cart.svg";
@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 
 const NavBar = ({ user, handleChange, display, clearSearch, shoppingCart }) => {
 
-let history = useHistory();
+let history = useNavigate();
 const id = useParams().id;
 
 const [cart, setCart] = useState([])
@@ -25,7 +25,7 @@ const userCartItems = shoppingCart.filter(item =>
   item.shopping_cart.id === cart.id)
 
 function home(){
-    history.push("/productspage")
+    navigate("/productspage")
   }
 
   return (

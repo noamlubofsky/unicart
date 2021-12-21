@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 import Review from "./Review"
 
 
@@ -15,7 +15,7 @@ function ProductDetails({ handleAddCart, user}) {
     const [store, setStore] = useState({});
     const [review, setReview] = useState(null);
 
-    let history = useHistory();
+    let history = useNavigate();
 
     const id = useParams().id;
   // const category = useParams().category;
@@ -66,11 +66,11 @@ useEffect(() => {
   };
 
   function backToStore(){
-    history.push(`/storespage/${productDetails.store.id}`)
+    navigate(`/storespage/${productDetails.store.id}`)
   }
 
   function toCart(){
-    history.push(`cartpage/${user.id}`)
+    navigate(`cartpage/${user.id}`)
   }
 
   const handleChange = (e) => {

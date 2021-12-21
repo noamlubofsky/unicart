@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CartItem from "./CartItem"
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 import { useParams } from "react-router-dom";
 import Checkout from "./Checkout"
 import { Switch, Route, Redirect} from "react-router-dom";
 
 
 function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
-  let history = useHistory();
+  let history = useNavigate();
   const id = useParams().id;
 
   const [cart, setCart] = useState([])
@@ -25,11 +25,11 @@ function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
     item.shopping_cart.id === cart.id)
     
     const shop = () => {
-      history.push("/productspage")
+      navigate("/productspage")
     }
 
     const checkout = () => {
-      history.push("/checkoutpage")
+      navigate("/checkoutpage")
     }
 
   let totals = userCartItems.map((item) => (item.quantity * item.product.price))

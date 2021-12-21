@@ -14,7 +14,7 @@ import StorePage from "./components/StorePage";
 import ShoppingCart from "./components/ShoppingCart";
 import AccountPage from "./components/AccountPage";
 import Checkout from "./components/Checkout";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 import { useParams } from "react-router-dom";
 
 
@@ -37,7 +37,7 @@ function App() {
   // const [music, setMusic] = useState([])
   // const [all, setAll] = useState([])
 
-  let history = useHistory();
+  let history = useNavigate();
   const id = useParams().id;
 
   useEffect(() => {
@@ -73,7 +73,7 @@ function App() {
     fetch("/products").then((r) => {
       if (r.ok) {
         r.json().then((products) => setProducts(products))
-        .then(history.push("/productspage"))
+        .then(navigate("/productspage"))
       }
     });
   }, []);
@@ -88,38 +88,38 @@ const all = stores[5]
 
   function toClothes(){
     setSelectedStore(stores[0])
-    history.push(`/storespage/1`)
+    navigate(`/storespage/1`)
   }
 
   function toElectronics(){
     setSelectedStore(stores[1])
-    history.push(`/storespage/2`)
+    navigate(`/storespage/2`)
   }
 
   function toTools(){
     setSelectedStore(stores[2])
-    history.push(`/storespage/3`)
+    navigate(`/storespage/3`)
   }
 
   function toHealth(){
     setSelectedStore(stores[3])
-    history.push(`/storespage/4`)
+    navigate(`/storespage/4`)
   }
 
   function toMusic(){
     setSelectedStore(stores[4])
-    history.push(`/storespage/5`)
+    navigate(`/storespage/5`)
   }
 
   function toAll(){
     setSelectedStore(stores[5])
-    history.push(`/storespage/6`)
+    navigate(`/storespage/6`)
   }
 
   function backBtn(){
 {
-  // fromMain ? history.push("/shopping") : 
-  history.push("/productspage")}  
+  // fromMain ? navigate("/shopping") : 
+  navigate("/productspage")}  
 }
 
 const clearSearch = () => {
@@ -206,7 +206,7 @@ const removeFromCart = (CartItemID) => {
 };
 
   if (!user) return <Login onLogin={setUser} />;
-  // if (user) history.push(`/products`)
+  // if (user) navigate(`/products`)
 
 
   return (

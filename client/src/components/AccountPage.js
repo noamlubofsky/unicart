@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AccountInfo from "./AccountInfo";
 import ShippingInfo from "./ShippingInfo"
 import PaymentInfo from "./PaymentInfo";
 
 function AccountPage({user, setUser}) {
-    let history = useHistory();
+    let history = useNavigate();
     const [account, setAccount] = useState(false);
     const [payment, setPayment] = useState(false);
     const [shipping, setShipping] = useState(false);
@@ -15,7 +15,7 @@ function AccountPage({user, setUser}) {
         fetch("/logout", { method: "DELETE" }).then((r) => {
         if (r.ok) {
             setUser(null);
-            history.push("/")
+            navigate("/")
         }
         });
     }
