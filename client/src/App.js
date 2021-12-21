@@ -226,15 +226,15 @@ const removeFromCart = (CartItemID) => {
       <main>
         <Switch>
 
-          <Route path="/productspage/:id" element={
+          <Route path="/productspage/:id">
             <ProductDetails 
               handleAddCart={handleAddCart} 
               products={products}
               selectedProduct={selectedProduct}
               user={user}
-            />}/>
+            /></Route>
           
-          <Route path="/productspage" element={
+          <Route path="/productspage">
             <Products 
             products={products} 
             stores={stores} 
@@ -266,8 +266,8 @@ const removeFromCart = (CartItemID) => {
             display={display} 
             searchProducts={searchProducts}
             clearSearch={clearSearch}
-            />}/>
-          <Route path="/storespage/:id" element={
+            /></Route>
+          <Route path="/storespage/:id">
             <StorePage 
               products={products} 
               selectedStore={selectedStore} 
@@ -284,20 +284,20 @@ const removeFromCart = (CartItemID) => {
             health={health}
             music={music}
             all={all}
-            />}/>
-          <Route path={`/cartpage`} element={
+            /></Route>
+          <Route path={`/cartpage`}>
             <ShoppingCart 
               shoppingCart={shoppingCart}
               updateCartItemQuantity={updateCartItemQuantity}
               removeFromCart={removeFromCart}
               user={user}
-              />}/>
-          <Route path="/userpage" element={
+              /></Route>
+          <Route path="/userpage">
             <AccountPage 
               user={user}
               setUser={setUser}
-              />}/>
-          <Route path="/checkoutpage" element={
+              /></Route>
+          <Route path="/checkoutpage">
             <Checkout
               shoppingCart={shoppingCart}
               setShoppingCart={setShoppingCart}
@@ -309,7 +309,7 @@ const removeFromCart = (CartItemID) => {
               all={all}
               user={user}
               removeFromCart={removeFromCart}
-              />}/>
+              /></Route>
         </Switch>
       </main>
     <Footer />
