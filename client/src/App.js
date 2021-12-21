@@ -10,7 +10,7 @@ import StorePage from "./components/StorePage";
 import ShoppingCart from "./components/ShoppingCart";
 import AccountPage from "./components/AccountPage";
 import Checkout from "./components/Checkout";
-import {useHistory, Redirect} from "react-router";
+import {useHistory} from "react-router";
 import { useParams } from "react-router-dom";
 
 
@@ -310,9 +310,9 @@ const removeFromCart = (CartItemID) => {
               user={user}
               removeFromCart={removeFromCart}
               /></Route>
-              <Route path='/'>
+              {/* <Route path='/'>
                   <Redirect to="/productspage" />
-              </Route>
+              </Route> */}
         </Switch>
       </main>
     <Footer />
