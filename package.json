@@ -15,6 +15,7 @@
     "fontface-styled-components": "^1.2.1"
   },
   "dependencies": {
+    "es-abstract": "^1.18.0",
     "react-router-dom": "^5.3.0",
     "react-select": "^4.3.1"
   }
