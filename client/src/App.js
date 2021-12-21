@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
@@ -310,6 +310,9 @@ const removeFromCart = (CartItemID) => {
               user={user}
               removeFromCart={removeFromCart}
               /></Route>
+              <Route path='/'>
+                  <Redirect to="/productspage" />
+              </Route>
         </Switch>
       </main>
     <Footer />
