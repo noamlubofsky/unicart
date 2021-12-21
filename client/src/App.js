@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
@@ -10,7 +10,7 @@ import StorePage from "./components/StorePage";
 import ShoppingCart from "./components/ShoppingCart";
 import AccountPage from "./components/AccountPage";
 import Checkout from "./components/Checkout";
-import {useHistory} from "react-router";
+import {useHistory, Redirect} from "react-router";
 import { useParams } from "react-router-dom";
 
 
