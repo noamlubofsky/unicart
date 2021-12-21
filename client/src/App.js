@@ -225,28 +225,7 @@ const removeFromCart = (CartItemID) => {
 
       <main>
         <Switch>
-          {/* <Route path="/shopping">
-            <ShoppingPage 
-              stores={stores} 
-              selectedStore={selectedStore} 
-              setSelectedStore={setSelectedStore}
-              toClothes={toClothes} 
-              toElectronics={toElectronics} 
-              toTools={toTools} 
-              toHealth={toHealth} 
-              toMusic={toMusic}
-              toAll={toAll}
-              fromMain={fromMain} 
-              setFromMain={setFromMain}
-              isLoading={isLoading}
-              clothes={clothes}
-              electronics={electronics}
-              tools={tools}
-              health={health}
-              music={music}
-              all={all}
-            />
-          </Route> */}
+
           <Route path="/productspage/:id">
             <ProductDetails 
               handleAddCart={handleAddCart} 
