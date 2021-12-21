@@ -34,7 +34,7 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
                 {/* <ItemContainer> */}
                 <ProductInfo>
                     <h1>{item.store.name}</h1>
-                    <Item as={Link} to={`/products/${item.product.id}`}>{item.product.name}</Item>
+                    <Item as={Link} to={`/productspage/${item.product.id}`}>{item.product.name}</Item>
                     </ProductInfo>
                     <Quantity>
                     <h2>Quantity: {item.quantity}</h2>

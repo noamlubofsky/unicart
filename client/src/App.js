@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router,
+  Routes,
+  Route,
+   } from "react-router-dom";
+// import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
@@ -207,6 +211,7 @@ const removeFromCart = (CartItemID) => {
 
   return (
     <div>
+      <Router>
       <NavBar 
         user={user} 
         setUser={setUser} 
@@ -224,17 +229,17 @@ const removeFromCart = (CartItemID) => {
       />
 
       <main>
-        <Switch>
+        <Routes>
 
-          <Route path="/productspage/:id">
+          <Route path="/productspage/:id" element={
             <ProductDetails 
               handleAddCart={handleAddCart} 
               products={products}
               selectedProduct={selectedProduct}
               user={user}
-            />
-          </Route>
-          <Route path="/productspage">
+            />}/>
+          
+          <Route path="/productspage" element={
             <Products 
             products={products} 
             stores={stores} 
@@ -266,9 +271,8 @@ const removeFromCart = (CartItemID) => {
             display={display} 
             searchProducts={searchProducts}
             clearSearch={clearSearch}
-            />
-          </Route>
-          <Route path="/storespage/:id">
+            />}/>
+          <Route path="/storespage/:id" element={
             <StorePage 
               products={products} 
               selectedStore={selectedStore} 
@@ -285,23 +289,20 @@ const removeFromCart = (CartItemID) => {
             health={health}
             music={music}
             all={all}
-            />
-          </Route>
-          <Route path={`/cartpage`}>
+            />}/>
+          <Route path={`/cartpage`} element={
             <ShoppingCart 
               shoppingCart={shoppingCart}
               updateCartItemQuantity={updateCartItemQuantity}
               removeFromCart={removeFromCart}
               user={user}
-            />
-          </Route>
-          <Route path="/userpage">
+              />}/>
+          <Route path="/userpage" element={
             <AccountPage 
               user={user}
               setUser={setUser}
-            />
-          </Route>
-          <Route path="/checkoutpage">
+              />}/>
+          <Route path="/checkoutpage" element={
             <Checkout
               shoppingCart={shoppingCart}
               setShoppingCart={setShoppingCart}
@@ -313,11 +314,11 @@ const removeFromCart = (CartItemID) => {
               all={all}
               user={user}
               removeFromCart={removeFromCart}
-            />
-          </Route>
-        </Switch>
+              />}/>
+        </Routes>
       </main>
     <Footer />
+    </Router>
     </div>
   );
 }

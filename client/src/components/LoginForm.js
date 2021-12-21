@@ -24,7 +24,7 @@ function LoginForm({ onLogin }) {
         r.json().then((user) => onLogin(user));
         history.push("/productspage")  
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        r.json().then((err) => console.log(err.errors));
       }
     });
   }
@@ -56,9 +56,9 @@ function LoginForm({ onLogin }) {
           <Button type="submit">{isLoading ? "Loading..." : "Login"}</Button>
         </FormField>
       <FormField>
-        {errors.map((err) => (
+        {/* {errors.map((err) => (
           <Error key={err}>{err}</Error>
-        ))}
+        ))} */}
       </FormField>
     </form>
     </div>

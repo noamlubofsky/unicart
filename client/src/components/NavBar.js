@@ -43,7 +43,7 @@ function home(){
             </Form>
         <Nav>
           
-          <NavButton as={Link} to="/user">
+          <NavButton as={Link} to="/userpage">
           <div className="wrapper" >
   <div className="link_wrapper">
     <Button>Hello, <br></br> {user.username}!</Button>
@@ -55,7 +55,7 @@ function home(){
 </div> 
           </NavButton>
 
-          <NavButton as={Link} to={`/cart`}>
+          <NavButton as={Link} to={`/cartpage`}>
             <CartIcon>
               <CartImage src={cartpic} alt="cart" />
               <Amount>{userCartItems.length}</Amount>

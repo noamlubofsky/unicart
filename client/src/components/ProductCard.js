@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const src = `/products/${product.id}`;
+  const src = `/productspage/${product.id}`;
 
   return (
     <Card key={product.id}>
