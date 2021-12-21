@@ -15,7 +15,7 @@ function ProductDetails({ handleAddCart, user}) {
     const [store, setStore] = useState({});
     const [review, setReview] = useState(null);
 
-    let history = useNavigate();
+    let navigate = useNavigate();
 
     const id = useParams().id;
   // const category = useParams().category;

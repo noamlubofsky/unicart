@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 
 const NavBar = ({ user, handleChange, display, clearSearch, shoppingCart }) => {
 
-let history = useNavigate();
+let navigate = useNavigate();
 const id = useParams().id;
 
 const [cart, setCart] = useState([])

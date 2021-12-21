@@ -4,7 +4,7 @@ import {useNavigate} from "react-router";
 
 function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMusic, toAll, fromMain, setFromMain,
     clothes, electronics, tools, health, music, all}) {
-    let history = useNavigate();
+    let navigate = useNavigate();
 
     function main(){
         setFromMain(true)

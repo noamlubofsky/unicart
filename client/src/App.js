@@ -37,7 +37,7 @@ function App() {
   // const [music, setMusic] = useState([])
   // const [all, setAll] = useState([])
 
-  let history = useNavigate();
+  let navigate = useNavigate();
   const id = useParams().id;
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import {useNavigate} from "react-router";
 
 function CartItem({item, updateCartItemQuantity, removeFromCart}) {
     const [quantity, setQuantity] = useState(item.quantity)
-    let history = useNavigate();
+    let navigate = useNavigate();
 
     const handleChange = (e) => {
         setQuantity(e.target.value);

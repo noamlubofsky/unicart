@@ -6,7 +6,7 @@ import ShippingInfo from "./ShippingInfo"
 import PaymentInfo from "./PaymentInfo";
 
 function AccountPage({user, setUser}) {
-    let history = useNavigate();
+    let navigate = useNavigate();
     const [account, setAccount] = useState(false);
     const [payment, setPayment] = useState(false);
     const [shipping, setShipping] = useState(false);

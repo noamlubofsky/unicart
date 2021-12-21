@@ -8,7 +8,7 @@ import { Switch, Route, Redirect} from "react-router-dom";
 
 
 function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
-  let history = useNavigate();
+  let navigate = useNavigate();
   const id = useParams().id;
 
   const [cart, setCart] = useState([])

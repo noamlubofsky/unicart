@@ -8,7 +8,7 @@ const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, se
     const [sortBy, setSortBy] = useState('')
     const [toDisplay, setToDisplay] = useState([])
 
-    let history = useNavigate();
+    let navigate = useNavigate();
 
     const storeProducts = products.filter(product => 
         product.store.id === selectedStore.id)
