@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import {useNavigate} from "react-router";
+import {useHistory} from "react-router";
 
 function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  let navigate = useNavigate();
+  let history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,7 +22,7 @@ function LoginForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        // navigate("/productspage")  
+        // history.push("/productspage")  
       } else {
         r.json().then((err) => console.log(err.errors));
       }

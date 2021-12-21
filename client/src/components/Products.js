@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
-import {useNavigate} from "react-router";
+import {useHistory} from "react-router";
 import ReactPaginate from "react-paginate";
 import ShoppingPage from "./ShoppingPage";
 

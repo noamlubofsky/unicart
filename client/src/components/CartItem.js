@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import {useNavigate} from "react-router";
+import {useHistory} from "react-router";
 
 function CartItem({item, updateCartItemQuantity, removeFromCart}) {
     const [quantity, setQuantity] = useState(item.quantity)
-    let navigate = useNavigate();
+    let history = useHistory();
 
     const handleChange = (e) => {
         setQuantity(e.target.value);
@@ -17,7 +17,7 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
     }
 
     const toItem = () => {
-        navigate(`/productspage/${item.product.id}`)
+        history.push(`/productspage/${item.product.id}`)
     }
 
     function numberWithCommas(x) {

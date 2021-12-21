@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
-import {useNavigate} from "react-router";
+import {useHistory} from "react-router";
 
 const StorePage = ({ products, selectedStore, fromMain, setFromMain, backBtn, selectedProduct, setSelectedProduct, isLoading, clothes, electronics, tools, health, music, all}) => {
     const [ search, setSearch ] = useState('')
     const [sortBy, setSortBy] = useState('')
     const [toDisplay, setToDisplay] = useState([])
 
-    let navigate = useNavigate();
+    let history = useHistory();
 
     const storeProducts = products.filter(product => 
         product.store.id === selectedStore.id)

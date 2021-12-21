@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router,
-  Routes,
-  Route,
-   } from "react-router-dom";
-// import { Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
@@ -14,7 +10,7 @@ import StorePage from "./components/StorePage";
 import ShoppingCart from "./components/ShoppingCart";
 import AccountPage from "./components/AccountPage";
 import Checkout from "./components/Checkout";
-import {useNavigate} from "react-router";
+import {useHistory} from "react-router";
 import { useParams } from "react-router-dom";
 
 
@@ -37,7 +33,7 @@ function App() {
   // const [music, setMusic] = useState([])
   // const [all, setAll] = useState([])
 
-  let navigate = useNavigate();
+  let history = useHistory();
   const id = useParams().id;
 
   useEffect(() => {
@@ -73,7 +69,7 @@ function App() {
     fetch("/products").then((r) => {
       if (r.ok) {
         r.json().then((products) => setProducts(products))
-        // .then(navigate("/productspage"))
+        .then(history.push("/productspage"))
       }
     });
   }, []);
@@ -88,38 +84,38 @@ const all = stores[5]
 
   function toClothes(){
     setSelectedStore(stores[0])
-    navigate(`/storespage/1`)
+    history.push(`/storespage/1`)
   }
 
   function toElectronics(){
     setSelectedStore(stores[1])
-    navigate(`/storespage/2`)
+    history.push(`/storespage/2`)
   }
 
   function toTools(){
     setSelectedStore(stores[2])
-    navigate(`/storespage/3`)
+    history.push(`/storespage/3`)
   }
 
   function toHealth(){
     setSelectedStore(stores[3])
-    navigate(`/storespage/4`)
+    history.push(`/storespage/4`)
   }
 
   function toMusic(){
     setSelectedStore(stores[4])
-    navigate(`/storespage/5`)
+    history.push(`/storespage/5`)
   }
 
   function toAll(){
     setSelectedStore(stores[5])
-    navigate(`/storespage/6`)
+    history.push(`/storespage/6`)
   }
 
   function backBtn(){
 {
-  // fromMain ? navigate("/shopping") : 
-  navigate("/productspage")}  
+  // fromMain ? history.push("/shopping") : 
+  history.push("/productspage")}  
 }
 
 const clearSearch = () => {
@@ -206,12 +202,11 @@ const removeFromCart = (CartItemID) => {
 };
 
   if (!user) return <Login onLogin={setUser} />;
-  // if (user) navigate(`/products`)
+  // if (user) history.push(`/products`)
 
 
   return (
     <div>
-      <Router>
       <NavBar 
         user={user} 
         setUser={setUser} 
@@ -229,7 +224,7 @@ const removeFromCart = (CartItemID) => {
       />
 
       <main>
-        <Routes>
+        <Switch>
 
           <Route path="/productspage/:id" element={
             <ProductDetails 
@@ -315,10 +310,9 @@ const removeFromCart = (CartItemID) => {
               user={user}
               removeFromCart={removeFromCart}
               />}/>
-        </Routes>
+        </Switch>
       </main>
     <Footer />
-    </Router>
     </div>
   );
 }

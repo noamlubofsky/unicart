@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import {useNavigate} from "react-router";
+import {useHistory} from "react-router";
 
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -8,7 +8,7 @@ function SignUpForm({ onLogin }) {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  let navigate = useNavigate();
+  let history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,7 +28,7 @@ function SignUpForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        // navigate("/productspage")  
+        history.push("/productspage")  
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

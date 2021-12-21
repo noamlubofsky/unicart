@@ -1,10 +1,10 @@
 import React from "react";
 import styled from 'styled-components';
-import {useNavigate} from "react-router";
+import {useHistory} from "react-router";
 
 function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMusic, toAll, fromMain, setFromMain,
     clothes, electronics, tools, health, music, all}) {
-    let navigate = useNavigate();
+    let history = useHistory();
 
     function main(){
         setFromMain(true)
@@ -12,7 +12,7 @@ function ShoppingPage({stores, toClothes, toElectronics, toTools, toHealth, toMu
     }
 
     function toProducts(){
-        navigate("/productspage")
+        history.push("/productspage")
       }
 
     return(
