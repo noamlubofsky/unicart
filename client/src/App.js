@@ -69,7 +69,6 @@ function App() {
     fetch("/products").then((r) => {
       if (r.ok) {
         r.json().then((products) => setProducts(products))
-        .then(history.push("/products"))
       }
     });
   }, []);
@@ -84,38 +83,38 @@ const all = stores[5]
 
   function toClothes(){
     setSelectedStore(stores[0])
-    history.push(`/stores/1`)
+    history.push(`/storespage/1`)
   }
 
   function toElectronics(){
     setSelectedStore(stores[1])
-    history.push(`/stores/2`)
+    history.push(`/storespage/2`)
   }
 
   function toTools(){
     setSelectedStore(stores[2])
-    history.push(`/stores/3`)
+    history.push(`/storespage/3`)
   }
 
   function toHealth(){
     setSelectedStore(stores[3])
-    history.push(`/stores/4`)
+    history.push(`/storespage/4`)
   }
 
   function toMusic(){
     setSelectedStore(stores[4])
-    history.push(`/stores/5`)
+    history.push(`/storespage/5`)
   }
 
   function toAll(){
     setSelectedStore(stores[5])
-    history.push(`/stores/6`)
+    history.push(`/storespage/6`)
   }
 
   function backBtn(){
 {
   // fromMain ? history.push("/shopping") : 
-  history.push("/products")}  
+  history.push("/")}  
 }
 
 const clearSearch = () => {

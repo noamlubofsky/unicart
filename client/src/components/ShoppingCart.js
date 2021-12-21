@@ -25,11 +25,11 @@ function ShoppingCart({shoppingCart, updateCartItemQuantity, removeFromCart}) {
     item.shopping_cart.id === cart.id)
     
     const shop = () => {
-      history.push("/products")
+      history.push("/")
     }
 
     const checkout = () => {
-      history.push("/checkout")
+      history.push("/checkoutpage")
     }
 
   let totals = userCartItems.map((item) => (item.quantity * item.product.price))

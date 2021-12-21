@@ -17,7 +17,7 @@ function CartItem({item, updateCartItemQuantity, removeFromCart}) {
     }
 
     const toItem = () => {
-        history.push(`/products/${item.product.id}`)
+        history.push(`/productspage/${item.product.id}`)
     }
 
     function numberWithCommas(x) {

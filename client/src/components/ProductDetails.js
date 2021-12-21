@@ -66,11 +66,11 @@ useEffect(() => {
   };
 
   function backToStore(){
-    history.push(`/stores/${productDetails.store.id}`)
+    history.push(`/storespage/${productDetails.store.id}`)
   }
 
   function toCart(){
-    history.push(`cart/${user.id}`)
+    history.push(`cartpage/${user.id}`)
   }
 
   const handleChange = (e) => {
