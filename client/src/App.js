@@ -229,7 +229,7 @@ const removeFromCart = (CartItemID) => {
       />
 
       <main>
-        <Routes>
+        <Switch>
 
           <Route path="/productspage/:id" element={
             <ProductDetails 
@@ -315,7 +315,7 @@ const removeFromCart = (CartItemID) => {
               user={user}
               removeFromCart={removeFromCart}
               />}/>
-        </Routes>
+        </Switch>
       </main>
     <Footer />
     </Router>
