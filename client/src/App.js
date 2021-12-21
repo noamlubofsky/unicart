@@ -26,13 +26,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [search, setSearch] = useState('')
   const [toDisplay, setToDisplay] = useState([])
-  // const [clothes, setClothes] = useState({})
+  // const [clothes, setClothes] = useState([])
   // const [electronics, setElectronics] = useState([])
   // const [tools, setTools] = useState([])
   // const [health, setHealth] = useState([])
   // const [music, setMusic] = useState([])
   // const [all, setAll] = useState([])
-  // const [userCart, setUserCart] = useState([])
 
   let history = useHistory();
   const id = useParams().id;
@@ -226,7 +225,7 @@ const removeFromCart = (CartItemID) => {
 
       <main>
         <Switch>
-          <Route path="/shopping">
+          {/* <Route path="/shopping">
             <ShoppingPage 
               stores={stores} 
               selectedStore={selectedStore} 
@@ -247,8 +246,8 @@ const removeFromCart = (CartItemID) => {
               music={music}
               all={all}
             />
-          </Route>
-          <Route path="/products/:id">
+          </Route> */}
+          <Route path="/productspage/:id">
             <ProductDetails 
               handleAddCart={handleAddCart} 
               products={products}
@@ -256,7 +255,7 @@ const removeFromCart = (CartItemID) => {
               user={user}
             />
           </Route>
-          <Route path="/products">
+          <Route path="/">
             <Products 
             products={products} 
             stores={stores} 
@@ -290,7 +289,7 @@ const removeFromCart = (CartItemID) => {
             clearSearch={clearSearch}
             />
           </Route>
-          <Route path="/stores/:id">
+          <Route path="/storespage/:id">
             <StorePage 
               products={products} 
               selectedStore={selectedStore} 
@@ -309,7 +308,7 @@ const removeFromCart = (CartItemID) => {
             all={all}
             />
           </Route>
-          <Route path={`/cart`}>
+          <Route path={`/cartpage`}>
             <ShoppingCart 
               shoppingCart={shoppingCart}
               updateCartItemQuantity={updateCartItemQuantity}
@@ -317,13 +316,13 @@ const removeFromCart = (CartItemID) => {
               user={user}
             />
           </Route>
-          <Route path="/user">
+          <Route path="/userpage">
             <AccountPage 
               user={user}
               setUser={setUser}
             />
           </Route>
-          <Route path="/checkout">
+          <Route path="/checkoutpage">
             <Checkout
               shoppingCart={shoppingCart}
               setShoppingCart={setShoppingCart}

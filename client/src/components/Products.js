@@ -157,7 +157,8 @@ let selected = shuffled.slice(0, 3);
           </Container1>
         </div>
       : 
-      <ShoppingPage stores={stores} 
+      <ShoppingPage 
+      stores={stores} 
       selectedStore={selectedStore} 
       setSelectedStore={setSelectedStore}
          toClothes={toClothes} 
@@ -174,7 +175,8 @@ let selected = shuffled.slice(0, 3);
          tools={tools}
          health={health}
          music={music}
-         all={all}/>}
+         all={all}
+         />}
                </Container2>
 
     </div>
