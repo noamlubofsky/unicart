@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router} from "react-router-dom";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router,
+  Routes,
+  Route,
+   } from "react-router-dom";
+// import { Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import Products from "./components/Products";
@@ -226,7 +229,7 @@ const removeFromCart = (CartItemID) => {
       />
 
       <main>
-        <Switch>
+        <Routes>
 
           <Route path="/productspage/:id" element={
             <ProductDetails 
@@ -312,7 +315,7 @@ const removeFromCart = (CartItemID) => {
               user={user}
               removeFromCart={removeFromCart}
               />}/>
-        </Switch>
+        </Routes>
       </main>
     <Footer />
     </Router>
