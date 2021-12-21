@@ -69,7 +69,7 @@ function App() {
     fetch("/products").then((r) => {
       if (r.ok) {
         r.json().then((products) => setProducts(products))
-        .then(history.push("/productspage"))
+        // .then(history.push("/productspage"))
       }
     });
   }, []);
