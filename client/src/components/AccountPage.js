@@ -15,7 +15,7 @@ function AccountPage({user, setUser}) {
         fetch("/logout", { method: "DELETE" }).then((r) => {
         if (r.ok) {
             setUser(null);
-            history.push("/")
+            // history.push("/")
         }
         });
     }

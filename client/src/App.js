@@ -246,7 +246,7 @@ const removeFromCart = (CartItemID) => {
               all={all}
             />
           </Route> */}
-          <Route path="/productspage/:id">
+          <Route path="/:id">
             <ProductDetails 
               handleAddCart={handleAddCart} 
               products={products}
